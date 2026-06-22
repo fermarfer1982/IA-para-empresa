@@ -1,0 +1,26 @@
+# Ejemplo de reverse proxy HTTPS para el MCP IncidenciasTI.
+# Requiere TLS valido y autenticacion adicional en el borde si se publica fuera de red interna.
+
+server {
+    listen 443 ssl http2;
+    server_name incidents-ti-mcp.example.internal;
+
+    ssl_certificate /etc/pki/tls/certs/incidents-ti-mcp.crt;
+    ssl_certificate_key /etc/pki/tls/private/incidents-ti-mcp.key;
+
+    # Recomendado: limitar IPs de ChatGPT connector/tunnel o red interna.
+    # allow 10.0.0.0/8;
+    # deny all;
+
+    client_max_body_size 2m;
+
+    location / {
+        proxy_pass http://127.0.0.1:8766;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_read_timeout 60s;
+        proxy_send_timeout 60s;
+    }
+}

@@ -1,0 +1,22 @@
+[Unit]
+Description=SharePoint IncidenciasTI read-only MCP
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=codexops
+Group=codexops
+WorkingDirectory=/opt/zabbix-codex
+EnvironmentFile=/etc/zabbix-codex/incidents-ti-mcp.env
+ExecStart=/usr/bin/python3 /opt/zabbix-codex/mcp-incidents-ti/remote_server.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/var/log/zabbix-codex
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+services:
+  infra-agent-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile.demo
+    env_file:
+      - .env.local
+    ports:
+      - "3020:3020"
+    restart: unless-stopped

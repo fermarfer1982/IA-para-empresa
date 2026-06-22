@@ -1,0 +1,182 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 41393afb39ff53f5834cd539b3ac70bd
+      name: 'Templates/Zabbix Codex Drafts'
+  templates:
+    - uuid: a5e917e0584d5aa2b77c68edcc292d5e
+      template: 'Template Proxmox Storage Monitoring Intelligent Draft'
+      name: 'Template Proxmox Storage Monitoring Intelligent Draft'
+      description: |
+        DRAFT. Do not import or assign without human confirmation.
+        Recommended technical host: Proxmox Storage Monitoring.
+        Metrics are expected as trapper values sent by scripts/push_proxmox_storage_metrics_to_zabbix.py.
+      groups:
+        - name: 'Templates/Zabbix Codex Drafts'
+      macros:
+        - macro: '{$PROXMOX.STORAGE.PUSED.AVERAGE}'
+          value: '80'
+        - macro: '{$PROXMOX.STORAGE.PUSED.HIGH}'
+          value: '90'
+        - macro: '{$PROXMOX.STORAGE.PUSED.DISASTER}'
+          value: '95'
+      items:
+        - uuid: 7eda1329bbfc5688a98068d0e07e2cb2
+          name: 'proxmox.backup.jobs_total'
+          type: TRAP
+          key: 'proxmox.backup.jobs_total'
+          delay: '0'
+          value_type: UNSIGNED
+          units: ''
+          tags:
+            - tag: component
+              value: proxmox-backup
+        - uuid: a65510d6dc935273a13bebfe4fcc3240
+          name: 'proxmox.backup.failed_tasks_24h'
+          type: TRAP
+          key: 'proxmox.backup.failed_tasks_24h'
+          delay: '0'
+          value_type: UNSIGNED
+          units: ''
+          tags:
+            - tag: component
+              value: proxmox-backup
+        - uuid: 2a1ce1c34f6554a88c2ce144d6af6726
+          name: 'proxmox.backup.failed_tasks_48h'
+          type: TRAP
+          key: 'proxmox.backup.failed_tasks_48h'
+          delay: '0'
+          value_type: UNSIGNED
+          units: ''
+          tags:
+            - tag: component
+              value: proxmox-backup
+        - uuid: bed90b5190f65b7da1acd0e09cbcd145
+          name: 'proxmox.collection_status'
+          type: TRAP
+          key: proxmox.collection_status
+          delay: '0'
+          value_type: UNSIGNED
+          tags:
+            - tag: component
+              value: proxmox-api
+      triggers:
+        - uuid: 1aa45574f8bf5fb9a01f11e9599782cc
+          expression: 'last(/Template Proxmox Storage Monitoring Intelligent Draft/proxmox.collection_status)=0'
+          name: 'Proxmox API cannot be collected'
+          priority: HIGH
+        - uuid: 7f0ec774c8df5d9186d50dd39cbc17b8
+          expression: 'last(/Template Proxmox Storage Monitoring Intelligent Draft/proxmox.backup.failed_tasks_24h)>0'
+          name: 'Proxmox backup tasks failed in last 24h'
+          priority: HIGH
+      discovery_rules:
+        - uuid: 8742b5ae26f35a049996a73ac064610a
+          name: 'Proxmox storage discovery'
+          type: TRAP
+          key: proxmox.storage.discovery
+          delay: '0'
+          lifetime: 30d
+          item_prototypes:
+          - uuid: b274752badc95466a4abe41406bf1052
+            name: 'Proxmox {#NODE}/{#STORAGE}: usage percent'
+            type: TRAP
+            key: 'proxmox.storage.usage_percent[{#NODE},{#STORAGE}]'
+            delay: '0'
+            value_type: FLOAT
+            units: '%'
+            tags:
+              - tag: component
+                value: proxmox-storage
+          - uuid: abe5ebd152f056468d073ced20c7caae
+            name: 'Proxmox {#NODE}/{#STORAGE}: total bytes'
+            type: TRAP
+            key: 'proxmox.storage.total_bytes[{#NODE},{#STORAGE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: 'B'
+            tags:
+              - tag: component
+                value: proxmox-storage
+          - uuid: 83a85479d21957b4b70d4e0797269532
+            name: 'Proxmox {#NODE}/{#STORAGE}: used bytes'
+            type: TRAP
+            key: 'proxmox.storage.used_bytes[{#NODE},{#STORAGE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: 'B'
+            tags:
+              - tag: component
+                value: proxmox-storage
+          - uuid: 55ee92e19086552ab12ca0cada429b46
+            name: 'Proxmox {#NODE}/{#STORAGE}: free bytes'
+            type: TRAP
+            key: 'proxmox.storage.free_bytes[{#NODE},{#STORAGE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: 'B'
+            tags:
+              - tag: component
+                value: proxmox-storage
+          - uuid: b8d49eb6a01b58f5b4479eeafa89b35e
+            name: 'Proxmox {#NODE}/{#STORAGE}: active'
+            type: TRAP
+            key: 'proxmox.storage.active[{#NODE},{#STORAGE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: ''
+            tags:
+              - tag: component
+                value: proxmox-storage
+          - uuid: b1269be581ae5ef79922f0c7ac7e8f55
+            name: 'Proxmox {#NODE}/{#STORAGE}: enabled'
+            type: TRAP
+            key: 'proxmox.storage.enabled[{#NODE},{#STORAGE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: ''
+            tags:
+              - tag: component
+                value: proxmox-storage
+          trigger_prototypes:
+            - uuid: a4066c961cd35092a165a717d45968cf
+              expression: 'last(/Template Proxmox Storage Monitoring Intelligent Draft/proxmox.storage.usage_percent[{#NODE},{#STORAGE}])>{$PROXMOX.STORAGE.PUSED.AVERAGE}'
+              name: 'Proxmox storage {#NODE}/{#STORAGE} usage > 80%'
+              priority: AVERAGE
+            - uuid: 0d25d476795659d3bd4b16fbf775574e
+              expression: 'last(/Template Proxmox Storage Monitoring Intelligent Draft/proxmox.storage.usage_percent[{#NODE},{#STORAGE}])>{$PROXMOX.STORAGE.PUSED.HIGH}'
+              name: 'Proxmox storage {#NODE}/{#STORAGE} usage > 90%'
+              priority: HIGH
+            - uuid: 59763e2c415c53a79f3058dc802aa24d
+              expression: 'last(/Template Proxmox Storage Monitoring Intelligent Draft/proxmox.storage.usage_percent[{#NODE},{#STORAGE}])>{$PROXMOX.STORAGE.PUSED.DISASTER}'
+              name: 'Proxmox storage {#NODE}/{#STORAGE} usage > 95%'
+              priority: DISASTER
+        - uuid: 115348fe997f5e7490d1c3ca6edc7783
+          name: 'Proxmox backup VM discovery'
+          type: TRAP
+          key: proxmox.backup.vm.discovery
+          delay: '0'
+          lifetime: 30d
+          item_prototypes:
+          - uuid: 10e161f182615b4688bd9c8a0018f6fc
+            name: 'Proxmox backup {#VMID}: vm in job'
+            type: TRAP
+            key: 'proxmox.backup.vm_in_job[{#VMID}]'
+            delay: '0'
+            value_type: UNSIGNED
+            tags:
+              - tag: component
+                value: proxmox-backup
+          - uuid: 782e29c9fa1b5c198810510bcbdb7b40
+            name: 'Proxmox backup {#VMID}: vm without job'
+            type: TRAP
+            key: 'proxmox.backup.vm_without_job[{#VMID}]'
+            delay: '0'
+            value_type: UNSIGNED
+            tags:
+              - tag: component
+                value: proxmox-backup
+          trigger_prototypes:
+            - uuid: f27a86ff98be554885e7bb2a9c18d5d0
+              expression: 'last(/Template Proxmox Storage Monitoring Intelligent Draft/proxmox.backup.vm_without_job[{#VMID}])=1'
+              name: 'Proxmox VM {#VMID} is not included in a backup job'
+              priority: AVERAGE

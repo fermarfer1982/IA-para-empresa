@@ -1,0 +1,243 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 41393afb39ff53f5834cd539b3ac70bd
+      name: 'Templates/Zabbix Codex Drafts'
+  templates:
+    - uuid: bc3bd42c1e3f574783577e1d3e37f808
+      template: 'Template PBS Backup Monitoring Intelligent Draft'
+      name: 'Template PBS Backup Monitoring Intelligent Draft'
+      description: |
+        DRAFT. Do not import or assign without human confirmation.
+        Recommended technical host: PBS Backup Monitoring.
+        Metrics are expected as trapper values sent by scripts/push_backup_metrics_to_zabbix.py.
+        Required macros tune datastore usage and backup-age thresholds.
+      groups:
+        - name: 'Templates/Zabbix Codex Drafts'
+      macros:
+        - macro: '{$PBS.DATASTORE.PUSED.AVERAGE}'
+          value: '80'
+        - macro: '{$PBS.DATASTORE.PUSED.HIGH}'
+          value: '90'
+        - macro: '{$PBS.DATASTORE.PUSED.DISASTER}'
+          value: '95'
+        - macro: '{$PBS.BACKUP.MAXAGE.CRITICAL.HIGH}'
+          value: '48'
+        - macro: '{$PBS.BACKUP.MAXAGE.NONCRIT.AVERAGE}'
+          value: '72'
+      items:
+        - uuid: b8336c28691256d0836f3e62d90cf17f
+          name: 'pbs.backup.entities_total'
+          type: TRAP
+          key: 'pbs.backup.entities_total'
+          delay: '0'
+          value_type: UNSIGNED
+          units: ''
+          tags:
+            - tag: component
+              value: pbs-global
+        - uuid: 749b70044b2a51da9edd5a7e24b185b2
+          name: 'pbs.backup.entities_without_recent_backup'
+          type: TRAP
+          key: 'pbs.backup.entities_without_recent_backup'
+          delay: '0'
+          value_type: UNSIGNED
+          units: ''
+          tags:
+            - tag: component
+              value: pbs-global
+        - uuid: 88bed7ba60ac575fa8007ca8ae2fd843
+          name: 'pbs.backup.oldest_backup_age_hours'
+          type: TRAP
+          key: 'pbs.backup.oldest_backup_age_hours'
+          delay: '0'
+          value_type: FLOAT
+          units: 'h'
+          tags:
+            - tag: component
+              value: pbs-global
+        - uuid: c0038f0f374954dea5a8e42dc0d83da1
+          name: 'pbs.backup.collection_status'
+          type: TRAP
+          key: 'pbs.backup.collection_status'
+          delay: '0'
+          value_type: UNSIGNED
+          units: ''
+          tags:
+            - tag: component
+              value: pbs-global
+      triggers:
+        - uuid: 4946c72e681a5c1c83b1924355b0dc73
+          expression: 'last(/Template PBS Backup Monitoring Intelligent Draft/pbs.backup.collection_status)=0'
+          name: 'PBS API cannot be collected'
+          priority: HIGH
+          tags:
+            - tag: component
+              value: pbs-api
+      discovery_rules:
+        - uuid: d2e65bf05131533bb63d74607bc68c7f
+          name: 'PBS datastore discovery'
+          type: TRAP
+          key: pbs.datastore.discovery
+          delay: '0'
+          lifetime: 30d
+          item_prototypes:
+          - uuid: 00553c98dbf65fab9a823107d019cab0
+            name: 'PBS datastore {#DATASTORE}: usage percent'
+            type: TRAP
+            key: 'pbs.datastore.usage_percent[{#DATASTORE}]'
+            delay: '0'
+            value_type: FLOAT
+            units: '%'
+            tags:
+              - tag: component
+                value: pbs-datastore
+          - uuid: 303927bc4fa7525ab2e6f6e44e5f3db3
+            name: 'PBS datastore {#DATASTORE}: total bytes'
+            type: TRAP
+            key: 'pbs.datastore.total_bytes[{#DATASTORE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: 'B'
+            tags:
+              - tag: component
+                value: pbs-datastore
+          - uuid: 2c1eb0c9f4325f549fbd8f064cae8bd2
+            name: 'PBS datastore {#DATASTORE}: used bytes'
+            type: TRAP
+            key: 'pbs.datastore.used_bytes[{#DATASTORE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: 'B'
+            tags:
+              - tag: component
+                value: pbs-datastore
+          - uuid: 0637ae7cc9b65a8884cc8a4a292f52ee
+            name: 'PBS datastore {#DATASTORE}: free bytes'
+            type: TRAP
+            key: 'pbs.datastore.free_bytes[{#DATASTORE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: 'B'
+            tags:
+              - tag: component
+                value: pbs-datastore
+          - uuid: b2be759b36505c809095cfafaf84a007
+            name: 'PBS datastore {#DATASTORE}: groups'
+            type: TRAP
+            key: 'pbs.datastore.groups[{#DATASTORE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: ''
+            tags:
+              - tag: component
+                value: pbs-datastore
+          - uuid: 1e6bdcad9d9851248b1973348e05730d
+            name: 'PBS datastore {#DATASTORE}: snapshots'
+            type: TRAP
+            key: 'pbs.datastore.snapshots[{#DATASTORE}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: ''
+            tags:
+              - tag: component
+                value: pbs-datastore
+          - uuid: 7bfdad8992175515a78f25c09d981f79
+            name: 'PBS datastore {#DATASTORE}: last snapshot age hours'
+            type: TRAP
+            key: 'pbs.datastore.last_snapshot_age_hours[{#DATASTORE}]'
+            delay: '0'
+            value_type: FLOAT
+            units: 'h'
+            tags:
+              - tag: component
+                value: pbs-datastore
+          trigger_prototypes:
+            - uuid: 7fda8d8ddfd75bc7823402f2521e29e9
+              expression: 'last(/Template PBS Backup Monitoring Intelligent Draft/pbs.datastore.usage_percent[{#DATASTORE}])>{$PBS.DATASTORE.PUSED.AVERAGE}'
+              name: 'PBS datastore {#DATASTORE} usage > 80%'
+              priority: AVERAGE
+            - uuid: 95d85fbcdac5513c831687e98ecc5ff6
+              expression: 'last(/Template PBS Backup Monitoring Intelligent Draft/pbs.datastore.usage_percent[{#DATASTORE}])>{$PBS.DATASTORE.PUSED.HIGH}'
+              name: 'PBS datastore {#DATASTORE} usage > 90%'
+              priority: HIGH
+            - uuid: 2d3e020d7cff5eeeba6119743a4ba0d7
+              expression: 'last(/Template PBS Backup Monitoring Intelligent Draft/pbs.datastore.usage_percent[{#DATASTORE}])>{$PBS.DATASTORE.PUSED.DISASTER}'
+              name: 'PBS datastore {#DATASTORE} usage > 95%'
+              priority: DISASTER
+        - uuid: fd21c327222e51cda988f61e7c60722a
+          name: 'PBS VM/CT backup discovery'
+          type: TRAP
+          key: pbs.backup.discovery
+          delay: '0'
+          lifetime: 30d
+          item_prototypes:
+          - uuid: d6942bd19a0d55298b712579dac695cb
+            name: 'PBS backup {#VMID}: last success timestamp'
+            type: TRAP
+            key: 'pbs.backup.last_success_timestamp[{#VMID}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: 'unixtime'
+            tags:
+              - tag: component
+                value: pbs-backup
+          - uuid: e6c0a78ce67e5a508cdcae3bc5576049
+            name: 'PBS backup {#VMID}: last success age hours'
+            type: TRAP
+            key: 'pbs.backup.last_success_age_hours[{#VMID}]'
+            delay: '0'
+            value_type: FLOAT
+            units: 'h'
+            tags:
+              - tag: component
+                value: pbs-backup
+          - uuid: 8dd8cd92d33e56668851c9eb84dfd665
+            name: 'PBS backup {#VMID}: snapshot count'
+            type: TRAP
+            key: 'pbs.backup.snapshot_count[{#VMID}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: ''
+            tags:
+              - tag: component
+                value: pbs-backup
+          - uuid: 8b16ec813edf520292d3add5965e87a6
+            name: 'PBS backup {#VMID}: has recent backup'
+            type: TRAP
+            key: 'pbs.backup.has_recent_backup[{#VMID}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: ''
+            tags:
+              - tag: component
+                value: pbs-backup
+          - uuid: 522694d893f2570aae16454bc007428e
+            name: 'PBS backup {#VMID}: datastore'
+            type: TRAP
+            key: 'pbs.backup.datastore[{#VMID}]'
+            delay: '0'
+            value_type: TEXT
+            units: ''
+            tags:
+              - tag: component
+                value: pbs-backup
+          - uuid: f6e4c20b1805533a954af6e2fbfcf525
+            name: 'PBS backup {#VMID}: protected count'
+            type: TRAP
+            key: 'pbs.backup.protected_count[{#VMID}]'
+            delay: '0'
+            value_type: UNSIGNED
+            units: ''
+            tags:
+              - tag: component
+                value: pbs-backup
+          trigger_prototypes:
+            - uuid: 9f3c09982ddb5307a3e98b8c8937a007
+              expression: 'last(/Template PBS Backup Monitoring Intelligent Draft/pbs.backup.last_success_age_hours[{#VMID}])>{$PBS.BACKUP.MAXAGE.CRITICAL.HIGH}'
+              name: 'PBS backup {#VMID} older than critical threshold'
+              priority: HIGH
+            - uuid: e689a05a913750309076367e099be1b6
+              expression: 'last(/Template PBS Backup Monitoring Intelligent Draft/pbs.backup.has_recent_backup[{#VMID}])=0'
+              name: 'PBS backup {#VMID} has no recent backup'
+              priority: AVERAGE

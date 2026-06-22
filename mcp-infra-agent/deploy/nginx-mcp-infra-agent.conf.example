@@ -1,0 +1,80 @@
+# Example reverse proxy for the read-only Infrastructure MCP backend.
+# Do not deploy publicly without authentication, TLS and an allowlist/review.
+
+upstream zabbix_infra_mcp {
+    server 127.0.0.1:8765;
+    keepalive 16;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name mcp-infra.example.com;
+
+    ssl_certificate     /etc/letsencrypt/live/mcp-infra.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/mcp-infra.example.com/privkey.pem;
+
+    # Optional: restrict to known egress/proxy ranges or VPN ranges.
+    # allow 10.0.0.0/8;
+    # allow 172.16.0.0/12;
+    # allow 192.168.0.0/16;
+    # deny all;
+
+    # Recommended before external exposure:
+    # - OAuth/OIDC auth_request in front of /mcp
+    # - or a dedicated access proxy
+    # - or OpenAI Secure MCP Tunnel if available for this deployment
+
+    client_max_body_size 2m;
+    proxy_read_timeout 300s;
+    proxy_send_timeout 300s;
+
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy no-referrer always;
+    add_header Cache-Control no-store always;
+
+    location = /healthz {
+        proxy_pass http://zabbix_infra_mcp;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Authorization $http_authorization;
+    }
+
+    location = /.well-known/mcp.json {
+        proxy_pass http://zabbix_infra_mcp;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Authorization $http_authorization;
+    }
+
+    location = /metadata {
+        proxy_pass http://zabbix_infra_mcp;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Authorization $http_authorization;
+    }
+
+    location = /mcp {
+        # For internal-only trials you may pass a static Bearer token from the proxy.
+        # For ChatGPT production apps, prefer OAuth/OIDC rather than static shared secrets.
+        # proxy_set_header Authorization "Bearer REPLACE_WITH_PROXY_INJECTED_TOKEN";
+        proxy_set_header Authorization $http_authorization;
+
+        proxy_pass http://zabbix_infra_mcp;
+        proxy_http_version 1.1;
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+server {
+    listen 80;
+    server_name mcp-infra.example.com;
+    return 301 https://$host$request_uri;
+}

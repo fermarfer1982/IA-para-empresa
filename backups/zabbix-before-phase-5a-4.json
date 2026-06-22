@@ -1,0 +1,218 @@
+{
+  "group": null,
+  "hosts": {
+    "PBS Backup Monitoring": null,
+    "Proxmox Storage Monitoring": null
+  },
+  "items": {
+    "PBS Backup Monitoring": [],
+    "Proxmox Storage Monitoring": []
+  },
+  "metadata": {
+    "generated_at": "2026-05-21 09:38:23 CEST",
+    "mode": "before-phase-5a-4",
+    "zabbix_version": "7.0.26"
+  },
+  "planned": {
+    "group": "Intelligent Monitoring",
+    "hosts": [
+      "PBS Backup Monitoring",
+      "Proxmox Storage Monitoring"
+    ],
+    "items": {
+      "PBS Backup Monitoring": [
+        {
+          "key": "pbs.backup.collection_status",
+          "name": "PBS backup collection status",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.backup.entities_total",
+          "name": "PBS backup entities total",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.backup.entities_without_recent_backup",
+          "name": "PBS backup entities without recent backup",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.backup.oldest_backup_age_hours",
+          "name": "PBS oldest backup age hours",
+          "units": "h",
+          "value_type": 0
+        },
+        {
+          "key": "pbs.datastore.usage_percent[backup]",
+          "name": "PBS datastore backup usage percent",
+          "units": "%",
+          "value_type": 0
+        },
+        {
+          "key": "pbs.datastore.groups[backup]",
+          "name": "PBS datastore backup groups",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.datastore.snapshots[backup]",
+          "name": "PBS datastore backup snapshots",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.datastore.usage_percent[ds-qnap-iscsi-almeria]",
+          "name": "PBS datastore ds-qnap-iscsi-almeria usage percent",
+          "units": "%",
+          "value_type": 0
+        },
+        {
+          "key": "pbs.datastore.groups[ds-qnap-iscsi-almeria]",
+          "name": "PBS datastore ds-qnap-iscsi-almeria groups",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.datastore.snapshots[ds-qnap-iscsi-almeria]",
+          "name": "PBS datastore ds-qnap-iscsi-almeria snapshots",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.backup.last_success_age_hours[114]",
+          "name": "PBS ia-dify backup age hours",
+          "units": "h",
+          "value_type": 0
+        },
+        {
+          "key": "pbs.backup.has_recent_backup[114]",
+          "name": "PBS ia-dify has recent backup",
+          "value_type": 3
+        },
+        {
+          "key": "pbs.backup.snapshot_count[114]",
+          "name": "PBS ia-dify snapshot count",
+          "value_type": 3
+        }
+      ],
+      "Proxmox Storage Monitoring": [
+        {
+          "key": "proxmox.backup.jobs_total",
+          "name": "Proxmox backup jobs total",
+          "value_type": 3
+        },
+        {
+          "key": "proxmox.backup.failed_tasks_24h",
+          "name": "Proxmox backup failed tasks 24h",
+          "value_type": 3
+        },
+        {
+          "key": "proxmox.backup.failed_tasks_48h",
+          "name": "Proxmox backup failed tasks 48h",
+          "value_type": 3
+        },
+        {
+          "key": "proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas]",
+          "name": "Proxmox proxmox-gallarza datastore-replicas usage percent",
+          "units": "%",
+          "value_type": 0
+        },
+        {
+          "key": "proxmox.storage.usage_percent[proxmox-gallarza,local]",
+          "name": "Proxmox proxmox-gallarza local usage percent",
+          "units": "%",
+          "value_type": 0
+        },
+        {
+          "key": "proxmox.storage.usage_percent[pvereplicas,datastore-replicas]",
+          "name": "Proxmox pvereplicas datastore-replicas usage percent",
+          "units": "%",
+          "value_type": 0
+        },
+        {
+          "key": "proxmox.storage.usage_percent[pvereplicas,pbs-backup]",
+          "name": "Proxmox pvereplicas pbs-backup usage percent",
+          "units": "%",
+          "value_type": 0
+        },
+        {
+          "key": "proxmox.backup.vm_in_job[114]",
+          "name": "Proxmox ia-dify VM in backup job",
+          "value_type": 3
+        },
+        {
+          "key": "proxmox.backup.vm_without_job[114]",
+          "name": "Proxmox ia-dify VM without backup job",
+          "value_type": 3
+        }
+      ]
+    },
+    "triggers_disabled": {
+      "PBS Backup Monitoring": [
+        {
+          "description": "PBS collection failed",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.collection_status)=0",
+          "priority": 4
+        },
+        {
+          "description": "PBS datastore backup usage >80%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[backup])>80",
+          "priority": 3
+        },
+        {
+          "description": "PBS datastore backup usage >90%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[backup])>90",
+          "priority": 4
+        },
+        {
+          "description": "PBS datastore ds-qnap-iscsi-almeria usage >80%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[ds-qnap-iscsi-almeria])>80",
+          "priority": 3
+        },
+        {
+          "description": "PBS datastore ds-qnap-iscsi-almeria usage >90%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[ds-qnap-iscsi-almeria])>90",
+          "priority": 4
+        },
+        {
+          "description": "ia-dify backup older than 72h",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.last_success_age_hours[114])>72",
+          "priority": 3
+        },
+        {
+          "description": "ia-dify backup older than 168h",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.last_success_age_hours[114])>168",
+          "priority": 4
+        }
+      ],
+      "Proxmox Storage Monitoring": [
+        {
+          "description": "Proxmox backup failed tasks 24h > 0",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.failed_tasks_24h)>0",
+          "priority": 4
+        },
+        {
+          "description": "Proxmox backup failed tasks 48h > 0",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.failed_tasks_48h)>0",
+          "priority": 4
+        },
+        {
+          "description": "proxmox-gallarza datastore-replicas >80%",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas])>80",
+          "priority": 3
+        },
+        {
+          "description": "proxmox-gallarza datastore-replicas >90%",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas])>90",
+          "priority": 4
+        },
+        {
+          "description": "ia-dify not present in backup job",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.vm_without_job[114])=1",
+          "priority": 4
+        }
+      ]
+    }
+  },
+  "templates": [],
+  "triggers": {
+    "PBS Backup Monitoring": [],
+    "Proxmox Storage Monitoring": []
+  }
+}

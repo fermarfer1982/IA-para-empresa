@@ -1,0 +1,17 @@
+[
+  {
+    "displayName": "Fernando Martinez",
+    "mail": "fernando.martinez@example.com",
+    "department": "Operaciones"
+  },
+  {
+    "displayName": "Diana Lopez",
+    "mail": "diana.lopez@example.com",
+    "department": "Direccion"
+  },
+  {
+    "displayName": "Marta Garcia",
+    "mail": "marta.garcia@example.com",
+    "department": "IT"
+  }
+]

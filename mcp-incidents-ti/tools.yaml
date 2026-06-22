@@ -1,0 +1,128 @@
+server:
+  name: sharepoint-incidents-ti
+  description: MCP read-only para consultar la lista SharePoint/Microsoft Lists IncidenciasTI.
+  read_only: true
+  graph_methods_allowed:
+    - GET
+tools:
+  - name: get_incidents_schema
+    description: Obtiene en modo read-only columnas disponibles de IncidenciasTI, nombres internos, nombres visibles y mapeo inicial.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties: {}
+      additionalProperties: false
+  - name: get_incidents_summary
+    description: Consulta en modo read-only conteo por estado, ultimas incidencias y posibles urgentes.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties:
+        limit:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+      additionalProperties: false
+  - name: get_open_incidents
+    description: Lista en modo read-only incidencias abiertas con filtros opcionales.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties:
+        limit:
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 200
+        assigned_to:
+          type: string
+        category:
+          type: string
+        priority:
+          type: string
+      additionalProperties: false
+  - name: get_incidents_by_status
+    description: Obtiene en modo read-only incidencias filtradas por estado.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties:
+        status:
+          type: string
+        limit:
+          type: integer
+          default: 100
+          minimum: 1
+          maximum: 500
+      required:
+        - status
+      additionalProperties: false
+  - name: get_recent_incidents
+    description: Lista en modo read-only incidencias creadas o modificadas recientemente.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties:
+        days:
+          type: integer
+          default: 7
+          minimum: 0
+          maximum: 365
+        limit:
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 500
+      additionalProperties: false
+  - name: get_incident_by_id
+    description: Obtiene en modo read-only el detalle completo de una incidencia por ID.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties:
+        incident_id:
+          type: string
+      required:
+        - incident_id
+      additionalProperties: false
+  - name: search_incidents
+    description: Busca en modo read-only incidencias por texto en titulo, descripcion, sistema, usuario, categoria y otros campos disponibles.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties:
+        query:
+          type: string
+        limit:
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 500
+      required:
+        - query
+      additionalProperties: false
+  - name: get_incidents_related_to_asset
+    description: Busca en modo read-only incidencias relacionadas con un host, sistema, NAS, aplicacion o activo.
+    annotations:
+      readOnlyHint: true
+    inputSchema:
+      type: object
+      properties:
+        asset_name:
+          type: string
+        limit:
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 500
+      required:
+        - asset_name
+      additionalProperties: false

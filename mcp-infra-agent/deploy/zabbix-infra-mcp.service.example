@@ -1,0 +1,27 @@
+[Unit]
+Description=Zabbix Codex Infrastructure MCP read-only backend
+Documentation=file:/opt/zabbix-codex/mcp-infra-agent/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=codexops
+Group=codexops
+WorkingDirectory=/opt/zabbix-codex
+Environment="PYTHONDONTWRITEBYTECODE=1"
+# Temporary shared-token auth for internal tests.
+# Prefer OAuth/OIDC or Secure MCP Tunnel for production ChatGPT exposure.
+EnvironmentFile=/etc/zabbix-codex/mcp-agent.env
+ExecStart=/usr/bin/python3 /opt/zabbix-codex/mcp-infra-agent/remote_server.py
+Restart=on-failure
+RestartSec=5s
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/zabbix-codex
+ReadOnlyPaths=/opt/zabbix-codex /etc/zabbix-codex
+
+[Install]
+WantedBy=multi-user.target

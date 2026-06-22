@@ -1,0 +1,119 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 7a8f0f5d3f384e1d91b5f2990f5a5a01
+      name: Templates/Intelligent Drafts
+  templates:
+    - uuid: 0c2e7d8d6f044d1fa3a8f70d6601f501
+      template: Template Proxmox Agent Intelligent Draft
+      name: Template Proxmox Agent Intelligent Draft
+      description: |
+        Draft only. Do not import or assign automatically.
+        Purpose: prepare Proxmox node, storage, backup and cluster checks for the future Zabbix intelligence agent.
+      groups:
+        - name: Templates/Intelligent Drafts
+      macros:
+        - macro: '{$PROXMOX.BACKUP.MAXAGE.HIGH}'
+          value: '172800'
+          description: Maximum backup age in seconds before High.
+        - macro: '{$PROXMOX.STORAGE.PUSED.AVERAGE}'
+          value: '80'
+          description: Storage usage Average threshold.
+        - macro: '{$PROXMOX.STORAGE.PUSED.HIGH}'
+          value: '90'
+          description: Storage usage High threshold.
+      items:
+        - uuid: 9dcb2cb2cf824ab4a7d1f8b987b94101
+          name: Proxmox node online
+          type: TRAPper
+          key: proxmox.node.online
+          value_type: UNSIGNED
+          description: Draft passive check. 1 means node reachable/online.
+        - uuid: 67f6f2974e144c9d87ab9be0f4af4a02
+          name: Proxmox cluster quorum
+          type: TRAPper
+          key: proxmox.cluster.quorum
+          value_type: UNSIGNED
+          description: Draft passive check. 1 means quorum OK.
+        - uuid: 24a027bff6a8486a95fef37b38e5aa03
+          name: Proxmox CPU utilization
+          type: ZABBIX_ACTIVE
+          key: system.cpu.util
+          value_type: FLOAT
+        - uuid: 93ba9f9f0ddb4a36bc6c85f95d235e04
+          name: Proxmox memory available
+          type: ZABBIX_ACTIVE
+          key: vm.memory.size[available]
+          value_type: UNSIGNED
+          units: B
+        - uuid: d4a74fd29b5c4d4b80e4d830f69d4e05
+          name: Proxmox root filesystem used percent
+          type: ZABBIX_ACTIVE
+          key: vfs.fs.size[/,pused]
+          value_type: FLOAT
+          units: '%'
+        - uuid: 8971df32dbe14e93afc7cb3d089d0706
+          name: Proxmox VM count
+          type: TRAPper
+          key: proxmox.vm.count
+          value_type: UNSIGNED
+        - uuid: e0f2c5bff2e34b37817c1bb35f2b7f07
+          name: Proxmox CT count
+          type: TRAPper
+          key: proxmox.ct.count
+          value_type: UNSIGNED
+        - uuid: cb5d2c9f3a664d7ba45945ac9567a108
+          name: Proxmox storage usage discovery payload
+          type: TRAPper
+          key: proxmox.storage.discovery
+          value_type: TEXT
+        - uuid: a6ef25830a584f5bb7e5fd85d7b37b09
+          name: Proxmox datastore usage discovery payload
+          type: TRAPper
+          key: proxmox.datastore.discovery
+          value_type: TEXT
+        - uuid: b7e9721c30fa4d239c1ad8135c999b0a
+          name: Proxmox pveproxy service running
+          type: ZABBIX_ACTIVE
+          key: service.info[pveproxy,state]
+          value_type: UNSIGNED
+        - uuid: 465a8a49be3e4e82978d60a6f0c6ce0b
+          name: Proxmox pvedaemon service running
+          type: ZABBIX_ACTIVE
+          key: service.info[pvedaemon,state]
+          value_type: UNSIGNED
+        - uuid: 79db10354d784c60a30f5dded4bbd80c
+          name: Proxmox pvestatd service running
+          type: ZABBIX_ACTIVE
+          key: service.info[pvestatd,state]
+          value_type: UNSIGNED
+        - uuid: 575f6d0102c74bd990e5e05d2ca13b0d
+          name: Proxmox corosync service running
+          type: ZABBIX_ACTIVE
+          key: service.info[corosync,state]
+          value_type: UNSIGNED
+        - uuid: 31c1a8f22a2243479322d2199df5610e
+          name: Ceph health status
+          type: TRAPper
+          key: proxmox.ceph.health
+          value_type: TEXT
+          description: Empty if Ceph does not apply.
+        - uuid: 3c0c98f48eaf418789da2f8da9a0aa0f
+          name: SMART or RAID health status
+          type: TRAPper
+          key: proxmox.hardware.health
+          value_type: TEXT
+          description: Draft check for physical nodes with SMART/RAID support.
+      triggers:
+        - uuid: 16353b8246ea4acbbcc63b4e1f1d0201
+          expression: 'last(/Template Proxmox Agent Intelligent Draft/proxmox.node.online)=0'
+          name: Proxmox node is offline
+          priority: HIGH
+        - uuid: ce33b87c2fa14d97ad9c6f577e27d202
+          expression: 'last(/Template Proxmox Agent Intelligent Draft/proxmox.cluster.quorum)=0'
+          name: Proxmox cluster has no quorum
+          priority: DISASTER
+        - uuid: f2c3e1cf250e4e68b4dfb0a762c95a03
+          expression: 'last(/Template Proxmox Agent Intelligent Draft/vfs.fs.size[/,pused])>90'
+          name: Proxmox root filesystem usage is high
+          priority: HIGH

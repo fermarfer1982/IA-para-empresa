@@ -1,0 +1,5296 @@
+{
+  "api_errors": [],
+  "external_diagnostics_summary": {
+    "snmp": {
+      "conclusions": {
+        "sin_interfaz_snmp_en_zabbix": 4,
+        "sin_respuesta_snmp_timeout_red_acl_equipo": 5,
+        "snmp_responde_checks_basicos_ok": 3,
+        "snmp_responde_pero_hay_oids_no_soportadas_template_mib": 6
+      },
+      "failed_unsupported_oid_probes": 15,
+      "snmp_not_reachable": 9,
+      "snmp_reachable": 9,
+      "targets_total": 18
+    },
+    "zabbix_get": {
+      "checks_failed": 1,
+      "checks_ok": 12,
+      "checks_total": 13
+    }
+  },
+  "hosts": [
+    {
+      "active_problems": [
+        {
+          "clock": 1766747085,
+          "clock_text": "2025-12-26 12:04:45 CET",
+          "duration": "157d 19h",
+          "eventid": "2599",
+          "name": "Faulty SMART state of HDD 5",
+          "operational_data": "Current state: Abnormal (2)",
+          "severity": "High",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Disks"
+            }
+          ]
+        },
+        {
+          "clock": 1769610786,
+          "clock_text": "2026-01-28 15:33:06 CET",
+          "duration": "124d 15h",
+          "eventid": "44006",
+          "name": "Reaching threshold for pool 1 (<15%)",
+          "operational_data": "Current %: 0",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Pools"
+            }
+          ]
+        }
+      ],
+      "asset_type": "nas",
+      "can_automate": false,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "filesystem",
+        "interface",
+        "raid",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Priorizar investigacion operativa de problemas High/Disaster antes de limpieza de cobertura.",
+      "criticality_inferred": "critica",
+      "groups": [
+        "NAS"
+      ],
+      "host": "NasAlmeria",
+      "hostid": "10689",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.234",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "NasAlmeria",
+      "priority": "CRITICO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "SNMP QNAP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "No Such Instance currently exists at this OID",
+          "itemid": "51464",
+          "key": "hdd.state[5]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 5: State",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "51474",
+          "key": "hdd.temp[5]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 5: Temperature",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "51487",
+          "key": "pool.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Pool 1: Status",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "itemid": "51496",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Volume 1: Status",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1780292738,
+          "clock_text": "2026-06-01 07:45:38 CEST",
+          "duration": "1d 0h",
+          "eventid": "150567",
+          "name": "Faulty state of RAID 1",
+          "operational_data": "Current state: Degraded",
+          "severity": "High",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "RAID"
+            }
+          ]
+        },
+        {
+          "clock": 1780293638,
+          "clock_text": "2026-06-01 08:00:38 CEST",
+          "duration": "1d 0h",
+          "eventid": "150614",
+          "name": "Faulty SMART state of HDD 1",
+          "operational_data": "Current state: Abnormal (2)",
+          "severity": "High",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Disks"
+            }
+          ]
+        },
+        {
+          "clock": 1769169088,
+          "clock_text": "2026-01-23 12:51:28 CET",
+          "duration": "129d 18h",
+          "eventid": "42030",
+          "name": "Reaching threshold for pool 1 (<15%)",
+          "operational_data": "Current %: 0",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Pools"
+            }
+          ]
+        }
+      ],
+      "asset_type": "nas",
+      "can_automate": false,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "filesystem",
+        "interface",
+        "raid",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Priorizar investigacion operativa de problemas High/Disaster antes de limpieza de cobertura.",
+      "criticality_inferred": "critica",
+      "groups": [
+        "NAS"
+      ],
+      "host": "NasRamiroA",
+      "hostid": "10687",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.80",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Ramiro",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "NasRamiroA",
+      "priority": "CRITICO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "SNMP QNAP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "51525",
+          "key": "cpu.temp",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "CPU Temperature",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Warning\"",
+          "itemid": "51613",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Volume 1: Status",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-9\"",
+          "itemid": "51620",
+          "key": "hdd.state[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 1: State",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "51689",
+          "key": "pool.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Pool 1: Status",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "network",
+      "can_automate": true,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "interface",
+        "memory",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "firmware"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: firmware",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "AP"
+      ],
+      "host": "AP1",
+      "hostid": "10708",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.99",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "AP1 CISCO",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Cisco IOS by SNMP"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "network",
+      "can_automate": true,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "interface",
+        "memory",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "firmware"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: firmware",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "AP"
+      ],
+      "host": "AP2",
+      "hostid": "10707",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.100",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "AP2 CISCO",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Cisco IOS by SNMP"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767932488,
+          "clock_text": "2026-01-09 05:21:28 CET",
+          "duration": "144d 2h",
+          "eventid": "9024",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1766750986,
+          "clock_text": "2025-12-26 13:09:46 CET",
+          "duration": "157d 18h",
+          "eventid": "2853",
+          "name": "Windows: FS [(C:)]: Space is low (used > 80%, total 959.7GB)",
+          "operational_data": "Space used: 81.6%",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "filesystem",
+              "value": "C:"
+            },
+            {
+              "tag": "fstype",
+              "value": "NTFS"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "capacity"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "Active",
+      "hostid": "10697",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.4",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "zabbix_internal"
+      ],
+      "name": "Active",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "battery",
+        "cpu",
+        "error_state",
+        "firmware",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "page_counter",
+        "raid",
+        "runtime",
+        "service",
+        "smart",
+        "snmp",
+        "supplies",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "agent",
+        "filesystem",
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: agent, filesystem, backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "SERVIDORES FISICOS"
+      ],
+      "host": "DellEMC PowerEdge R540  ALMERIA   IDRAC",
+      "hostid": "10726",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.231",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "DellEMC PowerEdge R540  ALMERIA   IDRAC",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Dell iDRAC by SNMP"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "ups",
+      "can_automate": true,
+      "checks_existing": [
+        "battery",
+        "input_output",
+        "load",
+        "runtime",
+        "smart",
+        "snmp",
+        "temperature"
+      ],
+      "checks_missing": [
+        "self_test"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: self_test",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "SAI"
+      ],
+      "host": "EATON 5PX 2200 SAI GALLARZA",
+      "hostid": "10711",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.24",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "EATON 5PX 2200 ( SAI GALLARZA )",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "EATON Mistral"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "No Such Instance currently exists at this OID",
+          "itemid": "54041",
+          "key": "UPS-ACNormal-Voltage",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-ACNormal-Voltage",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54043",
+          "key": "UPS-BatteryChargerFault",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-BatteryChargerFault",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54044",
+          "key": "UPS-BatteryFaultBattery",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-BatteryFaultBattery",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54047",
+          "key": "UPS-Humidity",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Humidity",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54048",
+          "key": "UPS-Humidity-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Humidity-High",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54049",
+          "key": "UPS-Humidity-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Humidity-Low",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54051",
+          "key": "UPS-OutputPowerSource",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-OutputPowerSource",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54052",
+          "key": "UPS-Temperature-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Temperature-High",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "54053",
+          "key": "UPS-Temperature-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Temperature-Low",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Instance currently exists at this OID",
+          "itemid": "54054",
+          "key": "UPS-TemperatureLevel",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-TemperatureLevel",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "ups",
+      "can_automate": true,
+      "checks_existing": [
+        "battery",
+        "input_output",
+        "load",
+        "runtime",
+        "smart",
+        "snmp",
+        "temperature"
+      ],
+      "checks_missing": [
+        "self_test"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: self_test",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "SAI"
+      ],
+      "host": "EATON 5PX 2200 SAI ALMERIA",
+      "hostid": "10728",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.235",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "EATON 5PX 2200 SAI ALMERIA",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "EATON Mistral"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "No Such Instance currently exists at this OID",
+          "itemid": "55245",
+          "key": "UPS-ACNormal-Voltage",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-ACNormal-Voltage",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55247",
+          "key": "UPS-BatteryChargerFault",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-BatteryChargerFault",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55248",
+          "key": "UPS-BatteryFaultBattery",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-BatteryFaultBattery",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55251",
+          "key": "UPS-Humidity",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Humidity",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55252",
+          "key": "UPS-Humidity-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Humidity-High",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55253",
+          "key": "UPS-Humidity-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Humidity-Low",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55255",
+          "key": "UPS-OutputPowerSource",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-OutputPowerSource",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55256",
+          "key": "UPS-Temperature-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Temperature-High",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55257",
+          "key": "UPS-Temperature-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-Temperature-Low",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Instance currently exists at this OID",
+          "itemid": "55258",
+          "key": "UPS-TemperatureLevel",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "UPS-TemperatureLevel",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "network",
+      "can_automate": true,
+      "checks_existing": [
+        "cpu",
+        "firmware",
+        "snmp",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "interface",
+        "errors",
+        "memory"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: interface, errors, memory",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "SWITCHES"
+      ],
+      "host": "HP V1810-48G GALLARZA",
+      "hostid": "10730",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.21",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "HP V1810-48G GALLARZA",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "HP Enterprise Switch by SNMP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "cannot get SNMP result: No Such Object available on this agent at this OID",
+          "itemid": "55271",
+          "key": "system.cpu.util[hpSwitchCpuStat.0]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "CPU utilization",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "cannot get SNMP result: No Such Object available on this agent at this OID",
+          "itemid": "55273",
+          "key": "system.hw.firmware",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Firmware version",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1765153906,
+          "clock_text": "2025-12-08 01:31:46 CET",
+          "duration": "176d 5h",
+          "eventid": "28",
+          "name": "Windows: \"WbfPolicyService110\" (WbfPolicyService110) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "WbfPolicyService110"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "WbfPolicyService110"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1765153913,
+          "clock_text": "2025-12-08 01:31:53 CET",
+          "duration": "176d 5h",
+          "eventid": "31",
+          "name": "Windows: \"Intel(R) Platform License Manager Service\" (Intel(R) Platform License Manager Service) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "Intel(R) Platform License Manager Service"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "Intel(R) Platform License Manager Service"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1765153933,
+          "clock_text": "2025-12-08 01:32:13 CET",
+          "duration": "176d 5h",
+          "eventid": "36",
+          "name": "Windows: \"RstMwService\" (Intel(R) Storage Middleware Service) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "Intel(R) Storage Middleware Service"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "RstMwService"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1765984639,
+          "clock_text": "2025-12-17 16:17:19 CET",
+          "duration": "166d 15h",
+          "eventid": "1435",
+          "name": "Windows: Interface Realtek 8852CE WiFi 6E PCI-E NIC(Wi-Fi): Link down",
+          "operational_data": "Current state: *UNKNOWN*",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "network"
+            },
+            {
+              "tag": "description",
+              "value": "Wi-Fi"
+            },
+            {
+              "tag": "interface",
+              "value": "Realtek 8852CE WiFi 6E PCI-E NIC"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1768921460,
+          "clock_text": "2026-01-20 16:04:20 CET",
+          "duration": "132d 15h",
+          "eventid": "40093",
+          "name": "Windows: Zabbix agent is not available (for 3m)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "battery",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "firmware",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "page_counter",
+        "queue",
+        "runtime",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Discovered hosts"
+      ],
+      "host": "LP-FERNANDO",
+      "hostid": "10675",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.100.163",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "LP-FERNANDO",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//system.swap.size[,total]) - last(//system.swap.size[,total]) / 100 * last(//perf_counter_en[\"\\Paging file(_Total)\\% Usage\"])\".",
+          "itemid": "50410",
+          "key": "system.swap.free",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Free swap space",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//vm.memory.size[used]) / last(//vm.memory.size[total]) * 100\".",
+          "itemid": "50417",
+          "key": "vm.memory.util",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Memory utilization",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1766750200,
+          "clock_text": "2025-12-26 12:56:40 CET",
+          "duration": "157d 18h",
+          "eventid": "2746",
+          "name": "Reaching threshold for pool 1 (<15%)",
+          "operational_data": "Current %: 0",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Pools"
+            }
+          ]
+        }
+      ],
+      "asset_type": "nas",
+      "can_automate": false,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "filesystem",
+        "interface",
+        "raid",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "NAS"
+      ],
+      "host": "NAS-CALAHORRA",
+      "hostid": "10696",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.82",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Calahorra",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "NAS-CALAHORRA",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "SNMP QNAP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "itemid": "52016",
+          "key": "hdd.state[3]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 3: State",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "itemid": "52017",
+          "key": "hdd.state[4]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 4: State",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1770191620,
+          "clock_text": "2026-02-04 08:53:40 CET",
+          "duration": "117d 22h",
+          "eventid": "47745",
+          "name": "Reaching threshold for pool 1 (<15%)",
+          "operational_data": "Current %: 0",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Pools"
+            }
+          ]
+        },
+        {
+          "clock": 1780363859,
+          "clock_text": "2026-06-02 03:30:59 CEST",
+          "duration": "4h 54m",
+          "eventid": "151317",
+          "name": "Disk latency is high (>30 for 15m)",
+          "operational_data": "Current latency: 38",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Disks"
+            }
+          ]
+        }
+      ],
+      "asset_type": "nas",
+      "can_automate": false,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "filesystem",
+        "interface",
+        "raid",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "NAS"
+      ],
+      "host": "NASALM1",
+      "hostid": "10694",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.200",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "NASALM1",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "SNMP QNAP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "51749",
+          "key": "cpu.temp",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "CPU Temperature",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "itemid": "51829",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Volume 1: Status",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1770210617,
+          "clock_text": "2026-02-04 14:10:17 CET",
+          "duration": "117d 17h",
+          "eventid": "48221",
+          "name": "Reaching threshold for pool 1 (<15%)",
+          "operational_data": "Current %: 0",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Pools"
+            }
+          ]
+        }
+      ],
+      "asset_type": "nas",
+      "can_automate": false,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "filesystem",
+        "interface",
+        "raid",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "NAS"
+      ],
+      "host": "NASALM2",
+      "hostid": "10695",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.201",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "NASALM2",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "SNMP QNAP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "51834",
+          "key": "cpu.temp",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "CPU Temperature",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "itemid": "51895",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Volume 1: Status",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "nas",
+      "can_automate": false,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "filesystem",
+        "interface",
+        "raid",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "NAS"
+      ],
+      "host": "NasGenomica",
+      "hostid": "10693",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.242",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Genomica",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "NasGenomica",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "SNMP QNAP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "itemid": "51260",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Volume 1: Status",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "itemid": "51261",
+          "key": "volume.status[2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Volume 2: Status",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Instance currently exists at this OID",
+          "itemid": "51272",
+          "key": "fan.name[3]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "FAN 3: Name",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "itemid": "51316",
+          "key": "hdd.state[7]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 7: State",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "itemid": "51317",
+          "key": "hdd.state[8]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 8: State",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "itemid": "56613",
+          "key": "hdd.state[9]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 9: State",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "56614",
+          "key": "hdd.status[9]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 9: SMART Status",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "56615",
+          "key": "hdd.temp[9]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "HDD 9: Temperature",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1766747216,
+          "clock_text": "2025-12-26 12:06:56 CET",
+          "duration": "157d 19h",
+          "eventid": "2665",
+          "name": "Reaching threshold for pool 1 (<15%)",
+          "operational_data": "Current %: 10",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Pools"
+            }
+          ]
+        }
+      ],
+      "asset_type": "nas",
+      "can_automate": false,
+      "checks_existing": [
+        "cpu",
+        "errors",
+        "filesystem",
+        "interface",
+        "raid",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "NAS"
+      ],
+      "host": "NasRamiroB",
+      "hostid": "10688",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.81",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Ramiro",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "NasRamiroB",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "SNMP QNAP"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "itemid": "51629",
+          "key": "cpu.temp",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "CPU Temperature",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "itemid": "51698",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Volume 1: Status",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "backup_server",
+      "can_automate": true,
+      "checks_existing": [
+        "backup",
+        "battery",
+        "input_output",
+        "load",
+        "runtime",
+        "storage"
+      ],
+      "checks_missing": [
+        "agent",
+        "filesystem",
+        "service",
+        "cpu",
+        "memory"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: agent, filesystem, service, cpu, memory",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Intelligent Monitoring"
+      ],
+      "host": "PBS Backup Monitoring",
+      "hostid": "10740",
+      "ip_dns": [],
+      "location": "",
+      "monitoring_methods": [],
+      "name": "PBS Backup Monitoring",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1779280112,
+          "clock_text": "2026-05-20 14:28:32 CEST",
+          "duration": "12d 17h",
+          "eventid": "141283",
+          "name": "HP iLO: #0: Disk array cache controller battery is in critical state!",
+          "operational_data": "Current state: Capacitor failed (7)",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "hardware"
+            },
+            {
+              "tag": "component",
+              "value": "array"
+            },
+            {
+              "tag": "component",
+              "value": "disk"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "performance"
+            },
+            {
+              "tag": "target",
+              "value": "hp"
+            },
+            {
+              "tag": "target",
+              "value": "ilo"
+            }
+          ]
+        },
+        {
+          "clock": 1779280175,
+          "clock_text": "2026-05-20 14:29:35 CEST",
+          "duration": "12d 17h",
+          "eventid": "141285",
+          "name": "HP iLO: Slot 0: Disk array controller is in warning state",
+          "operational_data": "Current state: degraded (3)",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "hardware"
+            },
+            {
+              "tag": "component",
+              "value": "array"
+            },
+            {
+              "tag": "component",
+              "value": "disk"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "performance"
+            },
+            {
+              "tag": "target",
+              "value": "hp"
+            },
+            {
+              "tag": "target",
+              "value": "ilo"
+            }
+          ]
+        },
+        {
+          "clock": 1779280173,
+          "clock_text": "2026-05-20 14:29:33 CEST",
+          "duration": "12d 17h",
+          "eventid": "141284",
+          "name": "HP iLO: #0: Disk array cache controller is not in optimal state",
+          "operational_data": "Current state: permDisabled (5)",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "hardware"
+            },
+            {
+              "tag": "component",
+              "value": "array"
+            },
+            {
+              "tag": "component",
+              "value": "disk"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "performance"
+            },
+            {
+              "tag": "target",
+              "value": "hp"
+            },
+            {
+              "tag": "target",
+              "value": "ilo"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "battery",
+        "cpu",
+        "error_state",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "page_counter",
+        "raid",
+        "runtime",
+        "smart",
+        "snmp",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "agent",
+        "filesystem",
+        "backup",
+        "service"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: agent, filesystem, backup, service",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "SERVIDORES FISICOS"
+      ],
+      "host": "PROLIANT ML350P GEN8 ILO",
+      "hostid": "10727",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.104.9",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "PROLIANT ML350P GEN8 ILO",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "HP iLO by SNMP"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "proxmox",
+      "can_automate": false,
+      "checks_existing": [
+        "api",
+        "backup",
+        "node",
+        "storage",
+        "vm_inventory"
+      ],
+      "checks_missing": [
+        "smart",
+        "service"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: smart, service",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Intelligent Monitoring"
+      ],
+      "host": "Proxmox Storage Monitoring",
+      "hostid": "10741",
+      "ip_dns": [],
+      "location": "",
+      "monitoring_methods": [
+        "api"
+      ],
+      "name": "Proxmox Storage Monitoring",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768039848,
+          "clock_text": "2026-01-10 11:10:48 CET",
+          "duration": "142d 20h",
+          "eventid": "9535",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SERAPLI",
+      "hostid": "10701",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.6",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "SERAPLI",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768039869,
+          "clock_text": "2026-01-10 11:11:09 CET",
+          "duration": "142d 20h",
+          "eventid": "9538",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1777225473,
+          "clock_text": "2026-04-26 19:44:33 CEST",
+          "duration": "36d 12h",
+          "eventid": "126483",
+          "name": "Windows: FS [(C:)]: Space is critically low (used > 90%, total 459.4GB)",
+          "operational_data": "Space used: 92.8%",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "filesystem",
+              "value": "C:"
+            },
+            {
+              "tag": "fstype",
+              "value": "NTFS"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "capacity"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1766752713,
+          "clock_text": "2025-12-26 13:38:33 CET",
+          "duration": "157d 17h",
+          "eventid": "2932",
+          "name": "Windows: FS [(C:)]: Space is low (used > 80%, total 459.4GB)",
+          "operational_data": "Space used: 92.8%",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "filesystem",
+              "value": "C:"
+            },
+            {
+              "tag": "fstype",
+              "value": "NTFS"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "capacity"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SERTS",
+      "hostid": "10703",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.7",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "SERTS",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768039847,
+          "clock_text": "2026-01-10 11:10:47 CET",
+          "duration": "142d 20h",
+          "eventid": "9534",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SERTSBROKER",
+      "hostid": "10704",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.14",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "SERTSBROKER",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768039869,
+          "clock_text": "2026-01-10 11:11:09 CET",
+          "duration": "142d 20h",
+          "eventid": "9539",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1776752082,
+          "clock_text": "2026-04-21 08:14:42 CEST",
+          "duration": "42d 0h",
+          "eventid": "124097",
+          "name": "Windows: FS [(C:)]: Space is low (used > 80%, total 59.4GB)",
+          "operational_data": "Space used: 81.1%",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "filesystem",
+              "value": "C:"
+            },
+            {
+              "tag": "fstype",
+              "value": "NTFS"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "capacity"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SERVER_2019_BBD",
+      "hostid": "10705",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.172",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "SERVER_2019_BBD",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768039857,
+          "clock_text": "2026-01-10 11:10:57 CET",
+          "duration": "142d 20h",
+          "eventid": "9537",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1772028467,
+          "clock_text": "2026-02-25 15:07:47 CET",
+          "duration": "96d 16h",
+          "eventid": "70609",
+          "name": "Windows: Zabbix agent is not available (for 3m)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "backup_server",
+      "can_automate": true,
+      "checks_existing": [
+        "agent",
+        "api",
+        "backup",
+        "battery",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "node",
+        "page_counter",
+        "queue",
+        "runtime",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SRVCOPIAS",
+      "hostid": "10702",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.100.9",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "api",
+        "zabbix_internal"
+      ],
+      "name": "SRVCOPIAS",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//system.swap.size[,total]) - last(//system.swap.size[,total]) / 100 * last(//perf_counter_en[\"\\Paging file(_Total)\\% Usage\"])\".",
+          "itemid": "52897",
+          "key": "system.swap.free",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Free swap space",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//vm.memory.size[used]) / last(//vm.memory.size[total]) * 100\".",
+          "itemid": "52904",
+          "key": "vm.memory.util",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Memory utilization",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768039837,
+          "clock_text": "2026-01-10 11:10:37 CET",
+          "duration": "142d 20h",
+          "eventid": "9510",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SRVPDC",
+      "hostid": "10706",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.10",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "SRVPDC",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SRVPLANA",
+      "hostid": "10700",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.104.15",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "zabbix_internal"
+      ],
+      "name": "SRVPLANA",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768592953,
+          "clock_text": "2026-01-16 20:49:13 CET",
+          "duration": "136d 10h",
+          "eventid": "29877",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1772028487,
+          "clock_text": "2026-02-25 15:08:07 CET",
+          "duration": "96d 16h",
+          "eventid": "70610",
+          "name": "Windows: Zabbix agent is not available (for 3m)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "backup_server",
+      "can_automate": true,
+      "checks_existing": [
+        "agent",
+        "api",
+        "backup",
+        "battery",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "node",
+        "page_counter",
+        "queue",
+        "runtime",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SrvBackupALM",
+      "hostid": "10698",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.102.237",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "api",
+        "zabbix_internal"
+      ],
+      "name": "SrvBackupALM",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//system.swap.size[,total]) - last(//system.swap.size[,total]) / 100 * last(//perf_counter_en[\"\\Paging file(_Total)\\% Usage\"])\".",
+          "itemid": "52197",
+          "key": "system.swap.free",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Free swap space",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//vm.memory.size[used]) / last(//vm.memory.size[total]) * 100\".",
+          "itemid": "52204",
+          "key": "vm.memory.util",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Memory utilization",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768641811,
+          "clock_text": "2026-01-17 10:23:31 CET",
+          "duration": "135d 21h",
+          "eventid": "31700",
+          "name": "Windows: \"VMTools\" (VMware Tools) is not running (startup type automatic)",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "system"
+            },
+            {
+              "tag": "name",
+              "value": "VMware Tools"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "service",
+              "value": "VMTools"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1766751829,
+          "clock_text": "2025-12-26 13:23:49 CET",
+          "duration": "157d 18h",
+          "eventid": "2875",
+          "name": "Windows: FS [Datos(E:)]: Space is low (used > 80%, total 3072.0GB)",
+          "operational_data": "Space used: 84.2%",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "filesystem",
+              "value": "E:"
+            },
+            {
+              "tag": "fstype",
+              "value": "NTFS"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "capacity"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        },
+        {
+          "clock": 1778103529,
+          "clock_text": "2026-05-06 23:38:49 CEST",
+          "duration": "26d 8h",
+          "eventid": "130175",
+          "name": "Windows: FS [(C:)]: Space is low (used > 80%, total 79.4GB)",
+          "operational_data": "Space used: 83.4%",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "storage"
+            },
+            {
+              "tag": "filesystem",
+              "value": "C:"
+            },
+            {
+              "tag": "fstype",
+              "value": "NTFS"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "scope",
+              "value": "capacity"
+            },
+            {
+              "tag": "target",
+              "value": "windows"
+            }
+          ]
+        }
+      ],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "cpu",
+        "error_state",
+        "errors",
+        "filesystem",
+        "interface",
+        "memory",
+        "page_counter",
+        "queue",
+        "service",
+        "smart",
+        "storage",
+        "supplies",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores"
+      ],
+      "host": "SrvPdcALM",
+      "hostid": "10699",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.236",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "SrvPdcALM",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Windows by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767081123,
+          "clock_text": "2025-12-30 08:52:03 CET",
+          "duration": "153d 22h",
+          "eventid": "5070",
+          "name": "HP Enterprise Switch: No SNMP data collection",
+          "operational_data": "Current state: not available (0)",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "network"
+            },
+            {
+              "tag": "component",
+              "value": "health"
+            },
+            {
+              "tag": "component",
+              "value": "network"
+            },
+            {
+              "tag": "scope",
+              "value": "availability"
+            },
+            {
+              "tag": "target",
+              "value": "hp"
+            },
+            {
+              "tag": "target",
+              "value": "hp-enterprise"
+            }
+          ]
+        }
+      ],
+      "asset_type": "network",
+      "can_automate": true,
+      "checks_existing": [
+        "cpu",
+        "firmware",
+        "snmp",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "interface",
+        "errors",
+        "memory"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: interface, errors, memory",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "SWITCHES"
+      ],
+      "host": "Switch JL685A Almeria",
+      "hostid": "10731",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.102.232",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "Switch JL685A Almeria",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "HP Enterprise Switch by SNMP"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1779272810,
+          "clock_text": "2026-05-20 12:26:50 CEST",
+          "duration": "12d 19h",
+          "eventid": "141189",
+          "name": "Zabbix server: Utilization of unreachable poller processes over 75%",
+          "operational_data": "",
+          "severity": "Average",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "software"
+            },
+            {
+              "tag": "component",
+              "value": "gathering-process"
+            },
+            {
+              "tag": "scope",
+              "value": "performance"
+            },
+            {
+              "tag": "target",
+              "value": "server"
+            },
+            {
+              "tag": "target",
+              "value": "zabbix"
+            }
+          ]
+        }
+      ],
+      "asset_type": "zabbix_server",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "api",
+        "battery",
+        "cpu",
+        "database",
+        "errors",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "node",
+        "queue",
+        "runtime",
+        "service",
+        "smart",
+        "temperature",
+        "vm_inventory",
+        "web",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Zabbix servers"
+      ],
+      "host": "Zabbix server",
+      "hostid": "10084",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "127.0.0.1",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "api",
+        "web",
+        "zabbix_internal"
+      ],
+      "name": "Zabbix server",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Linux by Zabbix agent",
+        "Zabbix server health"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "No \"ipmi poller\" processes started.",
+          "itemid": "23261",
+          "key": "zabbix[process,ipmi poller,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of ipmi poller data collector processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"java poller\" processes started.",
+          "itemid": "23262",
+          "key": "zabbix[process,java poller,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of java poller data collector processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"snmp trapper\" processes started.",
+          "itemid": "23267",
+          "key": "zabbix[process,snmp trapper,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of snmp trapper data collector processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"vmware collector\" processes started.",
+          "itemid": "23328",
+          "key": "zabbix[process,vmware collector,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of vmware collector data collector processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"vmware collector\" processes started.",
+          "itemid": "23635",
+          "key": "zabbix[vmware,buffer,pused]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "VMware cache, % used",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"ipmi manager\" processes started.",
+          "itemid": "25367",
+          "key": "zabbix[process,ipmi manager,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of ipmi manager internal processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"report writer\" processes started.",
+          "itemid": "34318",
+          "key": "zabbix[process,report writer,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of report writer internal processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"report manager\" processes started.",
+          "itemid": "34319",
+          "key": "zabbix[process,report manager,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of report manager internal processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "Cannot obtain package information.",
+          "itemid": "42235",
+          "key": "system.sw.packages.get",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Number of installed packages",
+          "type": "Zabbix agent"
+        },
+        {
+          "error": "connector is not initialized: please check \"StartConnectors\" configuration parameter",
+          "itemid": "44788",
+          "key": "zabbix[connector_queue]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Connector queue",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"connector manager\" processes started.",
+          "itemid": "44789",
+          "key": "zabbix[process,connector manager,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of connector manager internal processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "No \"connector worker\" processes started.",
+          "itemid": "44790",
+          "key": "zabbix[process,connector worker,avg,busy]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Utilization of connector worker internal processes, in %",
+          "type": "Zabbix internal"
+        },
+        {
+          "error": "Value of type \"double\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1000000\"",
+          "itemid": "55650",
+          "key": "vfs.file.contents[\"/sys/class/net/enp6s18/speed\"]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Interface enp6s18: Speed",
+          "type": "Zabbix agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "server",
+      "can_automate": true,
+      "checks_existing": [
+        "backup",
+        "memory",
+        "smart",
+        "snmp",
+        "storage",
+        "temperature",
+        "vm_inventory"
+      ],
+      "checks_missing": [
+        "agent",
+        "filesystem",
+        "service",
+        "cpu"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: agent, filesystem, service, cpu",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "Servidores / VMware ESXi"
+      ],
+      "host": "esxibck.semillas.local",
+      "hostid": "10684",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.104.10",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "esxibck.semillas.local",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Template SNMP OS ESXi"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "server",
+      "can_automate": false,
+      "checks_existing": [
+        "battery",
+        "cpu",
+        "error_state",
+        "firmware",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "page_counter",
+        "raid",
+        "runtime",
+        "service",
+        "smart",
+        "snmp",
+        "supplies",
+        "temperature",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "agent",
+        "filesystem",
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: agent, filesystem, backup",
+      "criticality_inferred": "media-alta",
+      "groups": [
+        "SERVIDORES FISICOS"
+      ],
+      "host": "DellEMC PowerEdge R540 GALLARZA   IDRAC",
+      "hostid": "10709",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.3",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp",
+        "zabbix_internal"
+      ],
+      "name": "iDRAC-3897C03 GALLARZA",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Dell iDRAC by SNMP"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1780380618,
+          "clock_text": "2026-06-02 08:10:18 CEST",
+          "duration": "14m",
+          "eventid": "151521",
+          "name": "FreeBSD: /etc/passwd has been changed on pfSense-La-Plana",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "security"
+            },
+            {
+              "tag": "scope",
+              "value": "security"
+            },
+            {
+              "tag": "target",
+              "value": "freebsd"
+            }
+          ]
+        },
+        {
+          "clock": 1780380916,
+          "clock_text": "2026-06-02 08:15:16 CEST",
+          "duration": "9m",
+          "eventid": "151525",
+          "name": "FreeBSD: pfSense-La-Plana has just been restarted",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "os"
+            },
+            {
+              "tag": "scope",
+              "value": "notice"
+            },
+            {
+              "tag": "target",
+              "value": "freebsd"
+            }
+          ]
+        }
+      ],
+      "asset_type": "firewall",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "battery",
+        "cpu",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "runtime",
+        "service",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "snmp",
+        "traffic",
+        "wan",
+        "lan",
+        "vpn",
+        "ha",
+        "sessions",
+        "uptime",
+        "temperature",
+        "firmware",
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: snmp, traffic, wan, lan, vpn, ha, sessions, uptime",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Firewalls"
+      ],
+      "host": "pfSense-La-Plana",
+      "hostid": "10744",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.104.1",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "agent",
+        "zabbix_internal"
+      ],
+      "name": "pfSense-La-Plana",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "FreeBSD by Zabbix agent"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot find information for this network interface.",
+          "itemid": "57359",
+          "key": "net.if.in[enp6s18]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Interface enp6s18: Incoming network traffic",
+          "type": "Zabbix agent"
+        },
+        {
+          "error": "Cannot find information for this network interface.",
+          "itemid": "57360",
+          "key": "net.if.out[enp6s18]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Interface enp6s18: Outgoing network traffic",
+          "type": "Zabbix agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1780380549,
+          "clock_text": "2026-06-02 08:09:09 CEST",
+          "duration": "15m",
+          "eventid": "151519",
+          "name": "FreeBSD: /etc/passwd has been changed on pfSense-almeria",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "class",
+              "value": "os"
+            },
+            {
+              "tag": "component",
+              "value": "security"
+            },
+            {
+              "tag": "scope",
+              "value": "security"
+            },
+            {
+              "tag": "target",
+              "value": "freebsd"
+            }
+          ]
+        }
+      ],
+      "asset_type": "firewall",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "battery",
+        "cpu",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "runtime",
+        "service",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "snmp",
+        "traffic",
+        "wan",
+        "lan",
+        "vpn",
+        "ha",
+        "sessions",
+        "uptime",
+        "temperature",
+        "firmware",
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: snmp, traffic, wan, lan, vpn, ha, sessions, uptime",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Firewalls"
+      ],
+      "host": "pfSense-almeria",
+      "hostid": "10743",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.250",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "agent",
+        "zabbix_internal"
+      ],
+      "name": "pfSense-almeria",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "FreeBSD by Zabbix agent"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot find information for this network interface.",
+          "itemid": "57290",
+          "key": "net.if.in[enp6s18]",
+          "lastclock": 1780380410,
+          "lastclock_text": "2026-06-02 08:06:50 CEST",
+          "name": "Interface enp6s18: Incoming network traffic",
+          "type": "Zabbix agent"
+        },
+        {
+          "error": "Cannot find information for this network interface.",
+          "itemid": "57291",
+          "key": "net.if.out[enp6s18]",
+          "lastclock": 1780380411,
+          "lastclock_text": "2026-06-02 08:06:51 CEST",
+          "name": "Interface enp6s18: Outgoing network traffic",
+          "type": "Zabbix agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "firewall",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "battery",
+        "cpu",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "runtime",
+        "service",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "snmp",
+        "traffic",
+        "wan",
+        "lan",
+        "vpn",
+        "ha",
+        "sessions",
+        "uptime",
+        "temperature",
+        "firmware",
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: snmp, traffic, wan, lan, vpn, ha, sessions, uptime",
+      "criticality_inferred": "alta",
+      "groups": [
+        "Firewalls"
+      ],
+      "host": "pfSenseGallarza",
+      "hostid": "10742",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.200",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "agent",
+        "zabbix_internal"
+      ],
+      "name": "pfSenseGallarza",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "FreeBSD by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "proxmox",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "api",
+        "battery",
+        "cpu",
+        "errors",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "node",
+        "queue",
+        "runtime",
+        "service",
+        "smart",
+        "storage",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "PROXMOX"
+      ],
+      "host": "proxmox-gallarza",
+      "hostid": "10738",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.2",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "agent",
+        "api",
+        "zabbix_internal"
+      ],
+      "name": "proxmox-gallarza",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Linux by Zabbix agent"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "proxmox",
+      "can_automate": false,
+      "checks_existing": [
+        "agent",
+        "api",
+        "battery",
+        "cpu",
+        "errors",
+        "filesystem",
+        "input_output",
+        "interface",
+        "load",
+        "memory",
+        "node",
+        "queue",
+        "runtime",
+        "service",
+        "smart",
+        "temperature",
+        "vm_inventory",
+        "zabbix_internal"
+      ],
+      "checks_missing": [
+        "storage",
+        "backup"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: storage, backup",
+      "criticality_inferred": "alta",
+      "groups": [
+        "PROXMOX"
+      ],
+      "host": "proxmoxalmeria",
+      "hostid": "10739",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.230",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "agent",
+        "api",
+        "zabbix_internal"
+      ],
+      "name": "proxmoxalmeria",
+      "priority": "ALTO",
+      "requires_human_action": true,
+      "status": "enabled",
+      "templates": [
+        "Linux by Zabbix agent"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot read from file: read /sys/class/net/idrac/speed: invalid argument",
+          "itemid": "56395",
+          "key": "vfs.file.contents[\"/sys/class/net/idrac/speed\"]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Interface idrac: Speed",
+          "type": "Zabbix agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "BROTHER HL-L8360CDW series",
+      "hostid": "10735",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.243",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "BROTHER HL-L8360CDW series",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+          "itemid": "55479",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Printer error state",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "unknown",
+      "can_automate": true,
+      "checks_existing": [],
+      "checks_missing": [
+        "agent_or_snmp",
+        "availability",
+        "inventory"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: agent_or_snmp, availability, inventory",
+      "criticality_inferred": "baja",
+      "groups": [
+        "FICHADORES"
+      ],
+      "host": "FICHADOR ALMERIA",
+      "hostid": "10729",
+      "ip_dns": [
+        {
+          "available": "unknown",
+          "dns": "",
+          "ip": "192.168.102.217",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "agent"
+      ],
+      "name": "FICHADOR ALMERIA",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Template Module ICMP Ping"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "unknown",
+      "can_automate": true,
+      "checks_existing": [],
+      "checks_missing": [
+        "agent_or_snmp",
+        "availability",
+        "inventory"
+      ],
+      "coverage_recommendation": "Completar checks faltantes: agent_or_snmp, availability, inventory",
+      "criticality_inferred": "baja",
+      "groups": [
+        "FICHADORES"
+      ],
+      "host": "FICHADOR GALLARZA",
+      "hostid": "10718",
+      "ip_dns": [
+        {
+          "available": "unknown",
+          "dns": "",
+          "ip": "192.168.100.230",
+          "port": "10050",
+          "type": "agent"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "agent"
+      ],
+      "name": "FICHADOR GALLARZA",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Template Module ICMP Ping"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1768817148,
+          "clock_text": "2026-01-19 11:05:48 CET",
+          "duration": "133d 20h",
+          "eventid": "38322",
+          "name": "Toner 43 61 72 74 75 63 68 6F 20 61 6D 61 72 69 6C 6C 6F 20 48 50 20 34 31 35 41 20 28 57 32 30 33 32 41 29 00  is low on printer HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1773062746,
+          "clock_text": "2026-03-09 14:25:46 CET",
+          "duration": "84d 16h",
+          "eventid": "80387",
+          "name": "Toner 43 61 72 74 75 63 68 6F 20 63 69 61 6E 20 48 50 20 34 31 35 41 20 28 57 32 30 33 31 41 29 00  is low on printer HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+      "hostid": "10719",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.220",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+          "itemid": "54295",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Printer error state",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"double\" is not suitable for value type \"Numeric (unsigned)\". Value \"-2\"",
+          "itemid": "54346",
+          "key": "prtMarkerSuppliesCapacity[43 61 72 74 75 63 68 6F 20 63 69 61 6E 20 48 50 20 34 31 35 41 20 28 57 32 30 33 31 41 29 00 ]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Capacity of supplies 43 61 72 74 75 63 68 6F 20 63 69 61 6E 20 48 50 20 34 31 35 41 20 28 57 32 30 33 31 41 29 00",
+          "type": "Calculated"
+        },
+        {
+          "error": "Value of type \"double\" is not suitable for value type \"Numeric (unsigned)\". Value \"-2\"",
+          "itemid": "54348",
+          "key": "prtMarkerSuppliesCapacity[43 61 72 74 75 63 68 6F 20 61 6D 61 72 69 6C 6C 6F 20 48 50 20 34 31 35 41 20 28 57 32 30 33 32 41 29 00 ]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Capacity of supplies 43 61 72 74 75 63 68 6F 20 61 6D 61 72 69 6C 6C 6F 20 48 50 20 34 31 35 41 20 28 57 32 30 33 32 41 29 00",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767604625,
+          "clock_text": "2026-01-05 10:17:05 CET",
+          "duration": "147d 21h",
+          "eventid": "7546",
+          "name": "Toner Black Cartridge HP CF226X is low on printer HP LASERJET M402DN GALLARZA SERGIO",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP LASERJET M402DN GALLARZA SERGIO",
+      "hostid": "10737",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.100.169",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP LASERJET M402DN GALLARZA SERGIO",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 1])/last(//prtInputMaxCapacity[Tray 1])\".",
+          "itemid": "55606",
+          "key": "prtInputCapacity[Tray 1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Input Capacity Tray 1",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 2])/last(//prtInputMaxCapacity[Tray 2])\".",
+          "itemid": "55607",
+          "key": "prtInputCapacity[Tray 2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Input Capacity Tray 2",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtMarkerSuppliesLevel[Black Cartridge HP CF226X])/last(//prtMarkerSuppliesMaxCapacity[Black Cartridge HP CF226X])\".",
+          "itemid": "55625",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP CF226X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Capacity of supplies Black Cartridge HP CF226X",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767005460,
+          "clock_text": "2025-12-29 11:51:00 CET",
+          "duration": "154d 19h",
+          "eventid": "4188",
+          "name": "Cover duplexer door on printer HP LASERJET PRO 4002DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767005460,
+          "clock_text": "2025-12-29 11:51:00 CET",
+          "duration": "154d 19h",
+          "eventid": "4186",
+          "name": "Cover rear access door on printer HP LASERJET PRO 4002DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767005460,
+          "clock_text": "2025-12-29 11:51:00 CET",
+          "duration": "154d 19h",
+          "eventid": "4184",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO 4002DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP LASERJET PRO 4002DN GALLARZA ALFONSO",
+      "hostid": "10716",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.100.162",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP LASERJET PRO 4002DN GALLARZA ALFONSO",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 1])/last(//prtInputMaxCapacity[Tray 1])\".",
+          "itemid": "54211",
+          "key": "prtInputCapacity[Tray 1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Input Capacity Tray 1",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 2])/last(//prtInputMaxCapacity[Tray 2])\".",
+          "itemid": "54212",
+          "key": "prtInputCapacity[Tray 2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Input Capacity Tray 2",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtMarkerSuppliesLevel[Black Cartridge HP W1490X])/last(//prtMarkerSuppliesMaxCapacity[Black Cartridge HP W1490X])\".",
+          "itemid": "54238",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP W1490X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Capacity of supplies Black Cartridge HP W1490X",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1772781722,
+          "clock_text": "2026-03-06 08:22:02 CET",
+          "duration": "87d 23h",
+          "eventid": "79295",
+          "name": "Toner Black Cartridge HP W1490X is low on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010267,
+          "clock_text": "2025-12-29 13:11:07 CET",
+          "duration": "154d 18h",
+          "eventid": "4327",
+          "name": "Cover duplexer door on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010267,
+          "clock_text": "2025-12-29 13:11:07 CET",
+          "duration": "154d 18h",
+          "eventid": "4325",
+          "name": "Cover rear access door on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010267,
+          "clock_text": "2025-12-29 13:11:07 CET",
+          "duration": "154d 18h",
+          "eventid": "4323",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP LASERJET PRO 4002DN GALLARZA JULIAN JR",
+      "hostid": "10723",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.136",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP LASERJET PRO 4002DN GALLARZA JULIAN JR",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+          "itemid": "54651",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Printer error state",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "Value of type \"double\" is not suitable for value type \"Numeric (unsigned)\". Value \"-2\"",
+          "itemid": "54722",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP W1490X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Capacity of supplies Black Cartridge HP W1490X",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767000146,
+          "clock_text": "2025-12-29 10:22:26 CET",
+          "duration": "154d 21h",
+          "eventid": "4136",
+          "name": "Toner Black Cartridge HP CF259X is low on printer HP LASERJET PRO M404DN GALLARZA",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767000695,
+          "clock_text": "2025-12-29 10:31:35 CET",
+          "duration": "154d 20h",
+          "eventid": "4146",
+          "name": "Cover duplexer door on printer HP LASERJET PRO M404DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767000695,
+          "clock_text": "2025-12-29 10:31:35 CET",
+          "duration": "154d 20h",
+          "eventid": "4144",
+          "name": "Cover rear access door on printer HP LASERJET PRO M404DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767000695,
+          "clock_text": "2025-12-29 10:31:35 CET",
+          "duration": "154d 20h",
+          "eventid": "4142",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO M404DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP LASERJET PRO M404DN GALLARZA",
+      "hostid": "10714",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.100.221",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP LASERJET PRO M404DN GALLARZA",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 1])/last(//prtInputMaxCapacity[Tray 1])\".",
+          "itemid": "54127",
+          "key": "prtInputCapacity[Tray 1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Input Capacity Tray 1",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 2])/last(//prtInputMaxCapacity[Tray 2])\".",
+          "itemid": "54128",
+          "key": "prtInputCapacity[Tray 2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Input Capacity Tray 2",
+          "type": "Calculated"
+        },
+        {
+          "error": "Cannot evaluate function: not enough data at \"last(//prtMarkerSuppliesLevel[Black Cartridge HP CF259X])/last(//prtMarkerSuppliesMaxCapacity[Black Cartridge HP CF259X])\".",
+          "itemid": "54146",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP CF259X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Capacity of supplies Black Cartridge HP CF259X",
+          "type": "Calculated"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Resolver unsupported relevantes para recuperar confianza de alertas.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "ZEBRA ALMERIA",
+      "hostid": "10732",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.210",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Almeria",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "ZEBRA ALMERIA",
+      "priority": "MEDIO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": [
+        {
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \"00 00 \"",
+          "itemid": "55371",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Printer error state",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55374",
+          "key": "prtConsoleDisplayBufferText",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Device console display",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55375",
+          "key": "prtGeneralSerialNumber",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Printer serial number",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55376",
+          "key": "prtMarkerLifeCount",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Printer lifetime counter",
+          "type": "SNMP agent"
+        },
+        {
+          "error": "No Such Object available on this agent at this OID",
+          "itemid": "55377",
+          "key": "prtMarkerPowerOnCount",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "name": "Printer power on counter",
+          "type": "SNMP agent"
+        }
+      ]
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "BROTHER HL-L2370DN series",
+      "hostid": "10736",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.102.244",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "BROTHER HL-L2370DN series",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "BROTHER HL-L2375DW series",
+      "hostid": "10734",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.102.241",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "BROTHER HL-L2375DW series",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "BROTHER HL-L2445DW",
+      "hostid": "10733",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.102.221",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "BROTHER HL-L2445DW",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "CANON iR-ADV C3830",
+      "hostid": "10717",
+      "ip_dns": [
+        {
+          "available": "unavailable",
+          "dns": "",
+          "ip": "192.168.100.106",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "CANON iR-ADV C3830",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP COLOR LASERJET E45028 GALLARZA INTERNACIONAL",
+      "hostid": "10721",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.218",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP COLOR LASERJET E45028 GALLARZA INTERNACIONAL",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP COLOR LASERJET E45028 GALLARZA MICAELA",
+      "hostid": "10720",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.219",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP COLOR LASERJET E45028 GALLARZA MICAELA",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP COLOR LASERJET E45028 GALLARZA PRODUCCIONES",
+      "hostid": "10722",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.217",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP COLOR LASERJET E45028 GALLARZA PRODUCCIONES",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767010869,
+          "clock_text": "2025-12-29 13:21:09 CET",
+          "duration": "154d 18h",
+          "eventid": "4354",
+          "name": "Cover duplexer door on printer HP LASERJET PRO M404DN GALLARZA JORGE is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010869,
+          "clock_text": "2025-12-29 13:21:09 CET",
+          "duration": "154d 18h",
+          "eventid": "4352",
+          "name": "Cover rear access door on printer HP LASERJET PRO M404DN GALLARZA JORGE is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010869,
+          "clock_text": "2025-12-29 13:21:09 CET",
+          "duration": "154d 18h",
+          "eventid": "4350",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO M404DN GALLARZA JORGE is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP LASERJET PRO M404DN GALLARZA JORGE",
+      "hostid": "10725",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.156",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP LASERJET PRO M404DN GALLARZA JORGE",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1774353197,
+          "clock_text": "2026-03-24 12:53:17 CET",
+          "duration": "69d 18h",
+          "eventid": "90558",
+          "name": "Toner Black Cartridge HP CF259X is low on printer HP LASERJET PRO M404DN GALLARZA VICTOR",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010868,
+          "clock_text": "2025-12-29 13:21:08 CET",
+          "duration": "154d 18h",
+          "eventid": "4346",
+          "name": "Cover duplexer door on printer HP LASERJET PRO M404DN GALLARZA VICTOR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010868,
+          "clock_text": "2025-12-29 13:21:08 CET",
+          "duration": "154d 18h",
+          "eventid": "4344",
+          "name": "Cover rear access door on printer HP LASERJET PRO M404DN GALLARZA VICTOR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010868,
+          "clock_text": "2025-12-29 13:21:08 CET",
+          "duration": "154d 18h",
+          "eventid": "4342",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO M404DN GALLARZA VICTOR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "asset_type": "printer",
+      "can_automate": true,
+      "checks_existing": [
+        "error_state",
+        "errors",
+        "page_counter",
+        "snmp",
+        "supplies"
+      ],
+      "checks_missing": [],
+      "coverage_recommendation": "Mantener monitorizacion basica SNMP y revisar obsolescencia periodicamente.",
+      "criticality_inferred": "media",
+      "groups": [
+        "Impresoras"
+      ],
+      "host": "HP LASERJET PRO M404DN GALLARZA VICTOR",
+      "hostid": "10724",
+      "ip_dns": [
+        {
+          "available": "available",
+          "dns": "",
+          "ip": "192.168.100.118",
+          "port": "161",
+          "type": "snmp"
+        }
+      ],
+      "location": "Gallarza",
+      "monitoring_methods": [
+        "snmp"
+      ],
+      "name": "HP LASERJET PRO M404DN GALLARZA VICTOR",
+      "priority": "BAJO",
+      "requires_human_action": false,
+      "status": "enabled",
+      "templates": [
+        "Universal Printer"
+      ],
+      "unsupported_relevant": []
+    }
+  ],
+  "metadata": {
+    "api_endpoint": "http://127.0.0.1/api_jsonrpc.php",
+    "generated_at": "2026-06-02 08:25:06 CEST",
+    "generated_epoch": 1780381506,
+    "mode": "read-only",
+    "source_files": {
+      "coverage": "/opt/zabbix-codex/reports/zabbix-coverage-report.json",
+      "remediation": "/opt/zabbix-codex/reports/zabbix-remediation-plan.json",
+      "snmp_diagnostics": "/opt/zabbix-codex/diagnostics/snmp-known-devices.json",
+      "unsupported_blocks": "/opt/zabbix-codex/reports/unsupported-blocks-summary.json",
+      "zabbix_get_diagnostics": "/opt/zabbix-codex/diagnostics/zabbix-get-local.json"
+    },
+    "zabbix_version": "7.0.26"
+  },
+  "monitoring_gaps_summary": {
+    "hosts_by_asset_type": {
+      "backup_server": 3,
+      "firewall": 3,
+      "nas": 7,
+      "network": 4,
+      "printer": 16,
+      "proxmox": 3,
+      "server": 13,
+      "unknown": 2,
+      "ups": 2,
+      "zabbix_server": 1
+    },
+    "hosts_by_priority": {
+      "ALTO": 34,
+      "BAJO": 9,
+      "CRITICO": 2,
+      "MEDIO": 9
+    },
+    "hosts_total": 54,
+    "missing_checks_by_type": {
+      "agent": 5,
+      "agent_or_snmp": 2,
+      "availability": 2,
+      "backup": 25,
+      "cpu": 2,
+      "errors": 2,
+      "filesystem": 5,
+      "firmware": 5,
+      "ha": 3,
+      "interface": 2,
+      "inventory": 2,
+      "lan": 3,
+      "memory": 3,
+      "self_test": 2,
+      "service": 4,
+      "sessions": 3,
+      "smart": 1,
+      "snmp": 3,
+      "storage": 1,
+      "temperature": 3,
+      "traffic": 3,
+      "uptime": 3,
+      "vpn": 3,
+      "wan": 3
+    },
+    "stale_printers_total": 5,
+    "unsupported_blocks": {
+      "eaton_sai": 20,
+      "nas_qnap": 21,
+      "other": 9,
+      "printers_snmp": 20,
+      "zabbix_internal": 13
+    }
+  },
+  "summary": {
+    "active_problems_by_severity": {
+      "Average": 20,
+      "High": 3,
+      "Information": 16,
+      "Warning": 22
+    },
+    "agent_readiness": "partial",
+    "hosts_can_automate": 28,
+    "hosts_requiring_human_action": 36,
+    "hosts_total": 54,
+    "items_total": 13137,
+    "templates_total": 362,
+    "triggers_total": 5557,
+    "unsupported_enabled_total": 90
+  }
+}

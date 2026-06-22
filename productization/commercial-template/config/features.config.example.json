@@ -1,0 +1,18 @@
+{
+  "demo_mode": true,
+  "modules": {
+    "dashboard": true,
+    "incidents": true,
+    "communications": true,
+    "powerbi": true,
+    "voice": true,
+    "zabbix": true
+  },
+  "safety": {
+    "disable_real_email_send": true,
+    "disable_sharepoint_write": true,
+    "disable_zabbix_write": true,
+    "require_visual_confirmation_for_email": true,
+    "allow_voice_send": false
+  }
+}

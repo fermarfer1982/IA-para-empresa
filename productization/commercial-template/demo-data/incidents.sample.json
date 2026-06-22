@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1001,
+    "title": "Error en sincronizacion de pedidos",
+    "status": "Abierta",
+    "priority": "Alta",
+    "affected_system": "ERP Demo",
+    "creator_name": "Fernando Martinez",
+    "creator_email": "fernando.martinez@example.com",
+    "description": "Incidencia demo para mostrar el flujo de comunicacion al creador."
+  },
+  {
+    "id": 1002,
+    "title": "Latencia elevada en API interna",
+    "status": "En curso",
+    "priority": "Media",
+    "affected_system": "API Demo",
+    "creator_name": "Diana Lopez",
+    "creator_email": "diana.lopez@example.com",
+    "description": "Incidencia demo para explicar investigacion y seguimiento."
+  }
+]

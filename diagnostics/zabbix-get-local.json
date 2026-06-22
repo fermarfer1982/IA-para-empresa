@@ -1,0 +1,383 @@
+{
+  "api_errors": [],
+  "checks": [
+    {
+      "key": "agent.ping",
+      "label": "Agent ping",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "agent.ping",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 1,
+        "stdout_sample": "1",
+        "stdout_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      },
+      "zabbix_item": {
+        "error": "",
+        "itemid": "42237",
+        "key_": "agent.ping",
+        "lastclock": "1779307197",
+        "lastvalue": "1",
+        "name": "Zabbix agent ping",
+        "state": "0",
+        "status": "0",
+        "type": "0"
+      }
+    },
+    {
+      "key": "system.uname",
+      "label": "Kernel/OS",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "system.uname",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 114,
+        "stdout_sample": "Linux localhost.localdomain 5.14.0-611.11.1.el9_7.x86_64 #1 SMP PREEMPT_DYNAMIC Wed Dec 3 13:51:50 UTC 2025 x86_64",
+        "stdout_sha256": "1da13b593aa2a8f4b4d91130763c212be8f76bf6d577daf37823a5f0bb0c7130"
+      },
+      "zabbix_item": {
+        "error": "",
+        "itemid": "42239",
+        "key_": "system.uname",
+        "lastclock": "1779272039",
+        "lastvalue": "Linux localhost.localdomain 5.14.0-611.11.1.el9_7.x86_64 #1 SMP PREEMPT_DYNAMIC Wed Dec 3 13:51:50 UTC 2025 x86_64",
+        "name": "System description",
+        "state": "0",
+        "status": "0",
+        "type": "0"
+      }
+    },
+    {
+      "key": "vfs.fs.discovery",
+      "label": "Filesystem discovery",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "vfs.fs.discovery",
+          "-t",
+          "8"
+        ],
+        "json_count": 26,
+        "json_type": "list",
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 3129,
+        "stdout_sample": "[{\"{#FSNAME}\":\"/proc\",\"{#FSTYPE}\":\"proc\",\"{#FSOPTIONS}\":\"rw,nosuid,nodev,noexec,relatime\"},{\"{#FSNAME}\":\"/sys\",\"{#FSTYPE}\":\"sysfs\",\"{#FSOPTIONS}\":\"rw,seclabel,nosuid,nodev,noexec,relatime\"},{\"{#FSNAME}\":\"/dev\",\"{#FSTYPE}\":\"devtmpfs\",\"{#FSOPTIONS}\":\"rw,seclabel,nosuid,size=4096k,nr_inodes=977492,mode=755,inode64\"},{\"{#FSNAME}\":\"/sys/kernel/security\",\"{#FSTYPE}\":\"securityfs\",\"{#FSOPTIONS}\":\"rw,nosuid,nodev,noexec,relatime\"},{\"{#FSNAME}\":\"/dev/shm\",\"{#FSTYPE}\":\"tmpfs\",\"{#FSOPTIONS}\":\"rw,seclabel,nosuid,nodev,inode64\"},{\"{#FSNAME}\":\"/dev/pts\",\"{#FSTYPE}\":\"devpts\",\"{#FSOPTIONS}\":\"rw,seclabel,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000\"},{\"{#FSNAME}\":\"/run\",\"{#FSTYPE}\":\"tmpfs\",\"{#FSOPTIONS}\":\"rw,seclabel,nosuid,nodev,size=1573128k,nr_inodes=819200,mode=755,inode64\"},{\"{#FSNAME}\":\"/sys/fs/cgroup\",\"{#FSTYPE}\":\"cgroup2\",\"{#FSOPTIONS}\":\"rw,seclabel,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot\"},{\"{#FSNAME}\":\"/sys/fs/pstore\",\"{#FSTYPE}\":\"pstore\",\"{#FSOPTIONS}\":\"rw,seclabel,nosuid,nodev,noexec,relatime\"},{\"{#FSNAME}\":\"/sys/fs/bpf\",\"{#FSTYPE}\":\"bpf\",\"{#FSOPTIONS}\":\"rw,nosuid,nodev,noexec,relatime,mode=700\"},{\"{#FSNAME}\":\"/sys/kernel/config\",\"{#FSTYPE}\":\"configfs\",\"{#FSOPTIONS}\":\"rw,nosuid,nodev,noexec,relatime\"},{\"{#FSNAME}\":\"/\",\"{#FSTYPE}\":\"xfs\",\"{#FSOPTIONS}\":\"rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota\"},{\"{#FSNAME}\":\"/sys/fs/selinux\",\"{#FSTYP\n... <truncated 1729 chars>",
+        "stdout_sha256": "cae6c3cf59dc35eb7fdc26a0ed449282f818f08cdeb7dbcdd209cab64c67a5fe"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "net.if.discovery",
+      "label": "Network interface discovery",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "net.if.discovery",
+          "-t",
+          "8"
+        ],
+        "json_count": 2,
+        "json_type": "list",
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 44,
+        "stdout_sample": "[{\"{#IFNAME}\":\"lo\"},{\"{#IFNAME}\":\"enp6s18\"}]",
+        "stdout_sha256": "cfc565bb758de8af8dc748349df721e075212d8eddc3033f74cd49b9f428cc7c"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "system.sw.packages.get",
+      "label": "Installed packages inventory",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "system.sw.packages.get",
+          "-t",
+          "8"
+        ],
+        "ok": false,
+        "returncode": 1,
+        "stderr": "",
+        "stdout_length": 52,
+        "stdout_sample": "ZBX_NOTSUPPORTED: Cannot obtain package information.",
+        "stdout_sha256": "ab52f995f87aeadb17321f2bae20f601a5ed32bb7e7447aaa2e45b007b1f2c84"
+      },
+      "zabbix_item": {
+        "error": "Cannot obtain package information.",
+        "itemid": "42235",
+        "key_": "system.sw.packages.get",
+        "lastclock": "0",
+        "lastvalue": "0",
+        "name": "Number of installed packages",
+        "state": "1",
+        "status": "0",
+        "type": "0"
+      }
+    },
+    {
+      "key": "proc.num[zabbix_server]",
+      "label": "zabbix_server process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[zabbix_server]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 2,
+        "stdout_sample": "52",
+        "stdout_sha256": "41cfc0d1f2d127b04555b7246d84019b4d27710a3f3aff6e7764375b1e06e05d"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "proc.num[zabbix_agentd]",
+      "label": "zabbix_agentd process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[zabbix_agentd]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 2,
+        "stdout_sample": "13",
+        "stdout_sha256": "3fdba35f04dc8c462986c992bcf875546257113072a909c162f7e470e581e278"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "proc.num[zabbix_agent2]",
+      "label": "zabbix_agent2 process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[zabbix_agent2]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 1,
+        "stdout_sample": "0",
+        "stdout_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "proc.num[snmptrapd]",
+      "label": "snmptrapd process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[snmptrapd]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 1,
+        "stdout_sample": "0",
+        "stdout_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "proc.num[java]",
+      "label": "java process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[java]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 1,
+        "stdout_sample": "0",
+        "stdout_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "proc.num[nginx]",
+      "label": "nginx process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[nginx]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 1,
+        "stdout_sample": "3",
+        "stdout_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "proc.num[php-fpm]",
+      "label": "php-fpm process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[php-fpm]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 2,
+        "stdout_sample": "15",
+        "stdout_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      "zabbix_item": null
+    },
+    {
+      "key": "proc.num[mariadbd]",
+      "label": "mariadbd process count",
+      "result": {
+        "command": [
+          "zabbix_get",
+          "-s",
+          "127.0.0.1",
+          "-p",
+          "10050",
+          "-k",
+          "proc.num[mariadbd]",
+          "-t",
+          "8"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout_length": 1,
+        "stdout_sample": "1",
+        "stdout_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      },
+      "zabbix_item": null
+    }
+  ],
+  "host": {
+    "host": "Zabbix server",
+    "hostid": "10084",
+    "name": "Zabbix server",
+    "status": "enabled"
+  },
+  "metadata": {
+    "api_endpoint": "http://127.0.0.1/api_jsonrpc.php",
+    "generated_at": "2026-05-20 22:00:40 CEST",
+    "generated_epoch": 1779307240,
+    "mode": "read-only"
+  },
+  "summary": {
+    "checks_failed": 1,
+    "checks_ok": 12,
+    "checks_total": 13
+  },
+  "target": {
+    "interface": {
+      "available": "available",
+      "dns": "",
+      "error": "",
+      "interfaceid": "1",
+      "ip": "127.0.0.1",
+      "main": true,
+      "port": "10050",
+      "type": "agent",
+      "useip": true
+    },
+    "port": "10050",
+    "server": "127.0.0.1"
+  }
+}

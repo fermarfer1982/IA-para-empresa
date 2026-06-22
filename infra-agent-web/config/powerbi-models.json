@@ -1,0 +1,47 @@
+[
+  {
+    "key": "junta_direccion",
+    "displayName": "Junta Directiva / Dirección",
+    "area": "Dirección",
+    "workspaceId": "e4744a9c-7af8-49ce-8d79-03ed0d2dc34a",
+    "datasetId": "dfaf4b88-41e6-43e6-80e8-18998132af69",
+    "enabled": true,
+    "description": "Modelo semántico para seguimiento ejecutivo y dirección."
+  },
+  {
+    "key": "germinacion_control",
+    "displayName": "Germinación - Control de germinaciones",
+    "area": "Germinación",
+    "workspaceId": "0c3d30b8-32ad-412a-8cb5-b141fce9a589",
+    "datasetId": "584e00c5-bdc3-4c79-82cc-a86f7c16a1ca",
+    "enabled": true,
+    "description": "Control operativo del proceso de germinación."
+  },
+  {
+    "key": "germinacion_pildoras",
+    "displayName": "Germinación - Necesidades Producción Píldoras",
+    "area": "Germinación",
+    "workspaceId": "0c3d30b8-32ad-412a-8cb5-b141fce9a589",
+    "datasetId": "bec793d6-cdf9-4828-bc83-d2008f96b8d9",
+    "enabled": true,
+    "description": "Necesidades de producción y planificación de píldoras."
+  },
+  {
+    "key": "logistica_prevision_envasado",
+    "displayName": "Almacén - Previsión de envasado",
+    "area": "Logística",
+    "workspaceId": "86780779-33ce-4a71-b3e9-9961bc2fb86c",
+    "datasetId": "0b407282-947e-4a58-af13-d9646ee40763",
+    "enabled": true,
+    "description": "Previsión operativa de envasado y carga de almacén."
+  },
+  {
+    "key": "administracion_ventas",
+    "displayName": "General - Informe general de ventas",
+    "area": "Administración",
+    "workspaceId": "adacdb8e-9f87-4ff6-814c-ab2ab3e3cfcc",
+    "datasetId": "e1f27bfe-ebd2-4cb2-9e39-cd01d7441278",
+    "enabled": true,
+    "description": "Informe general de ventas para análisis administrativo."
+  }
+]

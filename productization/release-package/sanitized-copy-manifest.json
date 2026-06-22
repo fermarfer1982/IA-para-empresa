@@ -1,0 +1,45 @@
+{
+  "source": "infra-agent-web",
+  "default_output": "productization/dist/infra-agent-web-template",
+  "include": [
+    "components",
+    "config",
+    "deploy",
+    "docs",
+    "lib",
+    "pages",
+    "scripts",
+    "styles",
+    "next.config.js",
+    "package.json",
+    "package-lock.json",
+    "README.md",
+    ".env.example"
+  ],
+  "exclude": [
+    ".env.local",
+    ".next",
+    "node_modules",
+    "data/*",
+    "dev-server.log",
+    "*.log",
+    "coverage",
+    "tmp"
+  ],
+  "post_copy_additions": [
+    "productization/commercial-template",
+    "productization/portable-demo",
+    "Dockerfile.demo",
+    "docker-compose.demo.yml",
+    "config/powerbi-models.json demo placeholder",
+    "data/.gitignore only"
+  ],
+  "secret_patterns_to_check": [
+    "OPENAI_API_KEY",
+    "GRAPH_CLIENT_SECRET",
+    "POWERBI_CLIENT_SECRET",
+    "ZABBIX_TOKEN",
+    "Authorization: Bearer",
+    "client_secret"
+  ]
+}

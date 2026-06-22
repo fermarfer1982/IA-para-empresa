@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Infra Agent Demo</title>
+    <style>
+      :root {
+        --bg: #f4f1ea;
+        --ink: #1e2925;
+        --muted: #66736d;
+        --line: #d9d2c5;
+        --accent: #1f6f5b;
+        --warn: #b8791d;
+        --white: #fffdf8;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background: radial-gradient(circle at 20% 0%, #ffffff 0, var(--bg) 36%, #ece7dc 100%);
+      }
+      header {
+        padding: 28px 40px 18px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      h1 { margin: 0; font-size: 30px; letter-spacing: 0; }
+      main {
+        padding: 28px 40px 44px;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 24px;
+      }
+      nav, section, .panel {
+        background: rgba(255,253,248,.88);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      nav { padding: 14px; height: fit-content; }
+      button {
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        padding: 12px 14px;
+        margin: 4px 0;
+        background: transparent;
+        color: var(--ink);
+        text-align: left;
+        font: inherit;
+        cursor: pointer;
+      }
+      button.active, button:hover { background: #e8efe9; }
+      section { padding: 22px; min-height: 540px; }
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin: 18px 0;
+      }
+      .kpi { padding: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 8px; }
+      .kpi strong { display: block; font-size: 28px; margin-top: 8px; }
+      .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 14px; }
+      table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 8px; overflow: hidden; }
+      th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+      th { color: var(--muted); font-size: 13px; }
+      .pill { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #e8efe9; color: var(--accent); }
+      .banner { padding: 14px; border-radius: 8px; background: #fff4da; color: #6d4a12; margin: 14px 0; }
+      textarea, input { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px; font: inherit; background: var(--white); }
+      .actions { display: flex; gap: 10px; margin-top: 12px; }
+      .actions button { width: auto; background: var(--accent); color: white; }
+      .actions button.secondary { background: #efe8dc; color: var(--ink); }
+      @media (max-width: 900px) {
+        main { grid-template-columns: 1fr; padding: 18px; }
+        .kpis, .grid { grid-template-columns: 1fr; }
+        header { padding: 22px 18px; display: block; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Infra Agent Demo</h1>
+      <span>Demo offline sin conectores reales ni envio</span>
+    </header>
+    <main>
+      <nav>
+        <button class="active" data-view="dashboard">Dashboard</button>
+        <button data-view="incidents">Incidencias</button>
+        <button data-view="communications">Comunicaciones</button>
+        <button data-view="powerbi">Power BI</button>
+        <button data-view="connectors">Conectores</button>
+      </nav>
+      <section id="view"></section>
+    </main>
+    <script>
+      const views = {
+        dashboard: `
+          <h2>Estado operativo</h2>
+          <p>Vista ejecutiva para infraestructura, incidencias, comunicaciones y analitica.</p>
+          <div class="kpis">
+            <div class="kpi">Riesgos activos<strong>7</strong></div>
+            <div class="kpi">Incidencias abiertas<strong>18</strong></div>
+            <div class="kpi">Borradores pendientes<strong>3</strong></div>
+            <div class="kpi">Consultas BI hoy<strong>12</strong></div>
+          </div>
+          <div class="grid">
+            <div class="panel" style="padding:16px"><h3>Prioridades</h3><p><span class="pill">Alta</span> Revisar copia de seguridad demo.</p><p><span class="pill">Media</span> Seguimiento de incidencia ERP.</p></div>
+            <div class="panel" style="padding:16px"><h3>Voz</h3><p>"Prepara email al creador"</p><p>"Consulta ventas por mes en 2025"</p></div>
+          </div>`,
+        incidents: `
+          <h2>Incidencias demo</h2>
+          <table><thead><tr><th>ID</th><th>Titulo</th><th>Estado</th><th>Creador</th></tr></thead><tbody>
+          <tr><td>1001</td><td>Error en sincronizacion de pedidos</td><td>Abierta</td><td>Fernando Martinez</td></tr>
+          <tr><td>1002</td><td>Latencia elevada en API interna</td><td>En curso</td><td>Diana Lopez</td></tr>
+          </tbody></table>
+          <div class="banner">En cliente real, esta zona se conecta a SharePoint, Jira, GLPI, ServiceNow u otra fuente.</div>`,
+        communications: `
+          <h2>Comunicaciones</h2>
+          <div class="banner">No se ha enviado nada. La demo bloquea envio real.</div>
+          <label>Destinatario</label><input value="fernando.martinez@example.com" />
+          <label>Asunto</label><input value="Seguimiento de incidencia 1001" />
+          <label>Cuerpo</label><textarea rows="8">Hola Fernando,\n\nTe contacto para revisar la incidencia demo 1001. Hemos detectado el problema y dejamos este borrador abierto para revision.\n\nSaludos.</textarea>
+          <div class="actions"><button>Guardar cambios</button><button class="secondary">Marcar revisado</button><button class="secondary">Preparar envio demo</button></div>`,
+        powerbi: `
+          <h2>Power BI semantico</h2>
+          <p>Preguntas naturales sobre ventas, clientes, productos, paises y representantes.</p>
+          <input value="las dos variedades mas vendidas en 2024" />
+          <div class="actions"><button>Consultar</button><button class="secondary">Ver DAX</button></div>
+          <table style="margin-top:16px"><thead><tr><th>Producto</th><th>Ventas</th></tr></thead><tbody><tr><td>CERLER</td><td>2.323.581,08</td></tr><tr><td>CORERA</td><td>1.880.202,30</td></tr></tbody></table>`,
+        connectors: `
+          <h2>Conectores adaptables</h2>
+          <table><thead><tr><th>Area</th><th>Opciones</th></tr></thead><tbody>
+          <tr><td>Monitorizacion</td><td>Zabbix, Prometheus, PRTG, Datadog, API propia, demo</td></tr>
+          <tr><td>Incidencias</td><td>SharePoint, Jira, GLPI, ServiceNow, CSV, demo</td></tr>
+          <tr><td>BI</td><td>Power BI, SQL, ERP, Excel, API, demo</td></tr>
+          <tr><td>Comunicaciones</td><td>Microsoft Graph, SMTP, borradores locales, demo</td></tr>
+          </tbody></table>`
+      };
+      const view = document.getElementById('view');
+      function render(name) { view.innerHTML = views[name]; }
+      document.querySelectorAll('button[data-view]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('button[data-view]').forEach(item => item.classList.remove('active'));
+          btn.classList.add('active');
+          render(btn.dataset.view);
+        });
+      });
+      render('dashboard');
+    </script>
+  </body>
+</html>

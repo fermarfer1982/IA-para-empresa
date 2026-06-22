@@ -1,0 +1,43 @@
+{
+  "tenant_id": "demo-company",
+  "company_name": "Demo Company",
+  "product_name": "Infra Agent",
+  "branding": {
+    "logo_path": "/brand/logo.svg",
+    "primary_color": "#1f6f5b",
+    "accent_color": "#d59b2d"
+  },
+  "features": {
+    "zabbix": true,
+    "incidents": true,
+    "communications": true,
+    "powerbi": true,
+    "voice": true,
+    "demo_mode": true
+  },
+  "security": {
+    "allowed_email_domains": [
+      "example.com"
+    ],
+    "disable_real_email_send": true,
+    "disable_sharepoint_write": true,
+    "disable_zabbix_write": true
+  },
+  "powerbi": {
+    "workspace_id_env": "POWERBI_WORKSPACE_ID",
+    "dataset_id_env": "POWERBI_DATASET_ID",
+    "model_key": "demo_model"
+  },
+  "sharepoint": {
+    "site_url_env": "SHAREPOINT_SITE_URL",
+    "incidents_list_name": "IncidenciasTI"
+  },
+  "communications": {
+    "default_sender_env": "GRAPH_FROM_USER",
+    "templates_profile": "default"
+  },
+  "voice": {
+    "assistant_name": "Infra Agent",
+    "allow_direct_send": false
+  }
+}

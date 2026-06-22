@@ -1,0 +1,216 @@
+version: "0.1.0"
+name: zabbix-codex-infra-agent
+description: Read-only tools for an intelligent infrastructure agent using Zabbix as source of truth.
+read_only_guarantee:
+  zabbix_api_methods_allowed:
+    - apiinfo.version
+    - event.get
+    - history.get
+    - host.get
+    - hostgroup.get
+    - item.get
+    - problem.get
+    - template.get
+    - trend.get
+    - trigger.get
+  local_sources:
+    - /opt/zabbix-codex/agent_knowledge/*.json
+    - /opt/zabbix-codex/reports/*.json
+    - /opt/zabbix-codex/reports/*.md
+    - /opt/zabbix-codex/proxmox/proxmox-real-inventory.json
+    - /opt/zabbix-codex/backups/pbs-real-inventory.json
+  forbidden_actions:
+    - Zabbix create/update/delete methods
+    - history.push
+    - problem.close or problem.acknowledge
+    - event.acknowledge
+    - script.execute
+    - maintenance create/update/delete methods
+    - user.update
+    - Proxmox/PBS modification calls
+    - SharePoint writes
+    - database writes
+tools:
+  - name: get_infrastructure_overview
+    description: Consulta read-only el resumen global, tipos de hosts, readiness y estado vivo basico de Zabbix.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - Zabbix API: apiinfo.version, host.get, problem.get
+      - agent_knowledge/global_infrastructure_map.json
+      - agent_knowledge/monitoring_gaps.json
+    input_schema:
+      type: object
+      additionalProperties: false
+  - name: get_active_problems
+    description: Lista en modo read-only los problemas activos de Zabbix con trigger, host, item y antiguedad.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - Zabbix API: problem.get, trigger.get
+    input_schema:
+      type: object
+      properties:
+        host_contains:
+          type: string
+        severity:
+          type: string
+          enum: [Disaster, High, Average, Warning, Information, "5", "4", "3", "2", "1", "0"]
+        limit:
+          type: integer
+          default: 100
+          minimum: 1
+          maximum: 500
+      additionalProperties: false
+  - name: get_critical_risks
+    description: Consulta riesgos operativos prioritarios sin cerrar, reconocer ni silenciar alertas.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - Zabbix API: problem.get, trigger.get
+      - agent_knowledge/global_infrastructure_map.json
+      - backups/pbs-real-inventory.json
+      - reports/proxmox-backup-gap-analysis.json
+    input_schema:
+      type: object
+      additionalProperties: false
+  - name: get_backup_status
+    description: Obtiene en modo read-only estado PBS/backups, datastores, entidades, gaps y metricas tecnicas en Zabbix.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - backups/pbs-real-inventory.json
+      - reports/proxmox-backup-gap-analysis.json
+      - agent_knowledge/proxmox_backup_knowledge.json
+      - Zabbix API: host.get, item.get
+    input_schema:
+      type: object
+      additionalProperties: false
+  - name: get_proxmox_status
+    description: Consulta nodos Proxmox, VMs, storage, jobs y metricas ya disponibles sin modificar Proxmox ni Zabbix.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - proxmox/proxmox-real-inventory.json
+      - reports/proxmox-backup-gap-analysis.json
+      - Zabbix API: host.get, item.get
+    input_schema:
+      type: object
+      additionalProperties: false
+  - name: get_nas_status
+    description: Consulta hosts NAS/QNAP/Synology, cobertura SMART/RAID/storage, unsupported y problemas activos.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - agent_knowledge/global_infrastructure_map.json
+      - reports/unsupported-nas-qnap.md
+      - Zabbix API: problem.get, trigger.get
+    input_schema:
+      type: object
+      properties:
+        host_contains:
+          type: string
+        report_chars:
+          type: integer
+      additionalProperties: false
+  - name: get_ups_status
+    description: Consulta SAIs/UPS, cobertura SNMP, unsupported y problemas activos.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - agent_knowledge/global_infrastructure_map.json
+      - reports/unsupported-eaton-sai.md
+      - Zabbix API: problem.get, trigger.get
+    input_schema:
+      type: object
+      properties:
+        host_contains:
+          type: string
+        report_chars:
+          type: integer
+      additionalProperties: false
+  - name: get_printer_status
+    description: Consulta impresoras, datos antiguos, gaps SNMP y problemas activos.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - agent_knowledge/global_infrastructure_map.json
+      - reports/unsupported-printers-snmp.md
+      - Zabbix API: problem.get, trigger.get
+    input_schema:
+      type: object
+      properties:
+        host_contains:
+          type: string
+        report_chars:
+          type: integer
+      additionalProperties: false
+  - name: get_zabbix_internal_health
+    description: Obtiene salud interna de Zabbix, unsupported internos, resumen API y contexto de problemas.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - Zabbix API: apiinfo.version, host.get, problem.get
+      - agent_knowledge/global_infrastructure_map.json
+      - reports/unsupported-zabbix-internal.md
+    input_schema:
+      type: object
+      properties:
+        report_chars:
+          type: integer
+      additionalProperties: false
+  - name: get_monitoring_gaps
+    description: Consulta huecos globales de monitorizacion, readiness y roadmap.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - agent_knowledge/monitoring_gaps.json
+      - reports/global-monitoring-readiness.md
+      - reports/global-monitoring-roadmap.md
+      - Zabbix API: apiinfo.version, host.get, problem.get
+    input_schema:
+      type: object
+      properties:
+        report_chars:
+          type: integer
+      additionalProperties: false
+  - name: get_global_infrastructure_map
+    description: Obtiene el mapa global estructurado, opcionalmente con hosts o filtro por tipo.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - agent_knowledge/global_infrastructure_map.json
+      - Zabbix API: apiinfo.version, host.get, problem.get
+    input_schema:
+      type: object
+      properties:
+        host_type:
+          type: string
+        include_hosts:
+          type: boolean
+          default: false
+      additionalProperties: false
+  - name: generate_daily_report
+    description: Genera informe diario Markdown solo en memoria, sin escribir en disco ni modificar sistemas.
+    annotations:
+      readOnlyHint: true
+    data_sources:
+      - Zabbix API: apiinfo.version, host.get, problem.get, trigger.get, item.get
+      - agent_knowledge/*.json
+      - reports relevant JSON/Markdown
+    input_schema:
+      type: object
+      additionalProperties: false
+not_published_placeholders:
+  - name: sharepoint_search_assets
+    status: not_implemented
+    reason: SharePoint integration is intentionally deferred and must be read-only.
+  - name: sharepoint_get_asset
+    status: not_implemented
+    reason: SharePoint integration is intentionally deferred and must be read-only.
+  - name: apps_get_status
+    status: not_implemented
+    reason: Application integrations require a service catalog and read-only credentials.
+  - name: apps_get_database_health
+    status: not_implemented
+    reason: Database integrations require read-only credentials and approved queries.

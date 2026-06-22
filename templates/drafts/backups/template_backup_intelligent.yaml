@@ -1,0 +1,82 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: a42b30e3d8b747a99e46387416cb0a01
+      name: Templates/Intelligent Drafts
+  templates:
+    - uuid: 18b25f3ee76d4ec0ae21d9a889c9bd01
+      template: Template Backup Intelligent Draft
+      name: Template Backup Intelligent Draft
+      description: |
+        Draft only. Do not import or assign automatically.
+        Purpose: normalize backup evidence for critical hosts and central backup jobs.
+      groups:
+        - name: Templates/Intelligent Drafts
+      macros:
+        - macro: '{$BACKUP.MAXAGE.WARNING}'
+          value: '93600'
+          description: Warning age threshold in seconds.
+        - macro: '{$BACKUP.MAXAGE.HIGH}'
+          value: '172800'
+          description: High age threshold in seconds.
+        - macro: '{$BACKUP.REPOSITORY.PUSED.AVERAGE}'
+          value: '80'
+        - macro: '{$BACKUP.REPOSITORY.PUSED.HIGH}'
+          value: '90'
+      items:
+        - uuid: 5c53d5eabfa64d8b93764dfc465bd101
+          name: Last successful backup timestamp
+          type: TRAPper
+          key: backup.last_success.timestamp
+          value_type: UNSIGNED
+          units: unixtime
+        - uuid: e0ef61267e9e4f979b57848b90bf7302
+          name: Last successful backup age
+          type: CALCULATED
+          key: backup.last_success.age
+          value_type: UNSIGNED
+          units: s
+          params: 'now()-last(//backup.last_success.timestamp)'
+        - uuid: fbba6f1901c34c61a749377db02b1803
+          name: Backup failed in last 24h
+          type: TRAPper
+          key: backup.failed.last24h
+          value_type: UNSIGNED
+        - uuid: d7686f1856c5423e9b9a204582cf4404
+          name: Critical host has no backup evidence
+          type: TRAPper
+          key: backup.critical_host.no_evidence
+          value_type: UNSIGNED
+        - uuid: 560a7a8f1b3b4d3da0adf2f67f7ae605
+          name: Backup repository used percent
+          type: TRAPper
+          key: backup.repository.pused
+          value_type: FLOAT
+          units: '%'
+        - uuid: 61276e9f6fa0408897bb12b57ebd0806
+          name: Backup verification failed
+          type: TRAPper
+          key: backup.verify.failed
+          value_type: UNSIGNED
+        - uuid: 5bdff304ddda41ce85786845fc6f6a07
+          name: Backup jobs not executed
+          type: TRAPper
+          key: backup.jobs.not_executed
+          value_type: UNSIGNED
+      triggers:
+        - uuid: 2e580547fc8449df9c6281bbd1a07601
+          expression: 'last(/Template Backup Intelligent Draft/backup.failed.last24h)>0'
+          name: Backup failed in the last 24h
+          priority: HIGH
+        - uuid: 7ff33a951c564c3ebd5e010eaf6cc802
+          expression: 'last(/Template Backup Intelligent Draft/backup.last_success.age)>{$BACKUP.MAXAGE.HIGH}'
+          name: Backup is too old
+          priority: HIGH
+        - uuid: 5463528f7ee1412e816f1b334d70fb03
+          expression: 'last(/Template Backup Intelligent Draft/backup.repository.pused)>{$BACKUP.REPOSITORY.PUSED.HIGH}'
+          name: Backup repository usage is critical
+          priority: HIGH
+        - uuid: e97d011e3a28439d973a5d0a8a010504
+          expression: 'last(/Template Backup Intelligent Draft/backup.verify.failed)>0'
+          name: Backup verification failed
+          priority: HIGH

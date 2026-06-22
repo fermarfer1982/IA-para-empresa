@@ -1,0 +1,27 @@
+{
+  "name": "infra-agent-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:local": "next dev -H 127.0.0.1 -p 3010",
+    "dev:lan": "next dev -H 0.0.0.0 -p 3010",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1 -p 3010",
+    "start:lan": "next start -H 0.0.0.0 -p 3010",
+    "test:security": "node test/security/permissions.test.js && node test/security/roleMapping.test.js && node test/security/mockLdap.test.js"
+  },
+  "dependencies": {
+    "@openai/chatkit-react": "1.5.1",
+    "ldapts": "^6.0.0",
+    "next": "13.5.11",
+    "next-auth": "^4.24.14",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "sax": "^1.4.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jiti": "^1.21.7"
+  }
+}

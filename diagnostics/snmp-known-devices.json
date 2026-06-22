@@ -1,0 +1,4407 @@
+{
+  "api_errors": [],
+  "diagnostics": [
+    {
+      "active_problems": [
+        {
+          "clock": 1779305450,
+          "clock_text": "2026-05-20 21:30:50 CEST",
+          "eventid": "141561",
+          "name": "High CPU temperature (>65 for 15m)",
+          "operational_data": "Current temperature: 65",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "System Hardware"
+            }
+          ]
+        },
+        {
+          "clock": 1779304551,
+          "clock_text": "2026-05-20 21:15:51 CEST",
+          "eventid": "141551",
+          "name": "Disk latency is high (>30 for 15m)",
+          "operational_data": "Current latency: 343",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Disks"
+            }
+          ]
+        },
+        {
+          "clock": 1769610786,
+          "clock_text": "2026-01-28 15:33:06 CET",
+          "eventid": "44006",
+          "name": "Reaching threshold for pool 1 (<15%)",
+          "operational_data": "Current %: 0",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Pools"
+            }
+          ]
+        },
+        {
+          "clock": 1766747085,
+          "clock_text": "2025-12-26 12:04:45 CET",
+          "eventid": "2599",
+          "name": "Faulty SMART state of HDD 5",
+          "operational_data": "Current state: Abnormal (2)",
+          "severity": "High",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Disks"
+            }
+          ]
+        }
+      ],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10689",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=15>"
+      },
+      "conclusion": "snmp_responde_pero_hay_oids_no_soportadas_template_mib",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51397",
+              "key_": "disk.discovery",
+              "name": "Disk Discovery"
+            },
+            "error": "No Such Instance currently exists at this OID",
+            "is_discovered": true,
+            "itemid": "51464",
+            "key": "hdd.state[5]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "HDD 5: State",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.5",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.5",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.234:161",
+              "1.3.6.1.4.1.24681.1.3.11.1.4.5"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Instance currently exists at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51397",
+              "key_": "disk.discovery",
+              "name": "Disk Discovery"
+            },
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+            "is_discovered": true,
+            "itemid": "51474",
+            "key": "hdd.temp[5]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "HDD 5: Temperature",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6.5",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6.5",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.234:161",
+              "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6.5"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "-1"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51402",
+              "key_": "pool.discovery",
+              "name": "Pool Discovery"
+            },
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+            "is_discovered": true,
+            "itemid": "51487",
+            "key": "pool.status[1]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Pool 1: Status",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.5.1",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.5.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.234:161",
+              "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.5.1"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "-1"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51404",
+              "key_": "volume.discovery",
+              "name": "Volume Discovery"
+            },
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+            "is_discovered": true,
+            "itemid": "51496",
+            "key": "volume.status[1]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Volume 1: Status",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.1",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.234:161",
+              "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.1"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "\"Ready\""
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "NAS"
+        ],
+        "host": "NasAlmeria",
+        "hostid": "10689",
+        "name": "NasAlmeria",
+        "status": "enabled",
+        "templates": [
+          "SNMP QNAP"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.234:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Linux TS-X31XU 5.2.8.3359"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.234:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.55062"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.234:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "22:9:36:35.86"
+        }
+      },
+      "recommendation": "SNMP base responde; preparar ajuste de template/override por modelo, MIB o firmware para las OIDs que no existen.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "39",
+        "ip": "192.168.102.234",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10689",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=15>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$CPU_TEMPERATURE_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$DISK_LATENCY_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$HDD_TEMPERATURE_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$POOL_SIZE_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        }
+      ],
+      "snmp_target": "192.168.102.234:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {
+            "itemid": "51397",
+            "key_": "disk.discovery",
+            "name": "Disk Discovery"
+          },
+          "error": "No Such Instance currently exists at this OID",
+          "is_discovered": true,
+          "itemid": "51464",
+          "key": "hdd.state[5]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "HDD 5: State",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.5",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.5",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51397",
+            "key_": "disk.discovery",
+            "name": "Disk Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "is_discovered": true,
+          "itemid": "51474",
+          "key": "hdd.temp[5]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "HDD 5: Temperature",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6.5",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6.5",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51402",
+            "key_": "pool.discovery",
+            "name": "Pool Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "is_discovered": true,
+          "itemid": "51487",
+          "key": "pool.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Pool 1: Status",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.5.1",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.2.2.1.5.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51404",
+            "key_": "volume.discovery",
+            "name": "Volume Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "is_discovered": true,
+          "itemid": "51496",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Volume 1: Status",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.1",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.1",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.234:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 8,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = lo\n.1.3.6.1.2.1.2.2.1.2.2 = eth2\n.1.3.6.1.2.1.2.2.1.2.3 = eth1\n.1.3.6.1.2.1.2.2.1.2.4 = eth0\n.1.3.6.1.2.1.2.2.1.2.5 = bond0\n.1.3.6.1.2.1.2.2.1.2.6 = bond1\n.1.3.6.1.2.1.2.2.1.2.7 = bond2\n.1.3.6.1.2.1.2.2.1.2.8 = dummy0"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.234:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 8,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = up\n.1.3.6.1.2.1.2.2.1.8.3 = down\n.1.3.6.1.2.1.2.2.1.8.4 = down\n.1.3.6.1.2.1.2.2.1.8.5 = down\n.1.3.6.1.2.1.2.2.1.8.6 = down\n.1.3.6.1.2.1.2.2.1.8.7 = down\n.1.3.6.1.2.1.2.2.1.8.8 = down"
+        }
+      }
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10693",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=15>"
+      },
+      "conclusion": "snmp_responde_pero_hay_oids_no_soportadas_template_mib",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51211",
+              "key_": "fan.discovery",
+              "name": "FAN Discovery"
+            },
+            "error": "No Such Instance currently exists at this OID",
+            "is_discovered": true,
+            "itemid": "51272",
+            "key": "fan.name[3]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "FAN 3: Name",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.3.15.1.2.3",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.3.15.1.2.3",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.242:161",
+              "1.3.6.1.4.1.24681.1.3.15.1.2.3"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Instance currently exists at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51210",
+              "key_": "disk.discovery",
+              "name": "Disk Discovery"
+            },
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+            "is_discovered": true,
+            "itemid": "51316",
+            "key": "hdd.state[7]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "HDD 7: State",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.7",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.7",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.242:161",
+              "1.3.6.1.4.1.24681.1.3.11.1.4.7"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "-5"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51210",
+              "key_": "disk.discovery",
+              "name": "Disk Discovery"
+            },
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+            "is_discovered": true,
+            "itemid": "51317",
+            "key": "hdd.state[8]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "HDD 8: State",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.8",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.8",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.242:161",
+              "1.3.6.1.4.1.24681.1.3.11.1.4.8"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "-5"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {
+              "itemid": "51210",
+              "key_": "disk.discovery",
+              "name": "Disk Discovery"
+            },
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+            "is_discovered": true,
+            "itemid": "56614",
+            "key": "hdd.status[9]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "HDD 9: SMART Status",
+            "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.5.9",
+            "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.5.9",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.242:161",
+              "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.5.9"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "-1"
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "NAS"
+        ],
+        "host": "NasGenomica",
+        "hostid": "10693",
+        "name": "NasGenomica",
+        "status": "enabled",
+        "templates": [
+          "SNMP QNAP"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.242:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Linux TS-X32U 5.2.3.3006"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.242:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.55062"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.242:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "280:6:15:29.38"
+        }
+      },
+      "recommendation": "SNMP base responde; preparar ajuste de template/override por modelo, MIB o firmware para las OIDs que no existen.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "40",
+        "ip": "192.168.102.242",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10693",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=15>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$CPU_TEMPERATURE_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$DISK_LATENCY_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$HDD_TEMPERATURE_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10692",
+          "macro": "{$POOL_SIZE_ALARM}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        }
+      ],
+      "snmp_target": "192.168.102.242:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {
+            "itemid": "51211",
+            "key_": "fan.discovery",
+            "name": "FAN Discovery"
+          },
+          "error": "No Such Instance currently exists at this OID",
+          "is_discovered": true,
+          "itemid": "51272",
+          "key": "fan.name[3]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "FAN 3: Name",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.3.15.1.2.3",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.3.15.1.2.3",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51210",
+            "key_": "disk.discovery",
+            "name": "Disk Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "is_discovered": true,
+          "itemid": "51316",
+          "key": "hdd.state[7]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "HDD 7: State",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.7",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.7",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51210",
+            "key_": "disk.discovery",
+            "name": "Disk Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "is_discovered": true,
+          "itemid": "51317",
+          "key": "hdd.state[8]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "HDD 8: State",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.8",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.8",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51210",
+            "key_": "disk.discovery",
+            "name": "Disk Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "is_discovered": true,
+          "itemid": "56614",
+          "key": "hdd.status[9]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "HDD 9: SMART Status",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.5.9",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.5.9",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51210",
+            "key_": "disk.discovery",
+            "name": "Disk Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-5\"",
+          "is_discovered": true,
+          "itemid": "56613",
+          "key": "hdd.state[9]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "HDD 9: State",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.9",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.3.11.1.4.9",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51210",
+            "key_": "disk.discovery",
+            "name": "Disk Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"-1\"",
+          "is_discovered": true,
+          "itemid": "56615",
+          "key": "hdd.temp[9]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "HDD 9: Temperature",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6.9",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.1.5.2.1.6.9",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51217",
+            "key_": "volume.discovery",
+            "name": "Volume Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "is_discovered": true,
+          "itemid": "51260",
+          "key": "volume.status[1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Volume 1: Status",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.1",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "51217",
+            "key_": "volume.discovery",
+            "name": "Volume Discovery"
+          },
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (unsigned)\". Value \"Ready\"",
+          "is_discovered": true,
+          "itemid": "51261",
+          "key": "volume.status[2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Volume 2: Status",
+          "normalized_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.2",
+          "snmp_oid": "1.3.6.1.4.1.24681.1.4.1.1.1.2.3.2.1.5.2",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.242:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 10,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = lo\n.1.3.6.1.2.1.2.2.1.2.2 = eth3\n.1.3.6.1.2.1.2.2.1.2.3 = eth2\n.1.3.6.1.2.1.2.2.1.2.4 = eth0\n.1.3.6.1.2.1.2.2.1.2.5 = eth1\n.1.3.6.1.2.1.2.2.1.2.6 = bond0\n.1.3.6.1.2.1.2.2.1.2.7 = bond1\n.1.3.6.1.2.1.2.2.1.2.8 = bond2\n.1.3.6.1.2.1.2.2.1.2.9 = bond3\n.1.3.6.1.2.1.2.2.1.2.10 = dummy0"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.242:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 10,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = up\n.1.3.6.1.2.1.2.2.1.8.3 = up\n.1.3.6.1.2.1.2.2.1.8.4 = down\n.1.3.6.1.2.1.2.2.1.8.5 = down\n.1.3.6.1.2.1.2.2.1.8.6 = up\n.1.3.6.1.2.1.2.2.1.8.7 = down\n.1.3.6.1.2.1.2.2.1.8.8 = down\n.1.3.6.1.2.1.2.2.1.8.9 = down\n.1.3.6.1.2.1.2.2.1.8.10 = down"
+        }
+      }
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10728",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=15>"
+      },
+      "conclusion": "snmp_responde_pero_hay_oids_no_soportadas_template_mib",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Instance currently exists at this OID",
+            "is_discovered": false,
+            "itemid": "55245",
+            "key": "UPS-ACNormal-Voltage",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-ACNormal-Voltage",
+            "normalized_oid": "1.3.6.1.2.1.33.1.5.3.1.2.1",
+            "snmp_oid": ".1.3.6.1.2.1.33.1.5.3.1.2.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.235:161",
+              "1.3.6.1.2.1.33.1.5.3.1.2.1"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Instance currently exists at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55247",
+            "key": "UPS-BatteryChargerFault",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-BatteryChargerFault",
+            "normalized_oid": "1.3.6.1.4.1.705.1.5.15.0",
+            "snmp_oid": ".1.3.6.1.4.1.705.1.5.15.0",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.235:161",
+              "1.3.6.1.4.1.705.1.5.15.0"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55248",
+            "key": "UPS-BatteryFaultBattery",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-BatteryFaultBattery",
+            "normalized_oid": "1.3.6.1.4.1.705.1.5.9.0",
+            "snmp_oid": ".1.3.6.1.4.1.705.1.5.9.0",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.235:161",
+              "1.3.6.1.4.1.705.1.5.9.0"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55251",
+            "key": "UPS-Humidity",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-Humidity",
+            "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.6.1",
+            "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.6.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.235:161",
+              "1.3.6.1.4.1.705.1.8.7.1.6.1"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "SAI"
+        ],
+        "host": "EATON 5PX 2200 SAI ALMERIA",
+        "hostid": "10728",
+        "name": "EATON 5PX 2200 SAI ALMERIA",
+        "status": "enabled",
+        "templates": [
+          "EATON Mistral"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.235:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "SAI-ALMERIA"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.235:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.534.1"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.235:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "1:4:52:09.49"
+        }
+      },
+      "recommendation": "SNMP base responde; preparar ajuste de template/override por modelo, MIB o firmware para las OIDs que no existen.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "72",
+        "ip": "192.168.102.235",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10728",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=15>"
+        }
+      ],
+      "snmp_target": "192.168.102.235:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {},
+          "error": "No Such Instance currently exists at this OID",
+          "is_discovered": false,
+          "itemid": "55245",
+          "key": "UPS-ACNormal-Voltage",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-ACNormal-Voltage",
+          "normalized_oid": "1.3.6.1.2.1.33.1.5.3.1.2.1",
+          "snmp_oid": ".1.3.6.1.2.1.33.1.5.3.1.2.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55247",
+          "key": "UPS-BatteryChargerFault",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-BatteryChargerFault",
+          "normalized_oid": "1.3.6.1.4.1.705.1.5.15.0",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.5.15.0",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55248",
+          "key": "UPS-BatteryFaultBattery",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-BatteryFaultBattery",
+          "normalized_oid": "1.3.6.1.4.1.705.1.5.9.0",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.5.9.0",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55251",
+          "key": "UPS-Humidity",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Humidity",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.6.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.6.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55252",
+          "key": "UPS-Humidity-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Humidity-High",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.8.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.8.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55253",
+          "key": "UPS-Humidity-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Humidity-Low",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.7.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.7.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55255",
+          "key": "UPS-OutputPowerSource",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-OutputPowerSource",
+          "normalized_oid": "1.3.6.1.4.1.705.1.7.3.0",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.7.3.0",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55256",
+          "key": "UPS-Temperature-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Temperature-High",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.5.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.5.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55257",
+          "key": "UPS-Temperature-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Temperature-Low",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.4.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.4.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Instance currently exists at this OID",
+          "is_discovered": false,
+          "itemid": "55258",
+          "key": "UPS-TemperatureLevel",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-TemperatureLevel",
+          "normalized_oid": "1.3.6.1.4.1.534.1.6.1.0",
+          "snmp_oid": ".1.3.6.1.4.1.534.1.6.1.0",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.235:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = lo\n.1.3.6.1.2.1.2.2.1.2.2 = can0\n.1.3.6.1.2.1.2.2.1.2.3 = eth0\n.1.3.6.1.2.1.2.2.1.2.4 = usb0"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.235:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = down\n.1.3.6.1.2.1.2.2.1.8.3 = up\n.1.3.6.1.2.1.2.2.1.8.4 = down"
+        }
+      }
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10711",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=22>"
+      },
+      "conclusion": "snmp_responde_pero_hay_oids_no_soportadas_template_mib",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Instance currently exists at this OID",
+            "is_discovered": false,
+            "itemid": "54041",
+            "key": "UPS-ACNormal-Voltage",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-ACNormal-Voltage",
+            "normalized_oid": "1.3.6.1.2.1.33.1.5.3.1.2.1",
+            "snmp_oid": ".1.3.6.1.2.1.33.1.5.3.1.2.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.24:161",
+              "1.3.6.1.2.1.33.1.5.3.1.2.1"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Instance currently exists at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "54043",
+            "key": "UPS-BatteryChargerFault",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-BatteryChargerFault",
+            "normalized_oid": "1.3.6.1.4.1.705.1.5.15.0",
+            "snmp_oid": ".1.3.6.1.4.1.705.1.5.15.0",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.24:161",
+              "1.3.6.1.4.1.705.1.5.15.0"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "54044",
+            "key": "UPS-BatteryFaultBattery",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-BatteryFaultBattery",
+            "normalized_oid": "1.3.6.1.4.1.705.1.5.9.0",
+            "snmp_oid": ".1.3.6.1.4.1.705.1.5.9.0",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.24:161",
+              "1.3.6.1.4.1.705.1.5.9.0"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "54047",
+            "key": "UPS-Humidity",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "UPS-Humidity",
+            "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.6.1",
+            "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.6.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.24:161",
+              "1.3.6.1.4.1.705.1.8.7.1.6.1"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "SAI"
+        ],
+        "host": "EATON 5PX 2200 SAI GALLARZA",
+        "hostid": "10711",
+        "name": "EATON 5PX 2200 ( SAI GALLARZA )",
+        "status": "enabled",
+        "templates": [
+          "EATON Mistral"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.24:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "SAI-CPD1"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.24:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.534.1"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.24:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "212:10:33:24.27"
+        }
+      },
+      "recommendation": "SNMP base responde; preparar ajuste de template/override por modelo, MIB o firmware para las OIDs que no existen.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "57",
+        "ip": "192.168.100.24",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10711",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=22>"
+        }
+      ],
+      "snmp_target": "192.168.100.24:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {},
+          "error": "No Such Instance currently exists at this OID",
+          "is_discovered": false,
+          "itemid": "54041",
+          "key": "UPS-ACNormal-Voltage",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-ACNormal-Voltage",
+          "normalized_oid": "1.3.6.1.2.1.33.1.5.3.1.2.1",
+          "snmp_oid": ".1.3.6.1.2.1.33.1.5.3.1.2.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54043",
+          "key": "UPS-BatteryChargerFault",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-BatteryChargerFault",
+          "normalized_oid": "1.3.6.1.4.1.705.1.5.15.0",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.5.15.0",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54044",
+          "key": "UPS-BatteryFaultBattery",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-BatteryFaultBattery",
+          "normalized_oid": "1.3.6.1.4.1.705.1.5.9.0",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.5.9.0",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54047",
+          "key": "UPS-Humidity",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Humidity",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.6.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.6.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54048",
+          "key": "UPS-Humidity-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Humidity-High",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.8.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.8.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54049",
+          "key": "UPS-Humidity-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Humidity-Low",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.7.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.7.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54051",
+          "key": "UPS-OutputPowerSource",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-OutputPowerSource",
+          "normalized_oid": "1.3.6.1.4.1.705.1.7.3.0",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.7.3.0",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54052",
+          "key": "UPS-Temperature-High",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Temperature-High",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.5.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.5.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "54053",
+          "key": "UPS-Temperature-Low",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-Temperature-Low",
+          "normalized_oid": "1.3.6.1.4.1.705.1.8.7.1.4.1",
+          "snmp_oid": ".1.3.6.1.4.1.705.1.8.7.1.4.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Instance currently exists at this OID",
+          "is_discovered": false,
+          "itemid": "54054",
+          "key": "UPS-TemperatureLevel",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "UPS-TemperatureLevel",
+          "normalized_oid": "1.3.6.1.4.1.534.1.6.1.0",
+          "snmp_oid": ".1.3.6.1.4.1.534.1.6.1.0",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.24:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = lo\n.1.3.6.1.2.1.2.2.1.2.2 = can0\n.1.3.6.1.2.1.2.2.1.2.3 = eth0\n.1.3.6.1.2.1.2.2.1.2.4 = usb0"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.24:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = down\n.1.3.6.1.2.1.2.2.1.8.3 = up\n.1.3.6.1.2.1.2.2.1.8.4 = down"
+        }
+      }
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10730",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=15>"
+      },
+      "conclusion": "snmp_responde_pero_hay_oids_no_soportadas_template_mib",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "cannot get SNMP result: No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55271",
+            "key": "system.cpu.util[hpSwitchCpuStat.0]",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "CPU utilization",
+            "normalized_oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.6.1.0",
+            "snmp_oid": "get[1.3.6.1.4.1.11.2.14.11.5.1.9.6.1.0]",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.21:161",
+              "1.3.6.1.4.1.11.2.14.11.5.1.9.6.1.0"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "cannot get SNMP result: No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55273",
+            "key": "system.hw.firmware",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "Firmware version",
+            "normalized_oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.3.0",
+            "snmp_oid": "get[1.3.6.1.4.1.11.2.14.11.5.1.1.3.0]",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.21:161",
+              "1.3.6.1.4.1.11.2.14.11.5.1.1.3.0"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "SWITCHES"
+        ],
+        "host": "HP V1810-48G GALLARZA",
+        "hostid": "10730",
+        "name": "HP V1810-48G GALLARZA",
+        "status": "enabled",
+        "templates": [
+          "HP Enterprise Switch by SNMP"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.21:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "HP V1810-48G, PK.1.38, eCos-2.0, CFE-3.8"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.21:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.11.2.3.7.11.134"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.21:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "175:17:18:23.00"
+        }
+      },
+      "recommendation": "SNMP base responde; preparar ajuste de template/override por modelo, MIB o firmware para las OIDs que no existen.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "74",
+        "ip": "192.168.100.21",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10730",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=15>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$CPU.UTIL.CRIT}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$FAN_CRIT_STATUS:\"bad\"}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=1>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$FAN_WARN_STATUS:\"warning\"}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=1>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$ICMP_LOSS_WARN}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$ICMP_RESPONSE_TIME_WARN}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=4>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$IF.ERRORS.WARN}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=1>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$IF.UTIL.MAX}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$IFCONTROL}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=1>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$MEMORY.UTIL.MAX}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFADMINSTATUS.MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=3>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFADMINSTATUS.NOT_MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=3>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFALIAS.MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFALIAS.NOT_MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=16>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFDESCR.MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFDESCR.NOT_MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=16>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFNAME.MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=4>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFNAME.NOT_MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=128>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFOPERSTATUS.MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=4>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFOPERSTATUS.NOT_MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=3>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFTYPE.MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$NET.IF.IFTYPE.NOT_MATCHES}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=16>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$PSU_CRIT_STATUS:\"bad\"}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=1>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$PSU_WARN_STATUS:\"warning\"}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=1>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$SNMP.TIMEOUT}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$TEMP_CRIT_LOW}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=1>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$TEMP_CRIT}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        },
+        {
+          "hostid": "10250",
+          "macro": "{$TEMP_WARN}",
+          "secret_like": false,
+          "source": "template",
+          "type": "0",
+          "value": "<masked,length=2>"
+        }
+      ],
+      "snmp_target": "192.168.100.21:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {},
+          "error": "cannot get SNMP result: No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55271",
+          "key": "system.cpu.util[hpSwitchCpuStat.0]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "CPU utilization",
+          "normalized_oid": "1.3.6.1.4.1.11.2.14.11.5.1.9.6.1.0",
+          "snmp_oid": "get[1.3.6.1.4.1.11.2.14.11.5.1.9.6.1.0]",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "cannot get SNMP result: No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55273",
+          "key": "system.hw.firmware",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "Firmware version",
+          "normalized_oid": "1.3.6.1.4.1.11.2.14.11.5.1.1.3.0",
+          "snmp_oid": "get[1.3.6.1.4.1.11.2.14.11.5.1.1.3.0]",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.21:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 55,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = Port: 1 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.2 = Port: 2 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.3 = Port: 3 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.4 = Port: 4 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.5 = Port: 5 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.6 = Port: 6 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.7 = Port: 7 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.8 = Port: 8 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.9 = Port: 9 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.10 = Port: 10 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.11 = Port: 11 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.12 = Port: 12 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.13 = Port: 13 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.14 = Port: 14 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.15 = Port: 15 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.16 = Port: 16 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.17 = Port: 17 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.18 = Port: 18 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.19 = Port: 19 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.20 = Port: 20 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.21 = Port: 21 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.22 = Port: 22 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.23 = Port: 23 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.24 = Port: 24 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.25 = Port: 25 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.26 = Port: 26 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.27 = Port: 27 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.28 = Port: 28 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.29 = Port: 29 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.30 = Port: 30 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.31 = Port: 31 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.32 = Port: 32 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.33 = Port: 33 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.34 = Port: 34 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.35 = Port: 35 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.36 = Port: 36 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.37 = Port: 37 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.38 = Port: 38 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.39 = Port: 39 Gigabit - Level\n.1.3.6.1.2.1.2.2.1.2.40 = Port: 40 Gigabit - Level\n... <truncated 15 lines>"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.21:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 55,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = up\n.1.3.6.1.2.1.2.2.1.8.3 = down\n.1.3.6.1.2.1.2.2.1.8.4 = down\n.1.3.6.1.2.1.2.2.1.8.5 = down\n.1.3.6.1.2.1.2.2.1.8.6 = up\n.1.3.6.1.2.1.2.2.1.8.7 = up\n.1.3.6.1.2.1.2.2.1.8.8 = up\n.1.3.6.1.2.1.2.2.1.8.9 = down\n.1.3.6.1.2.1.2.2.1.8.10 = down\n.1.3.6.1.2.1.2.2.1.8.11 = down\n.1.3.6.1.2.1.2.2.1.8.12 = down\n.1.3.6.1.2.1.2.2.1.8.13 = up\n.1.3.6.1.2.1.2.2.1.8.14 = up\n.1.3.6.1.2.1.2.2.1.8.15 = down\n.1.3.6.1.2.1.2.2.1.8.16 = down\n.1.3.6.1.2.1.2.2.1.8.17 = up\n.1.3.6.1.2.1.2.2.1.8.18 = down\n.1.3.6.1.2.1.2.2.1.8.19 = up\n.1.3.6.1.2.1.2.2.1.8.20 = up\n.1.3.6.1.2.1.2.2.1.8.21 = up\n.1.3.6.1.2.1.2.2.1.8.22 = up\n.1.3.6.1.2.1.2.2.1.8.23 = up\n.1.3.6.1.2.1.2.2.1.8.24 = up\n.1.3.6.1.2.1.2.2.1.8.25 = up\n.1.3.6.1.2.1.2.2.1.8.26 = up\n.1.3.6.1.2.1.2.2.1.8.27 = up\n.1.3.6.1.2.1.2.2.1.8.28 = up\n.1.3.6.1.2.1.2.2.1.8.29 = up\n.1.3.6.1.2.1.2.2.1.8.30 = down\n.1.3.6.1.2.1.2.2.1.8.31 = up\n.1.3.6.1.2.1.2.2.1.8.32 = down\n.1.3.6.1.2.1.2.2.1.8.33 = up\n.1.3.6.1.2.1.2.2.1.8.34 = down\n.1.3.6.1.2.1.2.2.1.8.35 = up\n.1.3.6.1.2.1.2.2.1.8.36 = up\n.1.3.6.1.2.1.2.2.1.8.37 = up\n.1.3.6.1.2.1.2.2.1.8.38 = up\n.1.3.6.1.2.1.2.2.1.8.39 = up\n.1.3.6.1.2.1.2.2.1.8.40 = up\n... <truncated 15 lines>"
+        }
+      }
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767604625,
+          "clock_text": "2026-01-05 10:17:05 CET",
+          "eventid": "7546",
+          "name": "Toner Black Cartridge HP CF226X is low on printer HP LASERJET M402DN GALLARZA SERGIO",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10737",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "sin_respuesta_snmp_timeout_red_acl_equipo",
+      "failed_oid_probes": [],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "HP LASERJET M402DN GALLARZA SERGIO",
+        "hostid": "10737",
+        "name": "HP LASERJET M402DN GALLARZA SERGIO",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.169:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": false,
+          "returncode": 1,
+          "stderr": "Timeout: No Response from 192.168.100.169:161.",
+          "stdout": ""
+        }
+      },
+      "recommendation": "Verificar conectividad, ACL/firewall SNMP, estado del equipo y comunidad SNMP antes de tocar templates.",
+      "snmp_interface": {
+        "available": "unavailable",
+        "dns": "",
+        "error": "Timeout while connecting to \"192.168.100.169:161\".",
+        "interfaceid": "81",
+        "ip": "192.168.100.169",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10737",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.100.169:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {
+            "itemid": "55580",
+            "key_": "prtMarkerSuppliesDescription",
+            "name": "Supplies"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtMarkerSuppliesLevel[Black Cartridge HP CF226X])/last(//prtMarkerSuppliesMaxCapacity[Black Cartridge HP CF226X])\".",
+          "is_discovered": true,
+          "itemid": "55625",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP CF226X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Capacity of supplies Black Cartridge HP CF226X",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "55579",
+            "key_": "prtInputDescription",
+            "name": "Input"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 1])/last(//prtInputMaxCapacity[Tray 1])\".",
+          "is_discovered": true,
+          "itemid": "55606",
+          "key": "prtInputCapacity[Tray 1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Input Capacity Tray 1",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "55579",
+            "key_": "prtInputDescription",
+            "name": "Input"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 2])/last(//prtInputMaxCapacity[Tray 2])\".",
+          "is_discovered": true,
+          "itemid": "55607",
+          "key": "prtInputCapacity[Tray 2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Input Capacity Tray 2",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        }
+      ],
+      "walks": {}
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767000695,
+          "clock_text": "2025-12-29 10:31:35 CET",
+          "eventid": "4146",
+          "name": "Cover duplexer door on printer HP LASERJET PRO M404DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767000695,
+          "clock_text": "2025-12-29 10:31:35 CET",
+          "eventid": "4144",
+          "name": "Cover rear access door on printer HP LASERJET PRO M404DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767000695,
+          "clock_text": "2025-12-29 10:31:35 CET",
+          "eventid": "4142",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO M404DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767000146,
+          "clock_text": "2025-12-29 10:22:26 CET",
+          "eventid": "4136",
+          "name": "Toner Black Cartridge HP CF259X is low on printer HP LASERJET PRO M404DN GALLARZA",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10714",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "sin_respuesta_snmp_timeout_red_acl_equipo",
+      "failed_oid_probes": [],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "HP LASERJET PRO M404DN GALLARZA",
+        "hostid": "10714",
+        "name": "HP LASERJET PRO M404DN GALLARZA",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.221:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": false,
+          "returncode": 1,
+          "stderr": "Timeout: No Response from 192.168.100.221:161.",
+          "stdout": ""
+        }
+      },
+      "recommendation": "Verificar conectividad, ACL/firewall SNMP, estado del equipo y comunidad SNMP antes de tocar templates.",
+      "snmp_interface": {
+        "available": "unavailable",
+        "dns": "",
+        "error": "Timeout while connecting to \"192.168.100.221:161\".",
+        "interfaceid": "58",
+        "ip": "192.168.100.221",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10714",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.100.221:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {
+            "itemid": "54101",
+            "key_": "prtMarkerSuppliesDescription",
+            "name": "Supplies"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtMarkerSuppliesLevel[Black Cartridge HP CF259X])/last(//prtMarkerSuppliesMaxCapacity[Black Cartridge HP CF259X])\".",
+          "is_discovered": true,
+          "itemid": "54146",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP CF259X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Capacity of supplies Black Cartridge HP CF259X",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "54100",
+            "key_": "prtInputDescription",
+            "name": "Input"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 1])/last(//prtInputMaxCapacity[Tray 1])\".",
+          "is_discovered": true,
+          "itemid": "54127",
+          "key": "prtInputCapacity[Tray 1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Input Capacity Tray 1",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "54100",
+            "key_": "prtInputDescription",
+            "name": "Input"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 2])/last(//prtInputMaxCapacity[Tray 2])\".",
+          "is_discovered": true,
+          "itemid": "54128",
+          "key": "prtInputCapacity[Tray 2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Input Capacity Tray 2",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        }
+      ],
+      "walks": {}
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1767005460,
+          "clock_text": "2025-12-29 11:51:00 CET",
+          "eventid": "4188",
+          "name": "Cover duplexer door on printer HP LASERJET PRO 4002DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767005460,
+          "clock_text": "2025-12-29 11:51:00 CET",
+          "eventid": "4186",
+          "name": "Cover rear access door on printer HP LASERJET PRO 4002DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767005460,
+          "clock_text": "2025-12-29 11:51:00 CET",
+          "eventid": "4184",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO 4002DN GALLARZA is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10716",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "sin_respuesta_snmp_timeout_red_acl_equipo",
+      "failed_oid_probes": [],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "HP LASERJET PRO 4002DN GALLARZA ALFONSO",
+        "hostid": "10716",
+        "name": "HP LASERJET PRO 4002DN GALLARZA ALFONSO",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.162:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": false,
+          "returncode": 1,
+          "stderr": "Timeout: No Response from 192.168.100.162:161.",
+          "stdout": ""
+        }
+      },
+      "recommendation": "Verificar conectividad, ACL/firewall SNMP, estado del equipo y comunidad SNMP antes de tocar templates.",
+      "snmp_interface": {
+        "available": "unavailable",
+        "dns": "",
+        "error": "Timeout while connecting to \"192.168.100.162:161\".",
+        "interfaceid": "60",
+        "ip": "192.168.100.162",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10716",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.100.162:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {
+            "itemid": "54185",
+            "key_": "prtMarkerSuppliesDescription",
+            "name": "Supplies"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtMarkerSuppliesLevel[Black Cartridge HP W1490X])/last(//prtMarkerSuppliesMaxCapacity[Black Cartridge HP W1490X])\".",
+          "is_discovered": true,
+          "itemid": "54238",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP W1490X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Capacity of supplies Black Cartridge HP W1490X",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "54184",
+            "key_": "prtInputDescription",
+            "name": "Input"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 1])/last(//prtInputMaxCapacity[Tray 1])\".",
+          "is_discovered": true,
+          "itemid": "54211",
+          "key": "prtInputCapacity[Tray 1]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Input Capacity Tray 1",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "54184",
+            "key_": "prtInputDescription",
+            "name": "Input"
+          },
+          "error": "Cannot evaluate function: not enough data at \"last(//prtInputCurrentLevel[Tray 2])/last(//prtInputMaxCapacity[Tray 2])\".",
+          "is_discovered": true,
+          "itemid": "54212",
+          "key": "prtInputCapacity[Tray 2]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Input Capacity Tray 2",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        }
+      ],
+      "walks": {}
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10733",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "sin_respuesta_snmp_timeout_red_acl_equipo",
+      "failed_oid_probes": [],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "BROTHER HL-L2445DW",
+        "hostid": "10733",
+        "name": "BROTHER HL-L2445DW",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.221:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": false,
+          "returncode": 1,
+          "stderr": "Timeout: No Response from 192.168.102.221:161.",
+          "stdout": ""
+        }
+      },
+      "recommendation": "Verificar conectividad, ACL/firewall SNMP, estado del equipo y comunidad SNMP antes de tocar templates.",
+      "snmp_interface": {
+        "available": "unavailable",
+        "dns": "",
+        "error": "Timeout while connecting to \"192.168.102.221:161\".",
+        "interfaceid": "77",
+        "ip": "192.168.102.221",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10733",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.102.221:161",
+      "unsupported_items": [],
+      "walks": {}
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10717",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "sin_respuesta_snmp_timeout_red_acl_equipo",
+      "failed_oid_probes": [],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "CANON iR-ADV C3830",
+        "hostid": "10717",
+        "name": "CANON iR-ADV C3830",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.106:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": false,
+          "returncode": 1,
+          "stderr": "Timeout: No Response from 192.168.100.106:161.",
+          "stdout": ""
+        }
+      },
+      "recommendation": "Verificar conectividad, ACL/firewall SNMP, estado del equipo y comunidad SNMP antes de tocar templates.",
+      "snmp_interface": {
+        "available": "unavailable",
+        "dns": "",
+        "error": "Timeout while connecting to \"192.168.100.106:161\".",
+        "interfaceid": "61",
+        "ip": "192.168.100.106",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10717",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.100.106:161",
+      "unsupported_items": [],
+      "walks": {}
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10735",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "snmp_responde_checks_basicos_ok",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+            "is_discovered": false,
+            "itemid": "55479",
+            "key": "hrPrinterDetectedErrorState",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Printer error state",
+            "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+            "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.243:161",
+              "1.3.6.1.2.1.25.3.5.1.2.1"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "\" \""
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "BROTHER HL-L8360CDW series",
+        "hostid": "10735",
+        "name": "BROTHER HL-L8360CDW series",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.243:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Brother NC-9200h, Firmware Ver.X  ,MID 84E-855"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.243:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.2435.2.3.9.1"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.243:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "84:18:16:05.64"
+        }
+      },
+      "recommendation": "SNMP base operativo; comparar gaps restantes contra templates y politica de cobertura.",
+      "snmp_interface": {
+        "available": "unavailable",
+        "dns": "",
+        "error": "Timeout while connecting to \"192.168.102.243:161\".",
+        "interfaceid": "79",
+        "ip": "192.168.102.243",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10735",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.102.243:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {},
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+          "is_discovered": false,
+          "itemid": "55479",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Printer error state",
+          "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+          "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.243:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = NC-9200h\n.1.3.6.1.2.1.2.2.1.2.2 = NC-8700w\n.1.3.6.1.2.1.2.2.1.2.3 = NC-8700w\n.1.3.6.1.2.1.2.2.1.2.4 = SoftwareLoopBack"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.243:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = down\n.1.3.6.1.2.1.2.2.1.8.3 = down\n.1.3.6.1.2.1.2.2.1.8.4 = up"
+        }
+      }
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1773062746,
+          "clock_text": "2026-03-09 14:25:46 CET",
+          "eventid": "80387",
+          "name": "Toner 43 61 72 74 75 63 68 6F 20 63 69 61 6E 20 48 50 20 34 31 35 41 20 28 57 32 30 33 31 41 29 00  is low on printer HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1768817148,
+          "clock_text": "2026-01-19 11:05:48 CET",
+          "eventid": "38322",
+          "name": "Toner 43 61 72 74 75 63 68 6F 20 61 6D 61 72 69 6C 6C 6F 20 48 50 20 34 31 35 41 20 28 57 32 30 33 32 41 29 00  is low on printer HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10719",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "snmp_responde_checks_basicos_ok",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+            "is_discovered": false,
+            "itemid": "54295",
+            "key": "hrPrinterDetectedErrorState",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Printer error state",
+            "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+            "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.220:161",
+              "1.3.6.1.2.1.25.3.5.1.2.1"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "\" \""
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+        "hostid": "10719",
+        "name": "HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.220:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "HP ETHERNET MULTI-ENVIRONMENT,ROM none,JETDIRECT,JD149,EEPROM JOL25060606,CIDATE 05/13/2023"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.220:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.11.2.3.9.1"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.220:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "39:13:28:31.77"
+        }
+      },
+      "recommendation": "SNMP base operativo; comparar gaps restantes contra templates y politica de cobertura.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "63",
+        "ip": "192.168.100.220",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10719",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.100.220:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {
+            "itemid": "54304",
+            "key_": "prtMarkerSuppliesDescription",
+            "name": "Supplies"
+          },
+          "error": "Value of type \"double\" is not suitable for value type \"Numeric (unsigned)\". Value \"-2\"",
+          "is_discovered": true,
+          "itemid": "54348",
+          "key": "prtMarkerSuppliesCapacity[43 61 72 74 75 63 68 6F 20 61 6D 61 72 69 6C 6C 6F 20 48 50 20 34 31 35 41 20 28 57 32 30 33 32 41 29 00 ]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Capacity of supplies 43 61 72 74 75 63 68 6F 20 61 6D 61 72 69 6C 6C 6F 20 48 50 20 34 31 35 41 20 28 57 32 30 33 32 41 29 00",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {
+            "itemid": "54304",
+            "key_": "prtMarkerSuppliesDescription",
+            "name": "Supplies"
+          },
+          "error": "Value of type \"double\" is not suitable for value type \"Numeric (unsigned)\". Value \"-2\"",
+          "is_discovered": true,
+          "itemid": "54346",
+          "key": "prtMarkerSuppliesCapacity[43 61 72 74 75 63 68 6F 20 63 69 61 6E 20 48 50 20 34 31 35 41 20 28 57 32 30 33 31 41 29 00 ]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Capacity of supplies 43 61 72 74 75 63 68 6F 20 63 69 61 6E 20 48 50 20 34 31 35 41 20 28 57 32 30 33 31 41 29 00",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {},
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+          "is_discovered": false,
+          "itemid": "54295",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Printer error state",
+          "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+          "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.220:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 7,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = lo\n.1.3.6.1.2.1.2.2.1.2.2 = jdi0\n.1.3.6.1.2.1.2.2.1.2.3 = ip_vti0\n.1.3.6.1.2.1.2.2.1.2.4 = ip6_vti0\n.1.3.6.1.2.1.2.2.1.2.5 = sit0\n.1.3.6.1.2.1.2.2.1.2.6 = ip6tnl0\n.1.3.6.1.2.1.2.2.1.2.7 = lxcbr0"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.220:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 7,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = up\n.1.3.6.1.2.1.2.2.1.8.3 = down\n.1.3.6.1.2.1.2.2.1.8.4 = down\n.1.3.6.1.2.1.2.2.1.8.5 = down\n.1.3.6.1.2.1.2.2.1.8.6 = down\n.1.3.6.1.2.1.2.2.1.8.7 = up"
+        }
+      }
+    },
+    {
+      "active_problems": [
+        {
+          "clock": 1772781722,
+          "clock_text": "2026-03-06 08:22:02 CET",
+          "eventid": "79295",
+          "name": "Toner Black Cartridge HP W1490X is low on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR",
+          "operational_data": "",
+          "severity": "Warning",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Supplies"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010267,
+          "clock_text": "2025-12-29 13:11:07 CET",
+          "eventid": "4327",
+          "name": "Cover duplexer door on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010267,
+          "clock_text": "2025-12-29 13:11:07 CET",
+          "eventid": "4325",
+          "name": "Cover rear access door on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        },
+        {
+          "clock": 1767010267,
+          "clock_text": "2025-12-29 13:11:07 CET",
+          "eventid": "4323",
+          "name": "Cover ink supply cover on printer HP LASERJET PRO 4002DN GALLARZA JULIAN JR is not closed",
+          "operational_data": "",
+          "severity": "Information",
+          "tags": [
+            {
+              "tag": "Application",
+              "value": "Printer Cover"
+            },
+            {
+              "tag": "class",
+              "value": "printer"
+            },
+            {
+              "tag": "target",
+              "value": "universal"
+            }
+          ]
+        }
+      ],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10723",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "snmp_responde_checks_basicos_ok",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+            "is_discovered": false,
+            "itemid": "54651",
+            "key": "hrPrinterDetectedErrorState",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Printer error state",
+            "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+            "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.100.136:161",
+              "1.3.6.1.2.1.25.3.5.1.2.1"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "\" \""
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "HP LASERJET PRO 4002DN GALLARZA JULIAN JR",
+        "hostid": "10723",
+        "name": "HP LASERJET PRO 4002DN GALLARZA JULIAN JR",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.136:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "HP ETHERNET MULTI-ENVIRONMENT"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.136:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.11.2.3.9.1"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.100.136:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "0:9:34:13.31"
+        }
+      },
+      "recommendation": "SNMP base operativo; comparar gaps restantes contra templates y politica de cobertura.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "67",
+        "ip": "192.168.100.136",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10723",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.100.136:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {
+            "itemid": "54660",
+            "key_": "prtMarkerSuppliesDescription",
+            "name": "Supplies"
+          },
+          "error": "Value of type \"double\" is not suitable for value type \"Numeric (unsigned)\". Value \"-2\"",
+          "is_discovered": true,
+          "itemid": "54722",
+          "key": "prtMarkerSuppliesCapacity[Black Cartridge HP W1490X]",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Capacity of supplies Black Cartridge HP W1490X",
+          "normalized_oid": "",
+          "snmp_oid": "",
+          "type": "Calculated"
+        },
+        {
+          "discovery_rule": {},
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \" \"",
+          "is_discovered": false,
+          "itemid": "54651",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Printer error state",
+          "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+          "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.136:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = lo\n.1.3.6.1.2.1.2.2.1.2.2 = eth0\n.1.3.6.1.2.1.2.2.1.2.3 = wlan0\n.1.3.6.1.2.1.2.2.1.2.4 = wfd0"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.100.136:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 4,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = down\n.1.3.6.1.2.1.2.2.1.8.3 = up\n.1.3.6.1.2.1.2.2.1.8.4 = down"
+        }
+      }
+    },
+    {
+      "active_problems": [],
+      "api_errors": [
+        {
+          "error": "Method not found.: Incorrect API \"globalmacro\".",
+          "method": "globalmacro.get"
+        }
+      ],
+      "community_macro_selected": {
+        "hostid": "10732",
+        "macro": "{$SNMP_COMMUNITY}",
+        "secret_like": true,
+        "source": "host",
+        "type": "0",
+        "value": "<masked,length=6>"
+      },
+      "conclusion": "snmp_responde_pero_hay_oids_no_soportadas_template_mib",
+      "failed_oid_probes": [
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55374",
+            "key": "prtConsoleDisplayBufferText",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "",
+            "name": "Device console display",
+            "normalized_oid": "1.3.6.1.2.1.43.16.5.1.2.1.1",
+            "snmp_oid": ".1.3.6.1.2.1.43.16.5.1.2.1.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.210:161",
+              "1.3.6.1.2.1.43.16.5.1.2.1.1"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \"02 00 \"",
+            "is_discovered": false,
+            "itemid": "55371",
+            "key": "hrPrinterDetectedErrorState",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Printer error state",
+            "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+            "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.210:161",
+              "1.3.6.1.2.1.25.3.5.1.2.1"
+            ],
+            "ok": true,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "\"02 00 \""
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55376",
+            "key": "prtMarkerLifeCount",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Printer lifetime counter",
+            "normalized_oid": "1.3.6.1.2.1.43.10.2.1.4.1.1",
+            "snmp_oid": ".1.3.6.1.2.1.43.10.2.1.4.1.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.210:161",
+              "1.3.6.1.2.1.43.10.2.1.4.1.1"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        },
+        {
+          "item": {
+            "discovery_rule": {},
+            "error": "No Such Object available on this agent at this OID",
+            "is_discovered": false,
+            "itemid": "55377",
+            "key": "prtMarkerPowerOnCount",
+            "lastclock": 0,
+            "lastclock_text": "never",
+            "lastvalue": "0",
+            "name": "Printer power on counter",
+            "normalized_oid": "1.3.6.1.2.1.43.10.2.1.5.1.1",
+            "snmp_oid": ".1.3.6.1.2.1.43.10.2.1.5.1.1",
+            "type": "SNMP agent"
+          },
+          "probe": {
+            "command": [
+              "snmpget",
+              "-v2c",
+              "-c",
+              "<masked>",
+              "-t",
+              "2",
+              "-r",
+              "0",
+              "-On",
+              "-OQv",
+              "192.168.102.210:161",
+              "1.3.6.1.2.1.43.10.2.1.5.1.1"
+            ],
+            "ok": false,
+            "returncode": 0,
+            "stderr": "",
+            "stdout": "No Such Object available on this agent at this OID"
+          }
+        }
+      ],
+      "host": {
+        "groups": [
+          "Impresoras"
+        ],
+        "host": "ZEBRA ALMERIA",
+        "hostid": "10732",
+        "name": "ZEBRA ALMERIA",
+        "status": "enabled",
+        "templates": [
+          "Universal Printer"
+        ]
+      },
+      "probes": {
+        "sysDescr": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.210:161",
+            "1.3.6.1.2.1.1.1.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Zebra Wired"
+        },
+        "sysObjectID": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.210:161",
+            "1.3.6.1.2.1.1.2.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.4.1.10642.1.1"
+        },
+        "sysUpTime": {
+          "command": [
+            "snmpget",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQv",
+            "192.168.102.210:161",
+            "1.3.6.1.2.1.1.3.0"
+          ],
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "9:6:57:56.21"
+        }
+      },
+      "recommendation": "SNMP base responde; preparar ajuste de template/override por modelo, MIB o firmware para las OIDs que no existen.",
+      "snmp_interface": {
+        "available": "available",
+        "dns": "",
+        "error": "",
+        "interfaceid": "76",
+        "ip": "192.168.102.210",
+        "main": true,
+        "port": "161",
+        "type": "snmp",
+        "useip": true
+      },
+      "snmp_macros_visible_masked": [
+        {
+          "hostid": "10732",
+          "macro": "{$SNMP_COMMUNITY}",
+          "secret_like": true,
+          "source": "host",
+          "type": "0",
+          "value": "<masked,length=6>"
+        }
+      ],
+      "snmp_target": "192.168.102.210:161",
+      "unsupported_items": [
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55374",
+          "key": "prtConsoleDisplayBufferText",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "Device console display",
+          "normalized_oid": "1.3.6.1.2.1.43.16.5.1.2.1.1",
+          "snmp_oid": ".1.3.6.1.2.1.43.16.5.1.2.1.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "Value of type \"string\" is not suitable for value type \"Numeric (float)\". Value \"02 00 \"",
+          "is_discovered": false,
+          "itemid": "55371",
+          "key": "hrPrinterDetectedErrorState",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Printer error state",
+          "normalized_oid": "1.3.6.1.2.1.25.3.5.1.2.1",
+          "snmp_oid": ".1.3.6.1.2.1.25.3.5.1.2.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55376",
+          "key": "prtMarkerLifeCount",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Printer lifetime counter",
+          "normalized_oid": "1.3.6.1.2.1.43.10.2.1.4.1.1",
+          "snmp_oid": ".1.3.6.1.2.1.43.10.2.1.4.1.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55377",
+          "key": "prtMarkerPowerOnCount",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "0",
+          "name": "Printer power on counter",
+          "normalized_oid": "1.3.6.1.2.1.43.10.2.1.5.1.1",
+          "snmp_oid": ".1.3.6.1.2.1.43.10.2.1.5.1.1",
+          "type": "SNMP agent"
+        },
+        {
+          "discovery_rule": {},
+          "error": "No Such Object available on this agent at this OID",
+          "is_discovered": false,
+          "itemid": "55375",
+          "key": "prtGeneralSerialNumber",
+          "lastclock": 0,
+          "lastclock_text": "never",
+          "lastvalue": "",
+          "name": "Printer serial number",
+          "normalized_oid": "1.3.6.1.2.1.43.5.1.1.17.1",
+          "snmp_oid": ".1.3.6.1.2.1.43.5.1.1.17.1",
+          "type": "SNMP agent"
+        }
+      ],
+      "walks": {
+        "ifDescr": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.210:161",
+            "1.3.6.1.2.1.2.2.1.2"
+          ],
+          "line_count": 2,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.2.1 = lo0\n.1.3.6.1.2.1.2.2.1.2.2 = en0"
+        },
+        "ifOperStatus": {
+          "command": [
+            "snmpwalk",
+            "-v2c",
+            "-c",
+            "<masked>",
+            "-t",
+            "2",
+            "-r",
+            "0",
+            "-On",
+            "-OQ",
+            "192.168.102.210:161",
+            "1.3.6.1.2.1.2.2.1.8"
+          ],
+          "line_count": 2,
+          "ok": true,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ".1.3.6.1.2.1.2.2.1.8.1 = up\n.1.3.6.1.2.1.2.2.1.8.2 = up"
+        }
+      }
+    },
+    {
+      "active_problems": [],
+      "api_errors": [],
+      "conclusion": "sin_interfaz_snmp_en_zabbix",
+      "failed_oid_probes": [],
+      "host": {
+        "host": "LP-FERNANDO",
+        "hostid": "10675",
+        "name": "LP-FERNANDO",
+        "status": "enabled"
+      },
+      "probes": {},
+      "recommendation": "No ejecutar SNMP externo; revisar metodo de monitorizacion esperado.",
+      "snmp_interface": null,
+      "snmp_target": "",
+      "walks": {}
+    },
+    {
+      "active_problems": [],
+      "api_errors": [],
+      "conclusion": "sin_interfaz_snmp_en_zabbix",
+      "failed_oid_probes": [],
+      "host": {
+        "host": "SRVCOPIAS",
+        "hostid": "10702",
+        "name": "SRVCOPIAS",
+        "status": "enabled"
+      },
+      "probes": {},
+      "recommendation": "No ejecutar SNMP externo; revisar metodo de monitorizacion esperado.",
+      "snmp_interface": null,
+      "snmp_target": "",
+      "walks": {}
+    },
+    {
+      "active_problems": [],
+      "api_errors": [],
+      "conclusion": "sin_interfaz_snmp_en_zabbix",
+      "failed_oid_probes": [],
+      "host": {
+        "host": "SrvBackupALM",
+        "hostid": "10698",
+        "name": "SrvBackupALM",
+        "status": "enabled"
+      },
+      "probes": {},
+      "recommendation": "No ejecutar SNMP externo; revisar metodo de monitorizacion esperado.",
+      "snmp_interface": null,
+      "snmp_target": "",
+      "walks": {}
+    },
+    {
+      "active_problems": [],
+      "api_errors": [],
+      "conclusion": "sin_interfaz_snmp_en_zabbix",
+      "failed_oid_probes": [],
+      "host": {
+        "host": "proxmoxalmeria",
+        "hostid": "10739",
+        "name": "proxmoxalmeria",
+        "status": "enabled"
+      },
+      "probes": {},
+      "recommendation": "No ejecutar SNMP externo; revisar metodo de monitorizacion esperado.",
+      "snmp_interface": null,
+      "snmp_target": "",
+      "walks": {}
+    }
+  ],
+  "metadata": {
+    "api_endpoint": "http://127.0.0.1/api_jsonrpc.php",
+    "generated_at": "2026-05-20 21:59:42 CEST",
+    "generated_epoch": 1779307182,
+    "mode": "read-only",
+    "secrets_policy": "SNMP communities and API token are never printed."
+  },
+  "summary": {
+    "conclusions": {
+      "sin_interfaz_snmp_en_zabbix": 4,
+      "sin_respuesta_snmp_timeout_red_acl_equipo": 5,
+      "snmp_responde_checks_basicos_ok": 3,
+      "snmp_responde_pero_hay_oids_no_soportadas_template_mib": 6
+    },
+    "failed_unsupported_oid_probes": 15,
+    "snmp_not_reachable": 9,
+    "snmp_reachable": 9,
+    "targets_total": 18
+  },
+  "targets_missing_in_zabbix": [],
+  "targets_requested": [
+    "NasAlmeria",
+    "NasGenomica",
+    "EATON 5PX 2200 SAI ALMERIA",
+    "EATON 5PX 2200 ( SAI GALLARZA )",
+    "HP V1810-48G GALLARZA",
+    "HP LASERJET M402DN GALLARZA SERGIO",
+    "HP LASERJET PRO M404DN GALLARZA",
+    "HP LASERJET PRO 4002DN GALLARZA ALFONSO",
+    "BROTHER HL-L2445DW",
+    "CANON iR-ADV C3830",
+    "BROTHER HL-L8360CDW series",
+    "HP COLOR LASERJET E45028 GALLARZA INFORMATICA",
+    "HP LASERJET PRO 4002DN GALLARZA JULIAN JR",
+    "ZEBRA ALMERIA",
+    "LP-FERNANDO",
+    "SRVCOPIAS",
+    "SrvBackupALM",
+    "proxmoxalmeria"
+  ]
+}

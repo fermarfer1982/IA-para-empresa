@@ -1,0 +1,553 @@
+{
+  "architecture": {
+    "implementation_choice": [
+      {
+        "decision": "recomendada",
+        "option": "zabbix_sender + trapper items",
+        "reason": "Reduce carga del Zabbix server, evita exponer credenciales PBS/PVE al frontend y permite controlar errores de recolección."
+      },
+      {
+        "decision": "recomendada",
+        "option": "LLD",
+        "reason": "Permite descubrir datastores, storages y VMIDs sin crear manualmente cada item."
+      },
+      {
+        "decision": "segunda iteración",
+        "option": "dependent items",
+        "reason": "Útiles si se decide enviar un JSON maestro, pero los trapper individuales son más simples para la primera implementación."
+      },
+      {
+        "decision": "no recomendada como base",
+        "option": "external checks",
+        "reason": "Mezcla credenciales y ejecución externa dentro de Zabbix server; peor trazabilidad para el agente."
+      },
+      {
+        "decision": "solo para crear hosts/templates/items en una fase aprobada",
+        "option": "Zabbix API",
+        "reason": "No debe usarse para enviar valores operativos salvo casos puntuales."
+      }
+    ],
+    "recommended": "LLD + trapper items + zabbix_sender, con hosts técnicos separados.",
+    "safe_rollout": [
+      "Importar templates nuevos no asignados cuando Fernando lo confirme.",
+      "Crear hosts técnicos cuando Fernando lo confirme.",
+      "Asignar templates a hosts técnicos.",
+      "Ejecutar push scripts en dry-run y comparar métricas.",
+      "Activar envío con zabbix_sender y programar timer/cron.",
+      "Activar triggers tras validar umbrales y criticidad."
+    ],
+    "technical_hosts": [
+      {
+        "name": "PBS Backup Monitoring",
+        "purpose": "Centralizar métricas calculadas de PBS, datastores y edad de backups por VM/CT.",
+        "status_in_zabbix": {
+          "exists": false,
+          "hostid": null
+        }
+      },
+      {
+        "name": "Proxmox Storage Monitoring",
+        "purpose": "Centralizar métricas calculadas de storage Proxmox y estado de jobs/tareas de backup.",
+        "status_in_zabbix": {
+          "exists": false,
+          "hostid": null
+        }
+      }
+    ]
+  },
+  "decisions_needed_from_fernando": [
+    "¿ia-dify debe tener backup?",
+    "¿Cuál es la criticidad de cada VM?",
+    "¿Qué VMs deben alertar si backup >24h, >48h o >72h?",
+    "¿Qué datastores son críticos?",
+    "¿Debemos crear host técnico PBS Backup Monitoring?",
+    "¿Debemos crear host técnico Proxmox Storage Monitoring?",
+    "¿Se permite importar templates nuevos no asignados?",
+    "¿Se permite crear items trapper en hosts técnicos?"
+  ],
+  "human_confirmation_required": [
+    "Crear hosts técnicos en Zabbix.",
+    "Importar templates nuevos.",
+    "Asignar templates a hosts técnicos.",
+    "Crear items/triggers activos.",
+    "Activar envío de métricas con zabbix_sender.",
+    "Definir criticidad de VMs, datastores y políticas de backup.",
+    "Añadir ia-dify a jobs de backup o documentar su exclusión.",
+    "Cambiar jobs de backup Proxmox/PBS."
+  ],
+  "immediate_findings": [
+    {
+      "area": "Backups",
+      "evidence": [
+        {
+          "comment": "ia-dify",
+          "datastore": "backup",
+          "identity": "vm/114",
+          "last_backup": "2026-05-13 15:27:47 CEST",
+          "vmid": "114"
+        }
+      ],
+      "finding": "1 entidad(es) PBS sin backup reciente >48h.",
+      "priority": "ALTO",
+      "recommended_action": "Crear check pbs.backup.last_success_age_hours por VM/CT y confirmar criticidad.",
+      "requires_human_confirmation": true
+    },
+    {
+      "area": "Backups",
+      "evidence": [
+        {
+          "name": "ia-dify",
+          "node": "pvereplicas",
+          "status": "running",
+          "vmid": 114
+        }
+      ],
+      "finding": "1 VM/LXC no aparece(n) en jobs de backup Proxmox.",
+      "priority": "ALTO",
+      "recommended_action": "Confirmar si deben entrar en jobs de backup o quedar documentadas como exclusión.",
+      "requires_human_confirmation": true
+    },
+    {
+      "area": "Backups",
+      "evidence": {
+        "failed_tasks_24h": 0,
+        "failed_tasks_48h": 0
+      },
+      "finding": "9 tareas recientes de backup Proxmox con error.",
+      "priority": "ALTO",
+      "recommended_action": "Crear alerta proxmox.backup.failed_tasks_24h/48h y revisar los errores de vzdump.",
+      "requires_human_confirmation": true
+    },
+    {
+      "area": "Storage",
+      "evidence": [
+        {
+          "node": "proxmox-gallarza",
+          "storage": "datastore-replicas",
+          "usage_percent": 85.5
+        }
+      ],
+      "finding": "1 storage(s) Proxmox por encima del 80%.",
+      "priority": "ALTO",
+      "recommended_action": "Crear triggers >80/>90/>95; proxmox-gallarza/datastore-replicas requiere seguimiento inmediato.",
+      "requires_human_confirmation": true
+    },
+    {
+      "area": "Backups",
+      "evidence": "Dato procedente del análisis de gaps; requiere mapeo humano activo->VM/job/PBS/Veeam.",
+      "finding": "21 hosts críticos sin backup verificable directo en Zabbix.",
+      "priority": "ALTO",
+      "recommended_action": "Añadir modelo de cobertura de backup por host crítico.",
+      "requires_human_confirmation": true
+    }
+  ],
+  "metadata": {
+    "generated_at": "2026-05-21 09:24:55 CEST",
+    "mode": "preparation-only",
+    "no_changes_applied_to": [
+      "Zabbix",
+      "Proxmox",
+      "PBS"
+    ],
+    "read_only": true
+  },
+  "metrics": {
+    "pbs": {
+      "global": [
+        {
+          "key": "pbs.backup.entities_total",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.backup.entities_without_recent_backup",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.backup.oldest_backup_age_hours",
+          "units": "h",
+          "value_type": "float"
+        },
+        {
+          "key": "pbs.backup.collection_status",
+          "units": "",
+          "value_type": "unsigned"
+        }
+      ],
+      "per_datastore": [
+        {
+          "key": "pbs.datastore.usage_percent[{datastore}]",
+          "lld_key": "pbs.datastore.usage_percent[{#DATASTORE}]",
+          "units": "%",
+          "value_type": "float"
+        },
+        {
+          "key": "pbs.datastore.total_bytes[{datastore}]",
+          "lld_key": "pbs.datastore.total_bytes[{#DATASTORE}]",
+          "units": "B",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.datastore.used_bytes[{datastore}]",
+          "lld_key": "pbs.datastore.used_bytes[{#DATASTORE}]",
+          "units": "B",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.datastore.free_bytes[{datastore}]",
+          "lld_key": "pbs.datastore.free_bytes[{#DATASTORE}]",
+          "units": "B",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.datastore.groups[{datastore}]",
+          "lld_key": "pbs.datastore.groups[{#DATASTORE}]",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.datastore.snapshots[{datastore}]",
+          "lld_key": "pbs.datastore.snapshots[{#DATASTORE}]",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.datastore.last_snapshot_age_hours[{datastore}]",
+          "lld_key": "pbs.datastore.last_snapshot_age_hours[{#DATASTORE}]",
+          "units": "h",
+          "value_type": "float"
+        }
+      ],
+      "per_vm_ct": [
+        {
+          "key": "pbs.backup.last_success_timestamp[{vmid}]",
+          "lld_key": "pbs.backup.last_success_timestamp[{#VMID}]",
+          "units": "unixtime",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.backup.last_success_age_hours[{vmid}]",
+          "lld_key": "pbs.backup.last_success_age_hours[{#VMID}]",
+          "units": "h",
+          "value_type": "float"
+        },
+        {
+          "key": "pbs.backup.snapshot_count[{vmid}]",
+          "lld_key": "pbs.backup.snapshot_count[{#VMID}]",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.backup.has_recent_backup[{vmid}]",
+          "lld_key": "pbs.backup.has_recent_backup[{#VMID}]",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "pbs.backup.datastore[{vmid}]",
+          "lld_key": "pbs.backup.datastore[{#VMID}]",
+          "units": "",
+          "value_type": "text"
+        },
+        {
+          "key": "pbs.backup.protected_count[{vmid}]",
+          "lld_key": "pbs.backup.protected_count[{#VMID}]",
+          "units": "",
+          "value_type": "unsigned"
+        }
+      ]
+    },
+    "proxmox": {
+      "backup": [
+        {
+          "key": "proxmox.backup.jobs_total",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.backup.failed_tasks_24h",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.backup.failed_tasks_48h",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.backup.vm_in_job[{vmid}]",
+          "lld_key": "proxmox.backup.vm_in_job[{#VMID}]",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.backup.vm_without_job[{vmid}]",
+          "lld_key": "proxmox.backup.vm_without_job[{#VMID}]",
+          "units": "",
+          "value_type": "unsigned"
+        }
+      ],
+      "per_storage": [
+        {
+          "key": "proxmox.storage.usage_percent[{node},{storage}]",
+          "lld_key": "proxmox.storage.usage_percent[{#NODE},{#STORAGE}]",
+          "units": "%",
+          "value_type": "float"
+        },
+        {
+          "key": "proxmox.storage.total_bytes[{node},{storage}]",
+          "lld_key": "proxmox.storage.total_bytes[{#NODE},{#STORAGE}]",
+          "units": "B",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.storage.used_bytes[{node},{storage}]",
+          "lld_key": "proxmox.storage.used_bytes[{#NODE},{#STORAGE}]",
+          "units": "B",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.storage.free_bytes[{node},{storage}]",
+          "lld_key": "proxmox.storage.free_bytes[{#NODE},{#STORAGE}]",
+          "units": "B",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.storage.active[{node},{storage}]",
+          "lld_key": "proxmox.storage.active[{#NODE},{#STORAGE}]",
+          "units": "",
+          "value_type": "unsigned"
+        },
+        {
+          "key": "proxmox.storage.enabled[{node},{storage}]",
+          "lld_key": "proxmox.storage.enabled[{#NODE},{#STORAGE}]",
+          "units": "",
+          "value_type": "unsigned"
+        }
+      ]
+    }
+  },
+  "pbs_current": {
+    "api_access": true,
+    "backup_entities_total": 16,
+    "datastores_total": 2,
+    "entities_without_recent_backup_48h": [
+      {
+        "datastore": "backup",
+        "identity": "vm/114",
+        "last_backup_epoch": 1778678867,
+        "last_backup_text": "2026-05-13 15:27:47 CEST",
+        "snapshot": {
+          "backup-id": "114",
+          "backup-time": 1778678867,
+          "backup-type": "vm",
+          "comment": "ia-dify",
+          "files": [
+            {
+              "crypt-mode": "none",
+              "filename": "qemu-server.conf.blob",
+              "size": 349
+            },
+            {
+              "crypt-mode": "none",
+              "filename": "drive-scsi0.img.fidx",
+              "size": 322122547200
+            },
+            {
+              "crypt-mode": "none",
+              "filename": "index.json.blob",
+              "size": 406
+            },
+            {
+              "filename": "client.log.blob"
+            }
+          ],
+          "owner": "root@pam",
+          "protected": false,
+          "size": 322122547955
+        }
+      }
+    ],
+    "snapshots_total": 469,
+    "version": "4.1"
+  },
+  "proxmox_current": {
+    "api_access": true,
+    "backup_jobs_total": 2,
+    "failed_backup_tasks_total": 9,
+    "lxc_total": 0,
+    "nodes_total": 2,
+    "qemu_vms_total": 16,
+    "storages_over_80": [
+      {
+        "active": 1,
+        "avail": 537120382976,
+        "content": "rootdir,images",
+        "enabled": 1,
+        "node": "proxmox-gallarza",
+        "shared": 0,
+        "storage": "datastore-replicas",
+        "total": 3695819358208,
+        "type": "zfspool",
+        "used": 3158698975232,
+        "used_fraction": 0.854668117968722
+      }
+    ],
+    "storages_total": 8,
+    "vms_without_backup_job": [
+      {
+        "cpu": 0,
+        "cpus": 20,
+        "disk": 0,
+        "maxdisk": 322122547200,
+        "maxmem": 33688649728,
+        "mem": 21497505792,
+        "memhost": 21497505792,
+        "name": "ia-dify",
+        "netin": 5092356599,
+        "netout": 211792208,
+        "node": "pvereplicas",
+        "pid": 1387284,
+        "pressurecpufull": 0,
+        "pressurecpusome": 0,
+        "pressureiofull": 0,
+        "pressureiosome": 0,
+        "pressurememoryfull": 0,
+        "pressurememorysome": 0,
+        "status": "running",
+        "uptime": 1936597,
+        "vmid": 114
+      }
+    ]
+  },
+  "safe_changes_next_phase": [
+    "Importar templates nuevos como borradores no asignados.",
+    "Crear hosts técnicos sin interfaces si se confirma.",
+    "Crear items trapper en hosts técnicos si se confirma.",
+    "Ejecutar scripts push_* en dry-run desde cron/systemd timer de prueba.",
+    "Añadir documentación de mapeo VMID->host crítico."
+  ],
+  "source_context": {
+    "agent_knowledge": "/opt/zabbix-codex/agent_knowledge/proxmox_backup_knowledge.json",
+    "gap_analysis": "/opt/zabbix-codex/reports/proxmox-backup-gap-analysis.json",
+    "pbs_inventory": "/opt/zabbix-codex/backups/pbs-real-inventory.json",
+    "previous_knowledge_keys": [
+      "api_errors",
+      "comparison",
+      "metadata",
+      "pending_configuration",
+      "previous_context",
+      "prioritized_gaps",
+      "real_inventory",
+      "summary",
+      "zabbix"
+    ],
+    "proxmox_inventory": "/opt/zabbix-codex/proxmox/proxmox-real-inventory.json"
+  },
+  "triggers": {
+    "pbs": [
+      {
+        "expression": "pbs.datastore.usage_percent[{datastore}] > 80",
+        "name": "Datastore usage > 80%",
+        "severity": "Average"
+      },
+      {
+        "expression": "pbs.datastore.usage_percent[{datastore}] > 90",
+        "name": "Datastore usage > 90%",
+        "severity": "High"
+      },
+      {
+        "expression": "pbs.datastore.usage_percent[{datastore}] > 95",
+        "name": "Datastore usage > 95% si datastore crítico",
+        "severity": "Disaster"
+      },
+      {
+        "expression": "pbs.backup.last_success_age_hours[{vmid}] > threshold",
+        "name": "VM crítica sin backup reciente > 24/48h",
+        "severity": "High"
+      },
+      {
+        "expression": "pbs.backup.last_success_age_hours[{vmid}] > 72",
+        "name": "VM no crítica sin backup reciente > 72h",
+        "severity": "Average"
+      },
+      {
+        "expression": "pbs.backup.last_success_age_hours[114] > threshold",
+        "name": "ia-dify backup antiguo",
+        "severity": "High o Average según criticidad"
+      },
+      {
+        "expression": "pbs.backup.collection_status = 0",
+        "name": "No se puede consultar PBS",
+        "severity": "High"
+      },
+      {
+        "expression": "pbs.backup.oldest_backup_age_hours o snapshots recientes fuera de umbral",
+        "name": "No hay snapshots recientes",
+        "severity": "High"
+      }
+    ],
+    "proxmox": [
+      {
+        "expression": "proxmox.storage.usage_percent[{node},{storage}] > 80",
+        "name": "Storage > 80%",
+        "severity": "Average"
+      },
+      {
+        "expression": "proxmox.storage.usage_percent[{node},{storage}] > 90",
+        "name": "Storage > 90%",
+        "severity": "High"
+      },
+      {
+        "expression": "proxmox.storage.usage_percent[{node},{storage}] > 95",
+        "name": "Storage > 95% si crítico",
+        "severity": "Disaster"
+      },
+      {
+        "expression": "proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas] > 80",
+        "name": "proxmox-gallarza/datastore-replicas > 80%",
+        "severity": "Average ahora, High si sigue creciendo o es crítico"
+      },
+      {
+        "expression": "proxmox.backup.failed_tasks_24h > 0 o proxmox.backup.failed_tasks_48h > 0",
+        "name": "Backup tasks failed > 0 últimas 24/48h",
+        "severity": "High"
+      },
+      {
+        "expression": "proxmox.backup.vm_without_job[{vmid}] = 1",
+        "name": "VM crítica sin job de backup",
+        "severity": "High"
+      },
+      {
+        "expression": "proxmox.backup.vm_without_job[{vmid}] = 1",
+        "name": "VM no crítica sin job de backup",
+        "severity": "Average"
+      },
+      {
+        "expression": "proxmox.collection_status = 0",
+        "name": "PVE API no accesible",
+        "severity": "High"
+      }
+    ]
+  },
+  "zabbix_current": {
+    "api_access": true,
+    "api_errors": [],
+    "draft_templates_existing": [],
+    "existing_metric_items": [],
+    "hosts_total": 49,
+    "technical_hosts": {
+      "PBS Backup Monitoring": {
+        "exists": false,
+        "hostid": null
+      },
+      "Proxmox Storage Monitoring": {
+        "exists": false,
+        "hostid": null
+      }
+    },
+    "templates_total": 362,
+    "version": "7.0.26"
+  }
+}

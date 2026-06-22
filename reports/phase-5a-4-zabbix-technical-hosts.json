@@ -1,0 +1,886 @@
+{
+  "actions": [],
+  "created_in_phase": {
+    "group": true,
+    "hosts": [
+      "PBS Backup Monitoring",
+      "Proxmox Storage Monitoring"
+    ],
+    "items": {
+      "PBS Backup Monitoring": [
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57065",
+          "key_": "pbs.backup.collection_status",
+          "lastclock": "1779349345",
+          "lastvalue": "1",
+          "name": "PBS backup collection status",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57066",
+          "key_": "pbs.backup.entities_total",
+          "lastclock": "1779349345",
+          "lastvalue": "16",
+          "name": "PBS backup entities total",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57067",
+          "key_": "pbs.backup.entities_without_recent_backup",
+          "lastclock": "1779349345",
+          "lastvalue": "1",
+          "name": "PBS backup entities without recent backup",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57076",
+          "key_": "pbs.backup.has_recent_backup[114]",
+          "lastclock": "1779349345",
+          "lastvalue": "0",
+          "name": "PBS ia-dify has recent backup",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57075",
+          "key_": "pbs.backup.last_success_age_hours[114]",
+          "lastclock": "1779349345",
+          "lastvalue": "186.244",
+          "name": "PBS ia-dify backup age hours",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "h",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57068",
+          "key_": "pbs.backup.oldest_backup_age_hours",
+          "lastclock": "1779349345",
+          "lastvalue": "186.244",
+          "name": "PBS oldest backup age hours",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "h",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57077",
+          "key_": "pbs.backup.snapshot_count[114]",
+          "lastclock": "1779349345",
+          "lastvalue": "1",
+          "name": "PBS ia-dify snapshot count",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57070",
+          "key_": "pbs.datastore.groups[backup]",
+          "lastclock": "1779349345",
+          "lastvalue": "16",
+          "name": "PBS datastore backup groups",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57073",
+          "key_": "pbs.datastore.groups[ds-qnap-iscsi-almeria]",
+          "lastclock": "1779349345",
+          "lastvalue": "7",
+          "name": "PBS datastore ds-qnap-iscsi-almeria groups",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57071",
+          "key_": "pbs.datastore.snapshots[backup]",
+          "lastclock": "1779349345",
+          "lastvalue": "285",
+          "name": "PBS datastore backup snapshots",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57074",
+          "key_": "pbs.datastore.snapshots[ds-qnap-iscsi-almeria]",
+          "lastclock": "1779349345",
+          "lastvalue": "184",
+          "name": "PBS datastore ds-qnap-iscsi-almeria snapshots",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57069",
+          "key_": "pbs.datastore.usage_percent[backup]",
+          "lastclock": "1779349345",
+          "lastvalue": "32.84",
+          "name": "PBS datastore backup usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57072",
+          "key_": "pbs.datastore.usage_percent[ds-qnap-iscsi-almeria]",
+          "lastclock": "1779349345",
+          "lastvalue": "19.822",
+          "name": "PBS datastore ds-qnap-iscsi-almeria usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        }
+      ],
+      "Proxmox Storage Monitoring": [
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57079",
+          "key_": "proxmox.backup.failed_tasks_24h",
+          "lastclock": "1779349348",
+          "lastvalue": "0",
+          "name": "Proxmox backup failed tasks 24h",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57080",
+          "key_": "proxmox.backup.failed_tasks_48h",
+          "lastclock": "1779349348",
+          "lastvalue": "0",
+          "name": "Proxmox backup failed tasks 48h",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57078",
+          "key_": "proxmox.backup.jobs_total",
+          "lastclock": "1779349348",
+          "lastvalue": "2",
+          "name": "Proxmox backup jobs total",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57085",
+          "key_": "proxmox.backup.vm_in_job[114]",
+          "lastclock": "1779349348",
+          "lastvalue": "0",
+          "name": "Proxmox ia-dify VM in backup job",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57086",
+          "key_": "proxmox.backup.vm_without_job[114]",
+          "lastclock": "1779349348",
+          "lastvalue": "1",
+          "name": "Proxmox ia-dify VM without backup job",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57081",
+          "key_": "proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas]",
+          "lastclock": "1779349348",
+          "lastvalue": "85.467",
+          "name": "Proxmox proxmox-gallarza datastore-replicas usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57082",
+          "key_": "proxmox.storage.usage_percent[proxmox-gallarza,local]",
+          "lastclock": "1779349348",
+          "lastvalue": "70.884",
+          "name": "Proxmox proxmox-gallarza local usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57083",
+          "key_": "proxmox.storage.usage_percent[pvereplicas,datastore-replicas]",
+          "lastclock": "1779349348",
+          "lastvalue": "59.579",
+          "name": "Proxmox pvereplicas datastore-replicas usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57084",
+          "key_": "proxmox.storage.usage_percent[pvereplicas,pbs-backup]",
+          "lastclock": "1779349348",
+          "lastvalue": "33.179",
+          "name": "Proxmox pvereplicas pbs-backup usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        }
+      ]
+    },
+    "triggers": {
+      "PBS Backup Monitoring": [
+        {
+          "description": "PBS collection failed",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.collection_status)=0",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28473",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore backup usage >80%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[backup])>80",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28474",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore backup usage >90%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[backup])>90",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28475",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore ds-qnap-iscsi-almeria usage >80%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[ds-qnap-iscsi-almeria])>80",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28476",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore ds-qnap-iscsi-almeria usage >90%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[ds-qnap-iscsi-almeria])>90",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28477",
+          "value": "0"
+        },
+        {
+          "description": "ia-dify backup older than 168h",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.last_success_age_hours[114])>168",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28479",
+          "value": "0"
+        },
+        {
+          "description": "ia-dify backup older than 72h",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.last_success_age_hours[114])>72",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28478",
+          "value": "0"
+        }
+      ],
+      "Proxmox Storage Monitoring": [
+        {
+          "description": "Proxmox backup failed tasks 24h > 0",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.failed_tasks_24h)>0",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28480",
+          "value": "0"
+        },
+        {
+          "description": "Proxmox backup failed tasks 48h > 0",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.failed_tasks_48h)>0",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28481",
+          "value": "0"
+        },
+        {
+          "description": "ia-dify not present in backup job",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.vm_without_job[114])=1",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28484",
+          "value": "0"
+        },
+        {
+          "description": "proxmox-gallarza datastore-replicas >80%",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas])>80",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28482",
+          "value": "0"
+        },
+        {
+          "description": "proxmox-gallarza datastore-replicas >90%",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas])>90",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28483",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "generated_at": "2026-05-21 09:43:13 CEST",
+    "mode": "verify-only",
+    "zabbix_version": "7.0.26"
+  },
+  "metrics": {
+    "expected_count": 22,
+    "failed_count": 0,
+    "pending_count": 0,
+    "received_count": 22
+  },
+  "precheck": {
+    "backup_json": "/opt/zabbix-codex/backups/zabbix-before-phase-5a-4.json",
+    "precheck_md": "/opt/zabbix-codex/reports/phase-5a-4-precheck.md"
+  },
+  "safety": {
+    "actions_created": false,
+    "existing_templates_modified": false,
+    "existing_triggers_modified": false,
+    "notifications_created": false,
+    "pbs_modified": false,
+    "proxmox_modified": false
+  },
+  "verification": {
+    "group": {
+      "flags": "0",
+      "groupid": "37",
+      "name": "Intelligent Monitoring",
+      "uuid": "8be8c2e8e75148afb94f49578d8412be"
+    },
+    "hosts": {
+      "PBS Backup Monitoring": {
+        "exists": true,
+        "hostid": "10740",
+        "status": "0"
+      },
+      "Proxmox Storage Monitoring": {
+        "exists": true,
+        "hostid": "10741",
+        "status": "0"
+      }
+    },
+    "items": {
+      "PBS Backup Monitoring": [
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57065",
+          "key_": "pbs.backup.collection_status",
+          "lastclock": "1779349345",
+          "lastvalue": "1",
+          "name": "PBS backup collection status",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57066",
+          "key_": "pbs.backup.entities_total",
+          "lastclock": "1779349345",
+          "lastvalue": "16",
+          "name": "PBS backup entities total",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57067",
+          "key_": "pbs.backup.entities_without_recent_backup",
+          "lastclock": "1779349345",
+          "lastvalue": "1",
+          "name": "PBS backup entities without recent backup",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57076",
+          "key_": "pbs.backup.has_recent_backup[114]",
+          "lastclock": "1779349345",
+          "lastvalue": "0",
+          "name": "PBS ia-dify has recent backup",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57075",
+          "key_": "pbs.backup.last_success_age_hours[114]",
+          "lastclock": "1779349345",
+          "lastvalue": "186.244",
+          "name": "PBS ia-dify backup age hours",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "h",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57068",
+          "key_": "pbs.backup.oldest_backup_age_hours",
+          "lastclock": "1779349345",
+          "lastvalue": "186.244",
+          "name": "PBS oldest backup age hours",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "h",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57077",
+          "key_": "pbs.backup.snapshot_count[114]",
+          "lastclock": "1779349345",
+          "lastvalue": "1",
+          "name": "PBS ia-dify snapshot count",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57070",
+          "key_": "pbs.datastore.groups[backup]",
+          "lastclock": "1779349345",
+          "lastvalue": "16",
+          "name": "PBS datastore backup groups",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57073",
+          "key_": "pbs.datastore.groups[ds-qnap-iscsi-almeria]",
+          "lastclock": "1779349345",
+          "lastvalue": "7",
+          "name": "PBS datastore ds-qnap-iscsi-almeria groups",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57071",
+          "key_": "pbs.datastore.snapshots[backup]",
+          "lastclock": "1779349345",
+          "lastvalue": "285",
+          "name": "PBS datastore backup snapshots",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57074",
+          "key_": "pbs.datastore.snapshots[ds-qnap-iscsi-almeria]",
+          "lastclock": "1779349345",
+          "lastvalue": "184",
+          "name": "PBS datastore ds-qnap-iscsi-almeria snapshots",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57069",
+          "key_": "pbs.datastore.usage_percent[backup]",
+          "lastclock": "1779349345",
+          "lastvalue": "32.84",
+          "name": "PBS datastore backup usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10740",
+          "itemid": "57072",
+          "key_": "pbs.datastore.usage_percent[ds-qnap-iscsi-almeria]",
+          "lastclock": "1779349345",
+          "lastvalue": "19.822",
+          "name": "PBS datastore ds-qnap-iscsi-almeria usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        }
+      ],
+      "Proxmox Storage Monitoring": [
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57079",
+          "key_": "proxmox.backup.failed_tasks_24h",
+          "lastclock": "1779349348",
+          "lastvalue": "0",
+          "name": "Proxmox backup failed tasks 24h",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57080",
+          "key_": "proxmox.backup.failed_tasks_48h",
+          "lastclock": "1779349348",
+          "lastvalue": "0",
+          "name": "Proxmox backup failed tasks 48h",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57078",
+          "key_": "proxmox.backup.jobs_total",
+          "lastclock": "1779349348",
+          "lastvalue": "2",
+          "name": "Proxmox backup jobs total",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57085",
+          "key_": "proxmox.backup.vm_in_job[114]",
+          "lastclock": "1779349348",
+          "lastvalue": "0",
+          "name": "Proxmox ia-dify VM in backup job",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57086",
+          "key_": "proxmox.backup.vm_without_job[114]",
+          "lastclock": "1779349348",
+          "lastvalue": "1",
+          "name": "Proxmox ia-dify VM without backup job",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "",
+          "value_type": "3"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57081",
+          "key_": "proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas]",
+          "lastclock": "1779349348",
+          "lastvalue": "85.467",
+          "name": "Proxmox proxmox-gallarza datastore-replicas usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57082",
+          "key_": "proxmox.storage.usage_percent[proxmox-gallarza,local]",
+          "lastclock": "1779349348",
+          "lastvalue": "70.884",
+          "name": "Proxmox proxmox-gallarza local usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57083",
+          "key_": "proxmox.storage.usage_percent[pvereplicas,datastore-replicas]",
+          "lastclock": "1779349348",
+          "lastvalue": "59.579",
+          "name": "Proxmox pvereplicas datastore-replicas usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        },
+        {
+          "error": "",
+          "hostid": "10741",
+          "itemid": "57084",
+          "key_": "proxmox.storage.usage_percent[pvereplicas,pbs-backup]",
+          "lastclock": "1779349348",
+          "lastvalue": "33.179",
+          "name": "Proxmox pvereplicas pbs-backup usage percent",
+          "state": "0",
+          "status": "0",
+          "type": "2",
+          "units": "%",
+          "value_type": "0"
+        }
+      ]
+    },
+    "triggers": {
+      "PBS Backup Monitoring": [
+        {
+          "description": "PBS collection failed",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.collection_status)=0",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28473",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore backup usage >80%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[backup])>80",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28474",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore backup usage >90%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[backup])>90",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28475",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore ds-qnap-iscsi-almeria usage >80%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[ds-qnap-iscsi-almeria])>80",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28476",
+          "value": "0"
+        },
+        {
+          "description": "PBS datastore ds-qnap-iscsi-almeria usage >90%",
+          "expression": "last(/PBS Backup Monitoring/pbs.datastore.usage_percent[ds-qnap-iscsi-almeria])>90",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28477",
+          "value": "0"
+        },
+        {
+          "description": "ia-dify backup older than 168h",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.last_success_age_hours[114])>168",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28479",
+          "value": "0"
+        },
+        {
+          "description": "ia-dify backup older than 72h",
+          "expression": "last(/PBS Backup Monitoring/pbs.backup.last_success_age_hours[114])>72",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28478",
+          "value": "0"
+        }
+      ],
+      "Proxmox Storage Monitoring": [
+        {
+          "description": "Proxmox backup failed tasks 24h > 0",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.failed_tasks_24h)>0",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28480",
+          "value": "0"
+        },
+        {
+          "description": "Proxmox backup failed tasks 48h > 0",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.failed_tasks_48h)>0",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28481",
+          "value": "0"
+        },
+        {
+          "description": "ia-dify not present in backup job",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.backup.vm_without_job[114])=1",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28484",
+          "value": "0"
+        },
+        {
+          "description": "proxmox-gallarza datastore-replicas >80%",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas])>80",
+          "priority": "3",
+          "status": "1",
+          "triggerid": "28482",
+          "value": "0"
+        },
+        {
+          "description": "proxmox-gallarza datastore-replicas >90%",
+          "expression": "last(/Proxmox Storage Monitoring/proxmox.storage.usage_percent[proxmox-gallarza,datastore-replicas])>90",
+          "priority": "4",
+          "status": "1",
+          "triggerid": "28483",
+          "value": "0"
+        }
+      ]
+    },
+    "unsupported": []
+  }
+}

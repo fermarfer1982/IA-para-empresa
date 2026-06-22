@@ -1,0 +1,48 @@
+# Secrets and local environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Runtime databases, logs and generated artifacts
+*.log
+*.bak
+*.bak-*
+*.sqlite
+*.sqlite3
+*.db
+*.db.*
+infra-agent-web/data/
+reports/backups/
+productization/dist/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Accidental zero-byte scratch files found in the workspace
+/0
+/24h,
+/48h
+/72h
+/72h?
+/80%
+/90%
+/95%

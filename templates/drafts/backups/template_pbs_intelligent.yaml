@@ -1,0 +1,82 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: cdf5517bba044ddfb5db43b27b3e2501
+      name: Templates/Intelligent Drafts
+  templates:
+    - uuid: d0e38f68cb1b44a99fd4f3cd67b9bb01
+      template: Template PBS Intelligent Draft
+      name: Template PBS Intelligent Draft
+      description: |
+        Draft only. Do not import or assign automatically.
+        Purpose: prepare Proxmox Backup Server datastore, snapshot, prune, GC and verify checks.
+      groups:
+        - name: Templates/Intelligent Drafts
+      macros:
+        - macro: '{$PBS.DATASTORE.PUSED.AVERAGE}'
+          value: '80'
+        - macro: '{$PBS.DATASTORE.PUSED.HIGH}'
+          value: '90'
+        - macro: '{$PBS.BACKUP.MAXAGE.HIGH}'
+          value: '172800'
+      items:
+        - uuid: edb72c3c1f144ad2b14432a30af33701
+          name: PBS datastore discovery payload
+          type: TRAPper
+          key: pbs.datastore.discovery
+          value_type: TEXT
+        - uuid: 7f184fb070c64e7d8b9f1044ad6d4e02
+          name: PBS datastore used percent
+          type: TRAPper
+          key: pbs.datastore.pused
+          value_type: FLOAT
+          units: '%'
+        - uuid: d73b53f1bb7643af9b6794d936b5f503
+          name: PBS datastore online
+          type: TRAPper
+          key: pbs.datastore.online
+          value_type: UNSIGNED
+        - uuid: 17164dc008b94fd79f117ac1de2e7e04
+          name: PBS snapshots by VM or CT
+          type: TRAPper
+          key: pbs.snapshots.count
+          value_type: UNSIGNED
+        - uuid: 0c6bf17a7d404ec1aa08a59c53950305
+          name: PBS last backup timestamp
+          type: TRAPper
+          key: pbs.backup.last_success.timestamp
+          value_type: UNSIGNED
+          units: unixtime
+        - uuid: 21ceaaae94314452bb79170f613d5306
+          name: PBS garbage collection last status
+          type: TRAPper
+          key: pbs.gc.last_status
+          value_type: TEXT
+        - uuid: 544abdc9d70541a4b9eaf26300a8d507
+          name: PBS prune last status
+          type: TRAPper
+          key: pbs.prune.last_status
+          value_type: TEXT
+        - uuid: 370bd14d3e2945d2a7e46050f2a06408
+          name: PBS verify last status
+          type: TRAPper
+          key: pbs.verify.last_status
+          value_type: TEXT
+        - uuid: 99a9fcde03d64df7878f2e5d2d97d409
+          name: PBS recent errors
+          type: TRAPper
+          key: pbs.errors.recent
+          value_type: UNSIGNED
+      triggers:
+        - uuid: 55383ffbb11a4c6489537f1fdb4f5f01
+          expression: 'last(/Template PBS Intelligent Draft/pbs.datastore.online)=0'
+          name: PBS datastore is offline
+          priority: DISASTER
+        - uuid: 0b9d6715cd5d499d9b0334ab2de2b502
+          expression: 'last(/Template PBS Intelligent Draft/pbs.datastore.pused)>{$PBS.DATASTORE.PUSED.HIGH}'
+          name: PBS datastore usage is critical
+          priority: HIGH
+        - uuid: 986b3d3e763e46eda926bd5741210303
+          expression: 'last(/Template PBS Intelligent Draft/pbs.errors.recent)>0'
+          name: PBS has recent backup errors
+          priority: HIGH
