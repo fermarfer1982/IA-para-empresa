@@ -1,5 +1,18 @@
 # CHANGELOG zabbix-codex
 
+## 2026-06-23 - Hotfix post-reinicio informes diarios y MCP
+
+- Causa raiz del informe diario: tras v0.21.0 el timer llamaba a `/api/dashboard/run-daily-report` sin sesion y recibia `HTTP 401`.
+- Añadido bypass server-side seguro solo para `POST /api/dashboard/run-daily-report` mediante `INTERNAL_JOB_TOKEN`.
+- `scripts/generateDailyDashboard.js` envia `X-Internal-Job-Token` si el token esta configurado.
+- Añadido `EnvironmentFile=/etc/infra-agent-web/security.env` al servicio de informe diario para cargar el token interno.
+- Causa adicional tras reinicio: `zabbix-infra-mcp.service` estaba instalado pero deshabilitado, por lo que no escuchaba en `127.0.0.1:8765`.
+- Habilitado y arrancado `zabbix-infra-mcp.service` para que sobreviva reinicios.
+- Validacion:
+  - `mcp-infra-agent` responde en `/healthz` con auth.
+  - `infra-agent-web-daily-report.service` finaliza correctamente.
+  - Informe diario generado con 4 reportes; 3 desde OpenAI Responses y 1 con fallback local por error transitorio de OpenAI, no por falta de creditos.
+
 ## 2026-06-04 - infra-agent-web v0.21.0 Seguridad AD, RBAC y auditoria
 
 ### Objetivo

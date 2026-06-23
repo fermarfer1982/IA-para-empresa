@@ -55,6 +55,22 @@ function json(status, body) {
   });
 }
 
+function isInternalJobAllowed(req, pathname) {
+  if (pathname !== "/api/dashboard/run-daily-report") {
+    return false;
+  }
+  const expected = String(process.env.INTERNAL_JOB_TOKEN || process.env.DAILY_DASHBOARD_TOKEN || "").trim();
+  if (!expected) {
+    return false;
+  }
+  const headerToken = String(
+    req.headers.get("x-internal-job-token") ||
+      req.headers.get("authorization")?.replace(/^Bearer\s+/i, "") ||
+      ""
+  ).trim();
+  return headerToken.length >= 32 && headerToken === expected;
+}
+
 function b64urlToBytes(input) {
   const normalized = String(input || "")
     .replace(/-/g, "+")
@@ -135,6 +151,10 @@ async function readSessionToken(req) {
 export async function middleware(req) {
   const { pathname } = req.nextUrl;
   if (isPublic(pathname) || pathname.startsWith("/_next/") || pathname === "/favicon.ico") {
+    return NextResponse.next();
+  }
+
+  if (isInternalJobAllowed(req, pathname)) {
     return NextResponse.next();
   }
 

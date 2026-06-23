@@ -8,6 +8,7 @@ const path = require("path");
 
 const DEFAULT_ENDPOINT = "http://127.0.0.1:3010/api/dashboard/run-daily-report";
 const ENV_FILE = path.join(process.cwd(), ".env.local");
+const SECURITY_ENV_FILE = "/etc/infra-agent-web/security.env";
 const SECRET_PATTERNS = [
   /sk-[A-Za-z0-9_-]{12,}/g,
   /(OPENAI_API_KEY=)[^\s]+/gi,
@@ -24,11 +25,16 @@ function redact(value) {
 }
 
 function loadEnvFile(filePath) {
-  if (!fs.existsSync(filePath)) {
+  let content = "";
+  try {
+    if (!fs.existsSync(filePath)) {
+      return;
+    }
+    content = fs.readFileSync(filePath, "utf8");
+  } catch (error) {
     return;
   }
 
-  const content = fs.readFileSync(filePath, "utf8");
   for (const line of content.split(/\r?\n/)) {
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith("#") || !trimmed.includes("=")) {
@@ -65,7 +71,13 @@ function postJson(url, timeoutMs = 900000) {
         path: `${target.pathname}${target.search}`,
         headers: {
           "Content-Type": "application/json",
-          "Content-Length": Buffer.byteLength(body)
+          "Content-Length": Buffer.byteLength(body),
+          ...(process.env.INTERNAL_JOB_TOKEN || process.env.DAILY_DASHBOARD_TOKEN
+            ? {
+                "X-Internal-Job-Token":
+                  process.env.INTERNAL_JOB_TOKEN || process.env.DAILY_DASHBOARD_TOKEN
+              }
+            : {})
         },
         timeout: timeoutMs,
         rejectUnauthorized: process.env.DAILY_DASHBOARD_VERIFY_TLS !== "false"
@@ -121,6 +133,7 @@ function printSummary(payload) {
 
 async function main() {
   loadEnvFile(ENV_FILE);
+  loadEnvFile(SECURITY_ENV_FILE);
   const endpoint = process.env.DAILY_DASHBOARD_URL || DEFAULT_ENDPOINT;
 
   try {
